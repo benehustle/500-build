@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>You're Booked! | Spot On Websites</title>
+  <meta name="description" content="Your reveal call is booked. We'll have your website ready within 7 business days.">
+  <meta name="robots" content="noindex, nofollow">
+  <!-- Meta Pixel — lazy loaded after first interaction -->
+  <script>(function(){var loaded=false;function loadPixel(){if(loaded)return;loaded=true;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','834466499006537');fbq('track','PageView');}var t=setTimeout(loadPixel,3500);['scroll','click','keydown','touchstart'].forEach(function(e){window.addEventListener(e,function(){clearTimeout(t);loadPixel();},{once:true,passive:true});});}());</script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=834466499006537&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel -->
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vtd0csri5y");</script>
+  <!-- End Clarity -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=optional" rel="stylesheet"></noscript>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:   #0B1728;
+      --navy2:  #111F35;
+      --orange: #F97316;
+      --orange2:#EA5A00;
+      --white:  #FFFFFF;
+      --grey:   #9EB2C4;
+      --border: rgba(255,255,255,0.12);
+      --green:  #4ADE80;
+    }
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { display: flex; align-items: center; }
+    .logo img { height: 40px; width: auto; display: block; object-fit: contain; }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+
+    .ty-card {
+      max-width: 640px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Animated tick */
+    .tick-wrap {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 32px;
+      position: relative;
+    }
+    .tick-circle {
+      width: 90px;
+      height: 90px;
+      background: rgba(74,222,128,0.12);
+      border: 2.5px solid var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+    .tick-circle span {
+      font-size: 2.2rem;
+      animation: fadeIn 0.3s ease 0.4s both;
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.4); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .ty-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 14px;
+    }
+    .ty-card h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+    .ty-card h1 em { font-style: normal; color: var(--orange); }
+    .ty-card > p {
+      color: var(--grey);
+      font-size: 1.02rem;
+      line-height: 1.75;
+      margin-bottom: 48px;
+    }
+
+    /* Timeline */
+    .timeline {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px;
+      text-align: left;
+      margin-bottom: 36px;
+    }
+    .timeline h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 24px;
+    }
+    .tl-item {
+      display: flex;
+      gap: 16px;
+      position: relative;
+      padding-bottom: 24px;
+    }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 13px;
+      top: 28px;
+      bottom: 0;
+      width: 1.5px;
+      background: var(--border);
+    }
+    .tl-dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .tl-dot.done { background: var(--green); color: var(--navy); }
+    .tl-dot.active { background: var(--orange); color: var(--white); }
+    .tl-dot.pending { background: var(--navy); border: 1.5px solid var(--border); color: var(--grey); }
+    .tl-content { padding-top: 2px; }
+    .tl-content h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
+    .tl-content p { color: var(--grey); font-size: 0.88rem; line-height: 1.6; }
+    .tl-badge {
+      display: inline-block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+      margin-bottom: 5px;
+    }
+    .tl-badge.green { background: rgba(74,222,128,0.12); color: var(--green); }
+    .tl-badge.orange { background: rgba(249,115,22,0.12); color: var(--orange); }
+    .tl-badge.grey { background: rgba(255,255,255,0.06); color: var(--grey); }
+
+    /* Info boxes */
+    .info-boxes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 36px;
+      text-align: left;
+    }
+    @media (max-width: 480px) { .info-boxes { grid-template-columns: 1fr; } }
+    .info-box {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 18px;
+    }
+    .info-box .ib-icon { font-size: 1.3rem; margin-bottom: 8px; }
+    .info-box h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+    .info-box p { color: var(--grey); font-size: 0.86rem; line-height: 1.6; }
+
+    /* Social proof */
+    .social-share {
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+      margin-top: 8px;
+    }
+    .social-share p {
+      color: var(--grey);
+      font-size: 0.85rem;
+      margin-bottom: 16px;
+    }
+    .share-btns {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--grey);
+      transition: border-color 0.2s, color 0.2s;
+      cursor: pointer;
+      background: none;
+    }
+    .share-btn:hover { border-color: var(--orange); color: var(--white); }
+
+    /* Confetti animation */
+    .confetti-bar {
+      height: 4px;
+      background: linear-gradient(90deg, var(--orange), #FCD34D, var(--green), #60A5FA, var(--orange));
+      background-size: 200% 100%;
+      animation: shimmer 2s linear infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 200% 0%; }
+    }
+
+    footer {
+      padding: 24px 20px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--grey);
+      font-size: 0.78rem;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .ty-card > * {
+      animation: slideUp 0.5s ease both;
+    }
+    .ty-card .tick-wrap      { animation-delay: 0.0s; }
+    .ty-card .ty-tag         { animation-delay: 0.1s; }
+    .ty-card h1              { animation-delay: 0.15s; }
+    .ty-card > p             { animation-delay: 0.2s; }
+    .timeline                { animation-delay: 0.3s; }
+    .info-boxes              { animation-delay: 0.4s; }
+    .social-share            { animation-delay: 0.5s; }
+  </style>
+</head>
+<body>
+
+<div class="confetti-bar"></div>
+
+<nav>
+  <a href="index.html" class="logo" aria-label="Spot On Websites – Home">
+    <img src="https://spotonwebsites.com.au/wp-content/uploads/2025/10/Spot-On-LeadFlow-3.png" alt="Spot On Websites">
+  </a>
+  <div style="font-size:0.85rem; color: var(--grey);">🇦🇺 Australian Tradie Websites</div>
+</nav>
+
+<main>
+  <div class="ty-card">
+
+    <div class="tick-wrap">
+      <div class="tick-circle"><span>✓</span></div>
+    </div>
+
+    <div class="ty-tag">You're All Set</div>
+    <h1>Your Website Build<br>is <em>Underway!</em></h1>
+    <p>
+      We've got everything we need. Your 4-page website is being built right now. 
+      Check your inbox for a confirmation email with your reveal call details.
+    </p>
+
+    <!-- TIMELINE -->
+    <div class="timeline">
+      <h3>What Happens Next</h3>
+      <div class="tl-item">
+        <div class="tl-dot done">✓</div>
+        <div class="tl-content">
+          <div class="tl-badge green">Done</div>
+          <h4>Onboarding Form Submitted</h4>
+          <p>We have your details. Time to get building.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot done">✓</div>
+        <div class="tl-content">
+          <div class="tl-badge green">Done</div>
+          <h4>Reveal Call Booked</h4>
+          <p>Check your email for the Google Meet link and calendar invite.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot active">→</div>
+        <div class="tl-content">
+          <div class="tl-badge orange">In Progress</div>
+          <h4>We Build Your Website</h4>
+          <p>Our team builds your full 4-page site. Ready within 7 days.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot pending">4</div>
+        <div class="tl-content">
+          <div class="tl-badge grey">Upcoming</div>
+          <h4>Your Reveal Call</h4>
+          <p>Jump on Google Meet. We walk you through every page. Only pay $500 if you love it.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot pending">5</div>
+        <div class="tl-content">
+          <div class="tl-badge grey">Upcoming</div>
+          <h4>Go Live</h4>
+          <p>We point your domain and your website is live within 24–48 hours.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- INFO BOXES -->
+    <div class="info-boxes">
+      <div class="info-box">
+        <div class="ib-icon">📧</div>
+        <h4>Check Your Email</h4>
+        <p>A confirmation email with your reveal call Google Meet link is on its way.</p>
+      </div>
+      <div class="info-box">
+        <div class="ib-icon">💳</div>
+        <h4>$0 Due Today</h4>
+        <p>You won't be charged anything until you see your website and approve it on the call.</p>
+      </div>
+      <div class="info-box">
+        <div class="ib-icon">📞</div>
+        <h4>Questions?</h4>
+        <p>Email us any time at <a href="mailto:hello@spotonwebsites.com.au" style="color:var(--orange);">hello@spotonwebsites.com.au</a></p>
+      </div>
+      <div class="info-box">
+        <div class="ib-icon">🔁</div>
+        <h4>1 Revision Included</h4>
+        <p>Not 100% happy on the call? We make changes, then you decide.</p>
+      </div>
+    </div>
+
+    <div class="social-share">
+      <p>Know another tradie who needs a website? Share the love 👇</p>
+      <div class="share-btns">
+        <button class="share-btn" onclick="copyLink()">🔗 Copy Link</button>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://spotonwebsites.com.au" target="_blank" class="share-btn">📘 Share on Facebook</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 Spot On Websites · Australian Tradie Websites · <a href="mailto:hello@spotonwebsites.com.au" style="color:var(--grey);">hello@spotonwebsites.com.au</a> &nbsp;|&nbsp; <a href="privacy-policy.html" style="color:var(--grey);">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms.html" style="color:var(--grey);">Terms &amp; Conditions</a></p>
+</footer>
+
+<script>
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.origin).then(() => {
+      alert('Link copied! Share it with a tradie mate.');
+    });
+  }
+</script>
+
+</body>
+</html>

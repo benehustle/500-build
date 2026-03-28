@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get Your Business Website Built First. Pay $500 Only When You Love It</title>
+  <meta name="description" content="We build your professional 4-page business website in 7 days. Zero deposit. You only pay $500 when you see it and approve it. No risk. No BS.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=optional" rel="stylesheet"></noscript>
+  <!-- Meta Pixel - lazy loaded after first interaction -->
+  <script>(function(){var loaded=false;function loadPixel(){if(loaded)return;loaded=true;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','834466499006537');fbq('track','PageView');}var t=setTimeout(loadPixel,3500);['scroll','click','keydown','touchstart'].forEach(function(e){window.addEventListener(e,function(){clearTimeout(t);loadPixel();},{once:true,passive:true});});}());</script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=834466499006537&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel -->
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vtd0csri5y");</script>
+  <!-- End Clarity -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0B1728;
+      --navy2:  #111F35;
+      --orange: #F97316;
+      --orange2:#EA5A00;
+      --white:  #FFFFFF;
+      --grey:   #9EB2C4;
+      --light:  #EEF2F7;
+      --border: rgba(255,255,255,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--orange);
+      text-align: center;
+      padding: 10px 20px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--navy);
+    }
+    .topbar span { color: rgba(0,0,0,0.6); font-weight: 400; }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--navy);
+      transition: box-shadow 0.2s;
+    }
+    nav.scrolled {
+      background: rgba(11, 23, 40, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom-color: rgba(255,255,255,0.08);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.35);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .logo img {
+      height: 42px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+    nav .cta-nav {
+      background: var(--orange);
+      color: var(--navy);
+      padding: 10px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+      border: none;
+      cursor: pointer;
+      font-family: 'Barlow', sans-serif;
+    }
+    nav .cta-nav:hover { background: var(--orange2); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      padding: 80px 20px 90px;
+      text-align: center;
+      overflow: hidden;
+      background-image: url('public/hero-image.svg');
+      background-size: cover;
+      background-position: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(11,23,40,0.82) 0%, rgba(11,23,40,0.92) 100%);
+      pointer-events: none;
+    }
+    .hero .badge,
+    .hero .hero-lead,
+    .hero h1,
+    .hero .hero-sub,
+    .hero .hero-cta-wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
+      display: inline-block;
+      border: 1.5px solid var(--orange);
+      color: var(--orange);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    .hero-lead {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--white);
+      font-weight: 600;
+      max-width: 560px;
+      margin: 0 auto 16px;
+      line-height: 1.5;
+    }
+
+    h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+      max-width: 900px;
+      margin: 0 auto 24px;
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.2vw, 1.25rem);
+      color: var(--grey);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .hero-cta-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--navy);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 18px 48px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--orange2); transform: translateY(-2px); }
+    .hero-trust-line {
+      color: var(--grey);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .hero-note {
+      color: var(--grey);
+      font-size: 0.85rem;
+    }
+    .hero-note strong { color: var(--white); }
+    .hero-faq-link {
+      color: var(--grey);
+      font-size: 0.9rem;
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .hero-faq-link:hover { color: var(--orange); border-bottom-color: var(--orange); }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--grey);
+    }
+    .trust-item .icon {
+      width: 32px; height: 32px;
+      background: rgba(249,115,22,0.15);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+    }
+    .trust-item strong { color: var(--white); }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 80px 20px; }
+    .container { max-width: 1000px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      color: var(--grey);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how { background: var(--navy2); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2px;
+      margin-top: 50px;
+    }
+    .step {
+      background: var(--navy);
+      padding: 36px 28px;
+      position: relative;
+    }
+    .step-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 4rem;
+      font-weight: 900;
+      color: rgba(249,115,22,0.22);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .step h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 0.02em;
+    }
+    .step p { color: var(--grey); font-size: 0.92rem; line-height: 1.7; }
+    .step-arrow {
+      position: absolute;
+      right: -14px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--orange);
+      font-size: 1.4rem;
+      z-index: 2;
+    }
+
+    /* ── WHAT YOU GET ── */
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 50px;
+    }
+    .included-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 28px;
+      background: var(--navy2);
+    }
+    .included-card .card-icon {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+    }
+    .included-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+    .included-card p { color: var(--grey); font-size: 0.92rem; line-height: 1.7; }
+
+    /* ── PRICING ── */
+    .pricing-box {
+      border: 2px solid var(--orange);
+      border-radius: 8px;
+      max-width: 520px;
+      margin: 50px auto 0;
+      overflow: hidden;
+    }
+    .pricing-header {
+      background: var(--orange);
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .pricing-header h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+    }
+    .pricing-header .price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+    }
+    .pricing-body { padding: 32px; }
+    .pricing-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .pricing-row:last-child { border-bottom: none; }
+    .pricing-row .label { color: var(--grey); }
+    .pricing-row .val { font-weight: 600; }
+    .pricing-row .val.green { color: #4ADE80; }
+    .pricing-row .val.orange { color: var(--orange); }
+    .pricing-cta {
+      padding: 0 32px 32px;
+      text-align: center;
+    }
+    .btn-primary.full { width: 100%; text-align: center; }
+    .pricing-small { color: var(--grey); font-size: 0.8rem; margin-top: 12px; }
+
+    /* ── UPSELL STRIP ── */
+    .upsell-strip {
+      background: var(--navy2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .upsell-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .upsell-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .upsell-card .u-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      background: rgba(249,115,22,0.1);
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 2px;
+      align-self: flex-start;
+    }
+    .upsell-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    .upsell-card p { color: var(--grey); font-size: 0.92rem; line-height: 1.7; }
+    .upsell-card .u-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--orange);
+    }
+    .upsell-card .u-price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--grey);
+    }
+
+    /* ── PORTFOLIO ── */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .portfolio-card {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .portfolio-card:hover {
+      border-color: rgba(249,115,22,0.4);
+      transform: translateY(-4px);
+    }
+    .portfolio-card a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .portfolio-card-img-wrap {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background: var(--navy);
+    }
+    .portfolio-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.3s ease;
+    }
+    .portfolio-card:hover .portfolio-card-img-wrap img {
+      transform: scale(1.02);
+    }
+    .portfolio-card-caption {
+      padding: 18px 20px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .portfolio-card-caption span {
+      color: var(--orange);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* ── GOOGLE REVIEWS ── */
+    .reviews-section {
+      background: var(--navy2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .review-card {
+      background: var(--navy);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .review-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(249,115,22,0.2);
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .review-meta {
+      flex: 1;
+      min-width: 0;
+    }
+    .review-name {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 2px;
+    }
+    .review-sub {
+      color: var(--grey);
+      font-size: 0.8rem;
+    }
+    .review-stars {
+      color: #fbbf24;
+      letter-spacing: 2px;
+      font-size: 1rem;
+    }
+    .review-date {
+      color: var(--grey);
+      font-size: 0.82rem;
+    }
+    .review-text {
+      color: var(--grey);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-top: 4px;
+    }
+
+    /* ── FAQ ── */
+    .faq-list { margin-top: 50px; }
+    details {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    summary {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; color: var(--orange); font-size: 1.4rem; }
+    details[open] summary::after { content: '−'; }
+    details p {
+      color: var(--grey);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-top: 14px;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      text-align: center;
+      background: var(--orange);
+      padding: 80px 20px;
+    }
+    .final-cta h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .final-cta p {
+      font-size: 1.05rem;
+      opacity: 0.85;
+      margin-bottom: 36px;
+    }
+    .btn-white {
+      display: inline-block;
+      background: var(--white);
+      color: var(--navy);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 18px 48px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-white:hover { opacity: 0.9; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 30px 20px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--grey);
+      font-size: 0.8rem;
+    }
+    footer a { color: var(--grey); text-decoration: underline; }
+
+    /* ── MOBILE STICKY CTA ── */
+    .mobile-sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0; right: 0;
+      z-index: 200;
+      background: var(--navy2);
+      border-top: 1px solid rgba(249,115,22,0.35);
+      padding: 14px 20px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    .mobile-sticky-cta.visible { transform: translateY(0); }
+    .mobile-sticky-cta button {
+      width: 100%;
+      background: var(--orange);
+      border: none;
+      color: var(--navy);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 15px 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .mobile-sticky-cta button:hover { background: var(--orange2); }
+    .mobile-sticky-cta .sticky-note {
+      text-align: center;
+      color: var(--grey);
+      font-size: 0.72rem;
+      margin-top: 7px;
+    }
+
+    /* Re-engagement prompt (passive viewers) */
+    .reengage-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 190;
+      background: var(--navy2);
+      border-top: 1px solid rgba(249,115,22,0.35);
+      padding: 12px 40px 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    .reengage-bar.visible { transform: translateY(0); }
+    .reengage-bar span {
+      color: var(--grey);
+      font-size: 0.9rem;
+    }
+    .reengage-bar .reengage-cta {
+      background: var(--orange);
+      color: var(--navy);
+      border: none;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .reengage-bar .reengage-cta:hover { background: var(--orange2); }
+    .reengage-bar .reengage-dismiss {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--grey);
+      font-size: 1.25rem;
+      cursor: pointer;
+      padding: 4px;
+      line-height: 1;
+    }
+    .reengage-bar .reengage-dismiss:hover { color: var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      /* Hide nav CTA - sticky bottom bar handles it */
+      nav .cta-nav { display: none; }
+
+      /* Trust strip: clean 2-col grid */
+      .trust-strip {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 16px;
+        padding: 28px 20px;
+      }
+      /* Center the 5th item so it doesn't hang left */
+      .trust-item:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+      }
+
+      /* Tighten hero on mobile */
+      .hero { padding: 56px 20px 64px; }
+
+      /* Show mobile sticky bar */
+      .mobile-sticky-cta { display: block; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      .step-arrow { display: none; }
+    }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 13, 26, 0.85);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .modal {
+      background: var(--navy2);
+      border: 1px solid rgba(249,115,22,0.35);
+      border-radius: 10px;
+      width: 100%;
+      max-width: 460px;
+      padding: 40px 36px 36px;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.25s ease;
+    }
+    .modal-overlay.active .modal {
+      transform: translateY(0);
+    }
+    .modal-close {
+      position: absolute;
+      top: 14px; right: 16px;
+      background: none;
+      border: none;
+      color: var(--grey);
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: color 0.15s;
+    }
+    .modal-close:hover { color: var(--white); }
+    .modal-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+    .modal h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .modal-sub {
+      color: var(--grey);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+    .modal-form { display: flex; flex-direction: column; gap: 14px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--grey);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .form-field input {
+      background: var(--navy);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-size: 1rem;
+      padding: 13px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-field input::placeholder { color: rgba(138,155,176,0.5); }
+    .form-field input:focus { border-color: var(--orange); }
+    .modal-submit {
+      background: var(--orange);
+      border: none;
+      color: var(--navy);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 16px 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 6px;
+      transition: background 0.2s, transform 0.15s;
+      width: 100%;
+    }
+    .modal-submit:hover { background: var(--orange2); transform: translateY(-1px); }
+    .modal-disclaimer {
+      text-align: center;
+      color: var(--grey);
+      font-size: 0.75rem;
+      margin-top: 12px;
+    }
+
+    /* ── LUCIDE ICONS ── */
+    .topbar-icon { width: 16px; height: 16px; vertical-align: middle; margin-right: 6px; display: inline-block; }
+    .topbar-icon svg { width: 16px; height: 16px; stroke: var(--navy); }
+    .trust-item .icon svg { width: 18px; height: 18px; stroke: var(--orange); }
+    .included-card .card-icon svg { width: 32px; height: 32px; stroke: var(--orange); }
+
+    /* ── WHO WE BUILD FOR ── */
+    .niche-section { padding: 72px 20px; }
+    .niche-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .niche-card {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 24px 20px;
+      transition: border-color 0.2s;
+    }
+    .niche-card:hover { border-color: rgba(249,115,22,0.4); }
+    .niche-card .niche-icon { margin-bottom: 14px; }
+    .niche-card .niche-icon svg { width: 26px; height: 26px; stroke: var(--orange); }
+    .niche-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 14px;
+    }
+    .niche-card ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .niche-card ul li {
+      color: var(--grey);
+      font-size: 0.83rem;
+      line-height: 1.3;
+      padding-left: 14px;
+      position: relative;
+    }
+    .niche-card ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--orange);
+      font-weight: 900;
+      font-size: 1rem;
+    }
+    .niche-more {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: var(--orange);
+      font-style: italic;
+      padding-left: 14px;
+    }
+    .niche-footer {
+      text-align: center;
+      margin-top: 36px;
+      color: var(--grey);
+      font-size: 0.88rem;
+    }
+    .niche-footer strong { color: var(--white); }
+    @media (max-width: 900px) {
+      .niche-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .niche-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero > * { animation: fadeUp 0.6s ease both; }
+    .hero .badge     { animation-delay: 0.05s; }
+    .hero .hero-lead { animation-delay: 0.1s; }
+    .hero h1         { animation-delay: 0.15s; }
+    .hero-sub        { animation-delay: 0.25s; }
+    .hero-cta-wrap   { animation-delay: 0.35s; }
+  </style>
+</head>
+<body>
+
+  <!-- OPTIN MODAL -->
+  <div class="modal-overlay" id="optinModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+      <div class="modal-tag">Zero Deposit · Built in 7 Days</div>
+      <h2 id="modalTitle">Let's Build Your Website</h2>
+      <p class="modal-sub">Drop your details below and we'll get started. No deposit, no commitment. You only pay when you love it.</p>
+      <form class="modal-form" id="optinForm" novalidate>
+        <div class="form-field">
+          <label for="fieldName">Full Name</label>
+          <input type="text" id="fieldName" name="name" placeholder="e.g. Jake Thompson" required autocomplete="name">
+        </div>
+        <div class="form-field">
+          <label for="fieldEmail">Email Address</label>
+          <input type="email" id="fieldEmail" name="email" placeholder="you@example.com.au" required autocomplete="email">
+        </div>
+        <div class="form-field">
+          <label for="fieldPhone">Mobile Number</label>
+          <input type="tel" id="fieldPhone" name="phone" placeholder="04XX XXX XXX" required autocomplete="tel">
+        </div>
+        <button type="submit" class="modal-submit">Start My Onboarding →</button>
+      </form>
+      <p class="modal-disclaimer">No spam. No deposit. We'll only contact you about your website.<br>By submitting you agree to our <a href="terms.html" target="_blank" style="color:var(--grey);">Terms</a> &amp; <a href="privacy-policy.html" target="_blank" style="color:var(--grey);">Privacy Policy</a>.</p>
+    </div>
+  </div>
+
+  <!-- MOBILE STICKY CTA -->
+  <div class="mobile-sticky-cta" id="mobileCta">
+    <button onclick="openModal()">Get My Website - $0 Deposit →</button>
+    <p class="sticky-note">No deposit. Only pay $500 when you love it.</p>
+  </div>
+
+  <div class="reengage-bar" id="reengageBar" aria-label="Prompt">
+    <span>Ready to start? Get your website - no deposit.</span>
+    <button type="button" class="reengage-cta" onclick="openModal()">Get My Website →</button>
+    <button type="button" class="reengage-dismiss" id="reengageDismiss" aria-label="Dismiss">&times;</button>
+  </div>
+
+  <div class="topbar">
+    <span class="topbar-icon"><i data-lucide="flame"></i></span> Limited Spots Available. We Only Take On 10 New Websites Per Week <span>| Small Businesses Only</span>
+  </div>
+
+  <nav>
+    <a href="index.html" class="logo" aria-label="Spot On Websites - Home">
+      <img src="https://spotonwebsites.com.au/wp-content/uploads/2025/10/Spot-On-LeadFlow-3.png" alt="Spot On Websites - Target, Convert, Scale">
+    </a>
+    <button onclick="openModal()" class="cta-nav">Get My Website - $0 Deposit →</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">Zero Deposit · No Risk · Built in 7 Days</div>
+    <p class="hero-lead">Professional 4-page website. $0 to start. You pay $500 only when you approve it.</p>
+    <h1>We Build Your Website First.<br><em>You Pay $500</em> When You Love It.</h1>
+    <p class="hero-sub">
+      No deposit, no risk. We build it in 7 days. You only pay on your reveal call when you're happy.
+    </p>
+    <div class="hero-cta-wrap">
+      <button onclick="openModal()" class="btn-primary">Get My Website - $0 Deposit →</button>
+      <p class="hero-trust-line">No credit card · 5-minute form · Built in 7 days</p>
+      <p class="hero-note"><strong>$0 today.</strong> Only pay $500 on your reveal call when you're happy.</p>
+      <a href="#faq" class="hero-faq-link">Common questions</a>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="trust-item">
+      <div class="icon"><i data-lucide="check-circle"></i></div>
+      <div><strong>$0 Deposit</strong><br>Pay nothing today</div>
+    </div>
+    <div class="trust-item">
+      <div class="icon"><i data-lucide="zap"></i></div>
+      <div><strong>7 Day Delivery</strong><br>Ready fast</div>
+    </div>
+    <div class="trust-item">
+      <div class="icon"><i data-lucide="refresh-cw"></i></div>
+      <div><strong>1 Revision Round</strong><br>Until you're happy</div>
+    </div>
+    <div class="trust-item">
+      <div class="icon"><i data-lucide="smartphone"></i></div>
+      <div><strong>Mobile Optimised</strong><br>Looks great everywhere</div>
+    </div>
+    <div class="trust-item">
+      <div class="icon"><i data-lucide="map-pin"></i></div>
+      <div><strong>Australian Made</strong><br>Built for Aussie businesses</div>
+    </div>
+  </div>
+
+  <!-- GOOGLE REVIEWS -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <p class="section-label">Social Proof</p>
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-sub">Real Google reviews from Australian businesses we've built websites for.</p>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar">G</div>
+            <div class="review-meta">
+              <div class="review-name">Green Earth Pest Control</div>
+              <div class="review-sub">8 reviews</div>
+            </div>
+          </div>
+          <div class="review-stars" aria-label="5 stars">★★★★★</div>
+          <div class="review-date">2 months ago</div>
+          <p class="review-text">Ben and Matt excelled in making my new website and transitioning me from overpriced and under servicing parasites that are prevalent in all industries. Very tuned in to client needs and go above and beyond... highly recommend.</p>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar">N</div>
+            <div class="review-meta">
+              <div class="review-name">Nick Lange</div>
+              <div class="review-sub">2 reviews</div>
+            </div>
+          </div>
+          <div class="review-stars" aria-label="5 stars">★★★★★</div>
+          <div class="review-date">A year ago</div>
+          <p class="review-text">Matt and the team made the entire process of getting my website up and running a piece of cake! Within a week my website was ready to go! The whole process was made enjoyable and I really felt like I was a part of the process! If you're needing a website created then look no further!</p>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar">A</div>
+            <div class="review-meta">
+              <div class="review-name">Andrew Trask</div>
+              <div class="review-sub">9 reviews</div>
+            </div>
+          </div>
+          <div class="review-stars" aria-label="5 stars">★★★★★</div>
+          <div class="review-date">4 months ago</div>
+          <p class="review-text">Very pleased with the website, fantastic communication and super easy to work with, thanks Tim, Matt and Ben.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE BUILD FOR -->
+  <section class="niche-section">
+    <div class="container">
+      <p class="section-label">Who It's For</p>
+      <h2 class="section-title">Built for Service Businesses<br>Across Australia</h2>
+      <p class="section-sub">Trades, clinics, consultants, fitness, events. If you run a service business and need a professional website, this is for you.</p>
+      <div class="niche-grid">
+
+        <div class="niche-card">
+          <div class="niche-icon"><i data-lucide="hard-hat"></i></div>
+          <h3>Construction &amp; Trades</h3>
+          <ul>
+            <li>Plumbers</li>
+            <li>Electricians</li>
+            <li>Builders &amp; Carpenters</li>
+            <li>Painters</li>
+            <li>Roofers &amp; Tilers</li>
+            <li>Air Con &amp; Pest Control</li>
+          </ul>
+          <p class="niche-more">+ Handyman, Flooring, Glazier &amp; more</p>
+        </div>
+
+        <div class="niche-card">
+          <div class="niche-icon"><i data-lucide="activity"></i></div>
+          <h3>Health &amp; Clinics</h3>
+          <ul>
+            <li>Physiotherapists</li>
+            <li>Chiropractors</li>
+            <li>Dentists</li>
+            <li>Psychologists</li>
+            <li>Naturopaths</li>
+            <li>Massage Therapists</li>
+          </ul>
+          <p class="niche-more">+ Podiatry, Optometry, Osteo &amp; more</p>
+        </div>
+
+        <div class="niche-card">
+          <div class="niche-icon"><i data-lucide="briefcase"></i></div>
+          <h3>Consultants &amp; Coaches</h3>
+          <ul>
+            <li>Business Consultants</li>
+            <li>Financial Advisors</li>
+            <li>Accountants</li>
+            <li>Mortgage Brokers</li>
+            <li>Marketing Consultants</li>
+            <li>Coaches &amp; Mentors</li>
+          </ul>
+          <p class="niche-more">+ Legal, HR, IT &amp; Real Estate</p>
+        </div>
+
+        <div class="niche-card">
+          <div class="niche-icon"><i data-lucide="leaf"></i></div>
+          <h3>Outdoor &amp; Events</h3>
+          <ul>
+            <li>Landscapers &amp; Gardeners</li>
+            <li>Cleaners</li>
+            <li>Pool &amp; Spa Services</li>
+            <li>Tree Services</li>
+            <li>Photographers</li>
+            <li>Event Planners</li>
+          </ul>
+          <p class="niche-more">+ Catering, Security &amp; more</p>
+        </div>
+
+        <div class="niche-card">
+          <div class="niche-icon"><i data-lucide="dumbbell"></i></div>
+          <h3>Gym &amp; Fitness</h3>
+          <ul>
+            <li>Personal Trainers</li>
+            <li>Gyms &amp; Fitness Centres</li>
+            <li>Yoga &amp; Pilates Studios</li>
+            <li>CrossFit &amp; Functional</li>
+            <li>Martial Arts &amp; Boxing</li>
+            <li>Sports Coaches</li>
+          </ul>
+          <p class="niche-more">+ Dance Studios &amp; more</p>
+        </div>
+
+      </div>
+      <p class="niche-footer"><strong>Don't see your exact business?</strong> If you run a service business in Australia, we can build for you. <button onclick="openModal()" style="background:none;border:none;color:var(--orange);cursor:pointer;font-size:0.88rem;font-weight:600;text-decoration:underline;padding:0;">Get in touch →</button></p>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="container">
+      <p class="section-label">Our Work</p>
+      <h2 class="section-title">Websites We've Built</h2>
+      <p class="section-sub">A few of the Australian business sites we've designed and launched. Click any preview to see the full site.</p>
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <a href="public/Website Previews/screencapture-binpro-au-2026-01-15-19_58_04.webp" target="_blank" rel="noopener">
+            <div class="portfolio-card-img-wrap">
+              <img src="public/Website Previews/screencapture-binpro-au-2026-01-15-19_58_04.webp" alt="BINPRO - bin cleaning and outdoor property maintenance" loading="lazy">
+            </div>
+            <div class="portfolio-card-caption">BINPRO <span>· Bin cleaning & property maintenance</span></div>
+          </a>
+        </div>
+        <div class="portfolio-card">
+          <a href="public/Website Previews/screencapture-thedogdoorguy-au-2026-01-15-20_00_36.webp" target="_blank" rel="noopener">
+            <div class="portfolio-card-img-wrap">
+              <img src="public/Website Previews/screencapture-thedogdoorguy-au-2026-01-15-20_00_36.webp" alt="The Dog Door Guy" loading="lazy">
+            </div>
+            <div class="portfolio-card-caption">The Dog Door Guy <span>· Pet door specialists</span></div>
+          </a>
+        </div>
+        <div class="portfolio-card">
+          <a href="public/Website Previews/screencapture-gskplumbingsolutions-au-2026-01-15-19_59_28.webp" target="_blank" rel="noopener">
+            <div class="portfolio-card-img-wrap">
+              <img src="public/Website Previews/screencapture-gskplumbingsolutions-au-2026-01-15-19_59_28.webp" alt="GSK Plumbing Solutions" loading="lazy">
+            </div>
+            <div class="portfolio-card-caption">GSK Plumbing Solutions <span>· Plumbing</span></div>
+          </a>
+        </div>
+        <div class="portfolio-card">
+          <a href="public/Website Previews/screencapture-inspireenergy-au-2026-01-15-19_55_39.webp" target="_blank" rel="noopener">
+            <div class="portfolio-card-img-wrap">
+              <img src="public/Website Previews/screencapture-inspireenergy-au-2026-01-15-19_55_39.webp" alt="Inspire Energy" loading="lazy">
+            </div>
+            <div class="portfolio-card-caption">Inspire Energy <span>· Energy services</span></div>
+          </a>
+        </div>
+        <div class="portfolio-card">
+          <a href="public/Website Previews/screencapture-eurokaprojects-au-2026-01-15-19_56_49.webp" target="_blank" rel="noopener">
+            <div class="portfolio-card-img-wrap">
+              <img src="public/Website Previews/screencapture-eurokaprojects-au-2026-01-15-19_56_49.webp" alt="Euroka Projects" loading="lazy">
+            </div>
+            <div class="portfolio-card-caption">Euroka Projects <span>· Construction / projects</span></div>
+          </a>
+        </div>
+        <div class="portfolio-card">
+          <a href="public/Website Previews/screencapture-swpatios-au-2026-01-15-20_02_53.webp" target="_blank" rel="noopener">
+            <div class="portfolio-card-img-wrap">
+              <img src="public/Website Previews/screencapture-swpatios-au-2026-01-15-20_02_53.webp" alt="SW Patios" loading="lazy">
+            </div>
+            <div class="portfolio-card-caption">SW Patios <span>· Outdoor living</span></div>
+          </a>
+        </div>
+        <div class="portfolio-card">
+          <a href="public/Website Previews/screencapture-inspectbuydrive-au-2026-01-15-20_01_43.webp" target="_blank" rel="noopener">
+            <div class="portfolio-card-img-wrap">
+              <img src="public/Website Previews/screencapture-inspectbuydrive-au-2026-01-15-20_01_43.webp" alt="Inspect Buy Drive" loading="lazy">
+            </div>
+            <div class="portfolio-card-caption">Inspect Buy Drive <span>· Vehicle inspections</span></div>
+          </a>
+        </div>
+        <div class="portfolio-card">
+          <a href="public/Website Previews/screencapture-donutbros-au-2026-01-15-20_04_59.webp" target="_blank" rel="noopener">
+            <div class="portfolio-card-img-wrap">
+              <img src="public/Website Previews/screencapture-donutbros-au-2026-01-15-20_04_59.webp" alt="Donut Bros" loading="lazy">
+            </div>
+            <div class="portfolio-card-caption">Donut Bros <span>· Food / hospitality</span></div>
+          </a>
+        </div>
+        <div class="portfolio-card">
+          <a href="public/Website Previews/screencapture-huntervalleyvilla-2026-01-15-20_08_25.webp" target="_blank" rel="noopener">
+            <div class="portfolio-card-img-wrap">
+              <img src="public/Website Previews/screencapture-huntervalleyvilla-2026-01-15-20_08_25.webp" alt="Hunter Valley Villa" loading="lazy">
+            </div>
+            <div class="portfolio-card-caption">Hunter Valley Villa <span>· Accommodation</span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <div class="container">
+      <p class="section-label">The Process</p>
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-sub">Three simple steps from sign-up to a website that's live and working for you.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Fill In Your Details</h3>
+          <p>Quick onboarding form. Tell us about your business, services, and style. Takes 5 minutes.</p>
+          <div class="step-arrow">→</div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>We Build Your Site</h3>
+          <p>We build your full 4-page website and send you a booking link to your reveal call. Ready in 7 days.</p>
+          <div class="step-arrow">→</div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>See It. Love It.</h3>
+          <p>Jump on a Google Meet with us. We walk you through your site. Happy? Pay $500 and it's yours.</p>
+          <div class="step-arrow">→</div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h3>Go Live</h3>
+          <p>We point your domain, go live, and your new website starts working for you immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section>
+    <div class="container">
+      <p class="section-label">What's Included</p>
+      <h2 class="section-title">A Complete Website.<br>Not a Template Hack Job.</h2>
+      <p class="section-sub">Everything you need to look professional online and start winning more clients.</p>
+      <div class="included-grid">
+        <div class="included-card">
+          <div class="card-icon"><i data-lucide="home"></i></div>
+          <h3>Home Page</h3>
+          <p>Your main page with a strong headline, your services summary, and a clear call-to-action to get customers calling.</p>
+        </div>
+        <div class="included-card">
+          <div class="card-icon"><i data-lucide="users"></i></div>
+          <h3>About Us Page</h3>
+          <p>Build trust with your story, your experience, and why clients choose you over the competition.</p>
+        </div>
+        <div class="included-card">
+          <div class="card-icon"><i data-lucide="wrench"></i></div>
+          <h3>Services Page</h3>
+          <p>A clear breakdown of everything you offer, making it easy for customers to understand what you do.</p>
+        </div>
+        <div class="included-card">
+          <div class="card-icon"><i data-lucide="phone"></i></div>
+          <h3>Contact Page</h3>
+          <p>A contact form, your phone number, and your service area so customers can reach you fast.</p>
+        </div>
+        <div class="included-card">
+          <div class="card-icon"><i data-lucide="smartphone"></i></div>
+          <h3>Mobile Optimised</h3>
+          <p>Most of your customers will find you on their phone. Your site will look sharp on every device.</p>
+        </div>
+        <div class="included-card">
+          <div class="card-icon"><i data-lucide="settings"></i></div>
+          <h3>Built on Divi (WordPress)</h3>
+          <p>Solid, professional platform. Fast to load, easy to update, and ready to rank on Google.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section style="background: var(--navy2); padding-top: 60px; padding-bottom: 60px;">
+    <div class="container" style="text-align:center;">
+      <p class="section-label">Pricing</p>
+      <h2 class="section-title">Simple. Transparent. Fair.</h2>
+      <div class="pricing-box">
+        <div class="pricing-header">
+          <h2>4-Page Professional Website</h2>
+          <div class="price">$500</div>
+        </div>
+        <div class="pricing-body">
+          <div class="pricing-row">
+            <span class="label">Deposit today</span>
+            <span class="val green">$0 Nothing</span>
+          </div>
+          <div class="pricing-row">
+            <span class="label">4 Professional Pages</span>
+            <span class="val">✓ Included</span>
+          </div>
+          <div class="pricing-row">
+            <span class="label">Mobile Optimised</span>
+            <span class="val">✓ Included</span>
+          </div>
+          <div class="pricing-row">
+            <span class="label">1 Round of Revisions</span>
+            <span class="val">✓ Included</span>
+          </div>
+          <div class="pricing-row">
+            <span class="label">Delivered in</span>
+            <span class="val orange">7 Days</span>
+          </div>
+          <div class="pricing-row">
+            <span class="label">Balance due</span>
+            <span class="val">$500 on reveal (only if happy)</span>
+          </div>
+        </div>
+        <div class="pricing-cta">
+          <button onclick="openModal()" class="btn-primary full">Start My Website | $0 Today →</button>
+          <p class="pricing-small">Only pay $500 when you see your website and approve it on your reveal call.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADD-ONS -->
+  <section>
+    <div class="container">
+      <p class="section-label">Optional Add-Ons</p>
+      <h2 class="section-title">Keep Growing After Launch</h2>
+      <p class="section-sub">Optional monthly services to help you get found on Google and keep your website running perfectly.</p>
+      <div class="upsell-cards">
+        <div class="upsell-card">
+          <span class="u-tag">Hosting</span>
+          <h3>Website Hosting & Management</h3>
+          <p>We host, maintain, and keep your site fast and secure. No technical headaches for you.</p>
+          <div class="u-price">$29<span>/month</span></div>
+        </div>
+        <div class="upsell-card">
+          <span class="u-tag">SEO</span>
+          <h3>Weekly SEO Content Posting</h3>
+          <p>We post weekly SEO-optimised content to your site. Google sees an active business and starts ranking you for local searches within 60-90 days.</p>
+          <div class="u-price">$79<span>/month</span></div>
+        </div>
+        <div class="upsell-card">
+          <span class="u-tag">Best Value</span>
+          <h3>Full Growth Bundle</h3>
+          <p>Hosting + weekly SEO content. Everything you need to get found and stay found. Less than one job a month.</p>
+          <div class="u-price">$99<span>/month</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="background: var(--navy2);">
+    <div class="container">
+      <p class="section-label">FAQ</p>
+      <h2 class="section-title">Common Questions</h2>
+      <div class="faq-list">
+        <details open>
+          <summary>What if I don't like the website?</summary>
+          <p>No problem. If you're not happy, you tell us what changes you want and we make one round of revisions at no charge. If you're still not happy after revisions, you don't pay. Simple as that. We take all the risk.</p>
+        </details>
+        <details>
+          <summary>How does "zero deposit" actually work?</summary>
+          <p>You fill out our onboarding form today, no credit card required. We build your website over the next 7 days. Then we jump on a 20-minute Google Meet call where we show you the finished site. If you're happy, you pay $500 and it's yours. If not, you owe nothing.</p>
+        </details>
+        <details>
+          <summary>What information do I need to provide?</summary>
+          <p>Just the basics: business name, services, location, logo (or we use a placeholder), a few photos (or quality stock images), and your contact details. The onboarding form walks you through it step by step. No surprises.</p>
+        </details>
+        <details>
+          <summary>How long does it take to go live?</summary>
+          <p>We build your site within 7 days of your form. After your reveal call and payment, we can have it live on your domain within 24-48 hours. So: 7 days to build, then 24-48 hours to go live after you approve.</p>
+        </details>
+        <details>
+          <summary>Do I need to have a domain name?</summary>
+          <p>If you already have one, we'll use it. If not, we'll point you to grab one for around $15-20/year and we'll handle the technical setup.</p>
+        </details>
+        <details>
+          <summary>What types of businesses do you work with?</summary>
+          <p>We work with all kinds of Australian service businesses: trades and construction (plumbers, electricians, builders, painters, roofers), health and wellness clinics (physio, chiro, allied health), consultants and coaches, gyms and personal trainers, photographers, landscapers, and event businesses. If you run a service-based business and need a professional website, we can build it.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>Ready to Get Your Website Built?<br>It Costs You Nothing to Start.</h2>
+      <p>Fill out the form, we build your site in 7 days, you only pay when you love it.</p>
+      <button onclick="openModal()" class="btn-white">Get My Website | $0 Deposit →</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Spot On Websites. All rights reserved. &nbsp;|&nbsp; <a href="privacy-policy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms.html">Terms &amp; Conditions</a> &nbsp;|&nbsp; Australian Business</p>
+  </footer>
+
+  <script>document.addEventListener('DOMContentLoaded', function(){ lucide.createIcons(); });</script>
+  <script>
+    const nav = document.querySelector('nav');
+    const hero = document.querySelector('.hero');
+    const mobileCta = document.getElementById('mobileCta');
+    const reengageBar = document.getElementById('reengageBar');
+    const trustStrip = document.querySelector('.trust-strip');
+
+    function maybeShowReengage() {
+      if (sessionStorage.getItem('reengageDismissed') === '1') return;
+      if (!reengageBar || reengageBar.classList.contains('visible')) return;
+      reengageBar.classList.add('visible');
+    }
+
+    window.addEventListener('scroll', function() {
+      // Sticky nav shadow on scroll
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+      // Mobile CTA appears after scrolling past the hero
+      if (mobileCta) {
+        const heroBottom = hero.getBoundingClientRect().bottom;
+        mobileCta.classList.toggle('visible', heroBottom < 0);
+      }
+      // Re-engagement bar after scrolling past trust strip
+      if (trustStrip && reengageBar) {
+        const stripBottom = trustStrip.getBoundingClientRect().bottom;
+        if (stripBottom < window.innerHeight) maybeShowReengage();
+      }
+    }, { passive: true });
+
+    setTimeout(maybeShowReengage, 75000);
+
+    document.getElementById('reengageDismiss').addEventListener('click', function() {
+      if (reengageBar) reengageBar.classList.remove('visible');
+      sessionStorage.setItem('reengageDismissed', '1');
+    });
+  </script>
+  <script>
+    const modal = document.getElementById('optinModal');
+    const form  = document.getElementById('optinForm');
+
+    function openModal() {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('fieldName').focus();
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const name  = document.getElementById('fieldName').value.trim();
+      const email = document.getElementById('fieldEmail').value.trim();
+      const phone = document.getElementById('fieldPhone').value.trim();
+      if (!name || !email || !phone) {
+        alert('Please fill in all fields before continuing.');
+        return;
+      }
+
+      const submitBtn = form.querySelector('.modal-submit');
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+
+      try {
+        await fetch('https://services.leadconnectorhq.com/hooks/30kf4HX82D5x9unRwhNm/webhook-trigger/aa833425-68c4-467a-9476-7168e78151d8', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone })
+        });
+      } catch (_) {
+        // Silently continue - don't block the user if the webhook fails
+      }
+
+      const params = new URLSearchParams({ name, email, phone });
+      window.location.href = 'onboarding.html?' + params.toString();
+    });
+  </script>
+</body>
+</html>

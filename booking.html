@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Your Website Reveal | Spot On Websites</title>
+  <meta name="description" content="Pick a time for your 20-minute website reveal call. We'll walk you through your finished site and you decide if you want it.">
+  <meta name="robots" content="noindex, nofollow">
+  <!-- Meta Pixel — lazy loaded after first interaction -->
+  <script>(function(){var loaded=false;function loadPixel(){if(loaded)return;loaded=true;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','834466499006537');fbq('track','PageView');}var t=setTimeout(loadPixel,3500);['scroll','click','keydown','touchstart'].forEach(function(e){window.addEventListener(e,function(){clearTimeout(t);loadPixel();},{once:true,passive:true});});}());</script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=834466499006537&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel -->
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vtd0csri5y");</script>
+  <!-- End Clarity -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=optional" rel="stylesheet"></noscript>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:   #0B1728;
+      --navy2:  #111F35;
+      --orange: #F97316;
+      --orange2:#EA5A00;
+      --white:  #FFFFFF;
+      --grey:   #9EB2C4;
+      --border: rgba(255,255,255,0.12);
+      --green:  #4ADE80;
+    }
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      min-height: 100vh;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { display: flex; align-items: center; }
+    .logo img { height: 40px; width: auto; display: block; object-fit: contain; }
+
+    /* SUCCESS BANNER */
+    .success-banner {
+      background: rgba(74,222,128,0.1);
+      border-bottom: 1px solid rgba(74,222,128,0.2);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--green);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .page-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 60px 20px 80px;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .page-header .tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 14px;
+    }
+    .page-header h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .page-header p { color: var(--grey); font-size: 1rem; line-height: 1.7; max-width: 500px; margin: 0 auto; }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 700px) {
+      .booking-layout { grid-template-columns: 1fr; }
+    }
+
+    /* INFO PANEL */
+    .info-panel {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px;
+    }
+    .info-panel h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+    .info-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+    .info-icon {
+      width: 36px; height: 36px;
+      background: rgba(249,115,22,0.12);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .info-item h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+    .info-item p { color: var(--grey); font-size: 0.86rem; line-height: 1.6; }
+
+    .info-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 20px 0;
+    }
+
+    .what-to-expect h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 14px;
+      color: var(--grey);
+    }
+    .expect-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      font-size: 0.88rem;
+      color: var(--grey);
+      line-height: 1.5;
+    }
+    .expect-item .num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      color: var(--orange);
+      flex-shrink: 0;
+      width: 18px;
+    }
+
+    /* NOTE */
+    .booking-note {
+      text-align: center;
+      margin-top: 36px;
+      color: var(--grey);
+      font-size: 0.82rem;
+    }
+    .booking-note strong { color: var(--white); }
+
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo" aria-label="Spot On Websites – Home">
+    <img src="https://spotonwebsites.com.au/wp-content/uploads/2025/10/Spot-On-LeadFlow-3.png" alt="Spot On Websites">
+  </a>
+  <div style="font-size:0.85rem; color: var(--grey);">Final Step</div>
+</nav>
+
+<div class="success-banner">
+  ✅ Details received! One last step. Book your website reveal call below.
+</div>
+
+<div class="page-wrap">
+
+  <div class="page-header">
+    <div class="tag">Last Step</div>
+    <h1>Book Your Website<br>Reveal Call</h1>
+    <p>Pick a time for your 20-minute Google Meet. We'll show you your finished website, then you decide if you want it.</p>
+  </div>
+
+  <div class="booking-layout">
+
+    <!-- INFO PANEL -->
+    <div class="info-panel">
+      <h2>Your Reveal Call</h2>
+      <div class="info-item">
+        <div class="info-icon">⏱️</div>
+        <div>
+          <h4>20 Minutes</h4>
+          <p>Quick, no-pressure walk-through of your finished website.</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">💻</div>
+        <div>
+          <h4>Google Meet</h4>
+          <p>You'll receive a Google Meet link by email. No downloads needed.</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📅</div>
+        <div>
+          <h4>Available from Day 7</h4>
+          <p>Booking opens once your site is ready. Usually within 7 business days.</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">💳</div>
+        <div>
+          <h4>$0 Due Today</h4>
+          <p>You only pay $500 on the call if you're happy with what you see.</p>
+        </div>
+      </div>
+      <hr class="info-divider">
+      <div class="what-to-expect">
+        <h3>WHAT WE COVER</h3>
+        <div class="expect-item">
+          <span class="num">01</span>
+          <span>Walk through every page of your new website</span>
+        </div>
+        <div class="expect-item">
+          <span class="num">02</span>
+          <span>Confirm any revision requests (1 round included)</span>
+        </div>
+        <div class="expect-item">
+          <span class="num">03</span>
+          <span>Collect payment if you're happy ($500 one-off)</span>
+        </div>
+        <div class="expect-item">
+          <span class="num">04</span>
+          <span>Discuss hosting & SEO options if interested</span>
+        </div>
+        <div class="expect-item">
+          <span class="num">05</span>
+          <span>Go live within 24–48 hours after approval</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CALENDAR EMBED AREA -->
+    <div>
+      <iframe src="https://crm.spotonwebsites.com.au/widget/booking/aF25hKtOGFxFbMoCRj9N" style="width: 100%;border:none;overflow: hidden;" id="aF25hKtOGFxFbMoCRj9N_1773104989953"></iframe>
+      <script src="https://crm.spotonwebsites.com.au/js/form_embed.js" type="text/javascript"></script>
+    </div>
+
+  </div>
+
+  <div class="booking-note">
+    <strong>Can't find a time that works?</strong> Email us at <a href="mailto:hello@spotonwebsites.com.au" style="color:var(--orange);">hello@spotonwebsites.com.au</a> and we'll sort something out.
+  </div>
+
+</div>
+
+
+<footer style="padding: 30px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); color: #8A9BB0; font-size: 0.8rem; font-family: 'Barlow', sans-serif;">
+  <p>&copy; 2026 Spot On Websites. All rights reserved. &nbsp;|&nbsp;
+    <a href="privacy-policy.html" style="color:#8A9BB0;">Privacy Policy</a> &nbsp;|&nbsp;
+    <a href="terms.html" style="color:#8A9BB0;">Terms &amp; Conditions</a> &nbsp;|&nbsp;
+    Australian Business
+  </p>
+</footer>
+
+</body>
+</html>

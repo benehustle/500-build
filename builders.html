@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Website for Queensland Builders — We Build It First</title>
+<meta name="description" content="We build your professional builder website first. Zero deposit. You only pay $500 when you've seen it and love it. 7-day delivery. No lock-in contracts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0B1728;
+    --navy2: #111F35;
+    --orange: #F97316;
+    --orange2: #EA5A00;
+    --white: #FFFFFF;
+    --grey: #C5D1DE;
+    --light: #EEF2F7;
+    --border: rgba(255,255,255,0.12);
+    --steel: #152238;
+    --green: #22C55E;
+    --red: #EF4444;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(11,23,40,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(249,115,22,0.2);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+  }
+  .nav-logo img { height: 40px; width: auto; display: block; object-fit: contain; }
+
+  .nav-cta {
+    background: var(--orange);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    padding: 10px 22px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  }
+  .nav-cta:hover { background: var(--orange2); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 120px 40px 80px;
+    max-width: 1280px;
+    margin: 0 auto;
+    gap: 60px;
+  }
+
+  .hero-left { position: relative; }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(249,115,22,0.12);
+    border: 1px solid rgba(249,115,22,0.3);
+    color: var(--orange);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    padding: 7px 14px;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--orange);
+    border-radius: 50%;
+    animation: blink 1.5s infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+  .hero-intro {
+    font-size: 15px;
+    color: var(--grey);
+    margin-bottom: 20px;
+    max-width: 420px;
+    line-height: 1.55;
+    font-weight: 500;
+  }
+
+  .hero-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(52px, 7vw, 88px);
+    line-height: 0.92;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 28px;
+  }
+  .hero-headline .accent { color: var(--orange); }
+  .hero-headline .strike {
+    position: relative;
+    color: rgba(197,209,222,0.85);
+  }
+  .hero-headline .strike::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    top: 50%;
+    height: 3px;
+    background: var(--red);
+    transform: rotate(-2deg);
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--grey);
+    line-height: 1.65;
+    margin-bottom: 40px;
+    max-width: 480px;
+    letter-spacing: 0.01em;
+  }
+  .hero-sub strong { color: var(--white); font-weight: 600; }
+
+  .hero-proof {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .proof-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .proof-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 32px;
+    color: var(--orange);
+    line-height: 1;
+  }
+  .proof-label {
+    font-size: 11px;
+    color: var(--grey);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .proof-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--steel);
+  }
+
+  .stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 4px;
+  }
+  .star { color: var(--orange); font-size: 14px; }
+
+  /* ── FORM CARD ── */
+  .form-card {
+    background: var(--navy2);
+    border: 1px solid rgba(249,115,22,0.25);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+  .form-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--orange2));
+  }
+
+  .form-card-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .form-card-sub {
+    font-size: 14px;
+    color: var(--grey);
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+  .form-card-sub strong { color: var(--green); }
+
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-bottom: 7px;
+  }
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    background: var(--steel);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    padding: 13px 16px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .form-group input::placeholder { color: rgba(255,255,255,0.5); }
+  .form-group input:focus,
+  .form-group select:focus {
+    border-color: var(--orange);
+    background: rgba(249,115,22,0.05);
+  }
+  .form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23C5D1DE' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    cursor: pointer;
+  }
+  .form-group select option { background: var(--navy2); }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--orange);
+    color: var(--navy);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: 17px;
+    letter-spacing: 0.3px;
+    padding: 18px;
+    border: none;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s, transform 0.15s;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+  .submit-btn:hover { background: var(--orange2); transform: translateY(-2px); }
+  .submit-btn:active { transform: translateY(0); }
+
+  .form-takes {
+    font-size: 12px;
+    color: var(--grey);
+    margin-bottom: 6px;
+    text-align: center;
+  }
+
+  .form-disclaimer {
+    font-size: 12px;
+    color: var(--grey);
+    text-align: center;
+    margin-top: 14px;
+    line-height: 1.55;
+  }
+
+  /* ── DIAGONAL SECTION BREAK ── */
+  .section-break {
+    height: 80px;
+    background: var(--navy2);
+    clip-path: polygon(0 0, 100% 40%, 100% 100%, 0 100%);
+    margin-top: -40px;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how-section {
+    background: var(--navy2);
+    padding: 80px 40px;
+  }
+  .section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .section-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(36px, 5vw, 56px);
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 56px;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+  .step {
+    background: var(--steel);
+    padding: 32px 28px;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .step:hover { background: rgba(249,115,22,0.08); }
+  .step-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 64px;
+    color: rgba(249,115,22,0.15);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .step-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .step-title {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .step-desc {
+    font-size: 15px;
+    color: var(--grey);
+    line-height: 1.6;
+  }
+  .step-highlight {
+    display: inline-block;
+    background: rgba(249,115,22,0.12);
+    color: var(--orange);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    margin-top: 12px;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+
+  /* ── WHAT YOU GET ── */
+  .get-section {
+    background: var(--navy);
+    padding: 80px 40px;
+  }
+  .get-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .get-list { list-style: none; }
+  .get-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--steel);
+  }
+  .get-item:first-child { border-top: 1px solid var(--steel); }
+  .get-tick {
+    width: 22px; height: 22px;
+    background: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 12px;
+    clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 4px 100%, 0 calc(100% - 4px));
+  }
+  .get-text strong {
+    display: block;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 3px;
+    font-size: 15px;
+  }
+  .get-text span {
+    font-size: 14px;
+    color: var(--grey);
+    line-height: 1.55;
+  }
+
+  .get-preview {
+    position: relative;
+    background: var(--navy2);
+    border: 1px solid var(--steel);
+    padding: 20px;
+    overflow: hidden;
+  }
+  .get-preview::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--green));
+  }
+  .browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .browser-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+  }
+  .browser-dot:nth-child(1) { background: var(--red); }
+  .browser-dot:nth-child(2) { background: var(--orange); }
+  .browser-dot:nth-child(3) { background: var(--green); }
+  .browser-url {
+    flex: 1;
+    background: var(--steel);
+    height: 24px;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+  }
+  .browser-url-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    color: var(--grey);
+  }
+
+  .site-preview-mock {
+    background: var(--steel);
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+  }
+  .mock-hero-bar {
+    background: linear-gradient(135deg, #1a2a1a, #0d1a0d);
+    height: 110px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 20px 16px;
+    gap: 12px;
+    position: relative;
+  }
+  .mock-hero-bar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(249,115,22,0.1) 0%, transparent 60%);
+  }
+  .mock-title-block { flex: 1; }
+  .mock-h1 {
+    background: var(--orange);
+    height: 18px;
+    width: 70%;
+    margin-bottom: 6px;
+    opacity: 0.9;
+  }
+  .mock-h2 {
+    background: rgba(255,255,255,0.2);
+    height: 10px;
+    width: 50%;
+  }
+  .mock-btn-preview {
+    background: var(--orange);
+    padding: 8px 16px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 9px;
+    color: var(--navy);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  .mock-body { padding: 16px 20px; }
+  .mock-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+  .mock-card { background: var(--navy2); height: 56px; }
+  .mock-text-lines { display: flex; flex-direction: column; gap: 5px; }
+  .mock-line { background: rgba(255,255,255,0.08); height: 8px; border-radius: 2px; }
+  .mock-line:nth-child(1) { width: 80%; }
+  .mock-line:nth-child(2) { width: 60%; }
+  .mock-line:nth-child(3) { width: 70%; }
+
+  .preview-label {
+    text-align: center;
+    margin-top: 16px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    color: var(--grey);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .preview-label strong { color: var(--orange); }
+
+  /* ── OBJECTION CRUSHER ── */
+  .objection-section {
+    background: var(--navy2);
+    padding: 80px 40px;
+  }
+  .objection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .objection-card {
+    background: var(--steel);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  .objection-card:hover { transform: translateY(-4px); }
+  .objection-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--orange);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+  .objection-card:hover::after { transform: scaleX(1); }
+  .obj-q {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    color: var(--grey);
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .obj-a {
+    font-size: 14px;
+    color: var(--white);
+    line-height: 1.65;
+  }
+  .obj-a strong { color: var(--orange); }
+
+  /* ── TESTIMONIAL ── */
+  .testi-section {
+    background: var(--navy);
+    padding: 80px 40px;
+  }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .testi-card {
+    background: var(--navy2);
+    border: 1px solid var(--steel);
+    padding: 28px;
+    position: relative;
+  }
+  .testi-card::before {
+    content: '"';
+    position: absolute;
+    top: 16px; right: 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 80px;
+    color: rgba(249,115,22,0.1);
+    line-height: 1;
+  }
+  .testi-stars { margin-bottom: 14px; }
+  .testi-text {
+    font-size: 14px;
+    color: var(--white);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  .testi-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .testi-avatar {
+    width: 40px; height: 40px;
+    background: var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    color: var(--navy);
+    flex-shrink: 0;
+  }
+  .testi-name {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--white);
+  }
+  .testi-trade {
+    font-size: 11px;
+    color: var(--grey);
+    margin-top: 2px;
+  }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    background: var(--orange);
+    padding: 80px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: 'GET ONLINE';
+    position: absolute;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 200px;
+    color: rgba(0,0,0,0.06);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .final-cta-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(40px, 7vw, 80px);
+    color: var(--navy);
+    line-height: 0.95;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .final-cta-sub {
+    font-size: 18px;
+    color: rgba(0,0,0,0.65);
+    margin-bottom: 40px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+    position: relative;
+  }
+  .final-cta-btn {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--orange);
+    font-weight: 800;
+    font-size: 17px;
+    padding: 20px 50px;
+    text-decoration: none;
+    transition: transform 0.2s, background 0.2s;
+    position: relative;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+  .final-cta-btn:hover { background: var(--navy2); transform: translateY(-3px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy2);
+    padding: 32px 40px;
+    border-top: 1px solid var(--steel);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-logo {
+    display: flex;
+    align-items: center;
+  }
+  .footer-logo img { height: 36px; width: auto; display: block; object-fit: contain; }
+  .footer-text {
+    font-size: 12px;
+    color: var(--grey);
+    text-align: center;
+  }
+  .footer-contact {
+    font-size: 13px;
+    color: var(--grey);
+    text-align: right;
+  }
+  .footer-contact a {
+    color: var(--orange);
+    text-decoration: none;
+  }
+
+  /* ── STICKY MOBILE CTA ── */
+  .sticky-cta {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 200;
+    padding: 12px 20px;
+    background: var(--orange);
+    text-align: center;
+    font-weight: 800;
+    font-size: 15px;
+    color: var(--navy);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: rgba(249,115,22,0.1);
+    border-top: 1px solid rgba(249,115,22,0.25);
+    border-bottom: 1px solid rgba(249,115,22,0.25);
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    overflow: hidden;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    font-size: 14px;
+    color: var(--white);
+    font-weight: 600;
+  }
+  .trust-icon { display: inline-flex; align-items: center; }
+  .trust-icon svg { width: 18px; height: 18px; stroke: var(--orange); }
+  .step-icon { display: inline-block; }
+  .step-icon svg { width: 28px; height: 28px; stroke: var(--orange); vertical-align: middle; }
+  .get-tick svg { width: 14px; height: 14px; stroke: var(--white); }
+  .star-icon { display: inline-flex; align-items: center; }
+  .stars .star-icon svg, .testi-stars .star-icon svg { width: 14px; height: 14px; stroke: var(--orange); fill: var(--orange); }
+
+  /* ── ANIMATIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 14px 20px; }
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 100px 20px 60px;
+      gap: 40px;
+    }
+    .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    .get-grid { grid-template-columns: 1fr; }
+    .objection-grid { grid-template-columns: 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
+    .footer-contact { text-align: center; }
+    .trust-bar { gap: 24px; flex-wrap: wrap; padding: 14px 20px; }
+    .sticky-cta { display: block; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .steps-grid { grid-template-columns: 1fr; }
+    .hero-proof { flex-wrap: wrap; gap: 16px; }
+    .hero-headline { font-size: 46px; }
+    .hero-intro { font-size: 14px; }
+    .trust-bar { flex-wrap: wrap; justify-content: center; gap: 16px; padding: 14px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="Spot On Websites – Home">
+    <img src="https://spotonwebsites.com.au/wp-content/uploads/2025/10/Spot-On-LeadFlow-3.png" alt="Spot On Websites">
+  </a>
+  <a href="#get-started" class="nav-cta">Get My Free Website →</a>
+</nav>
+
+<!-- HERO -->
+<section style="background: var(--navy)">
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">Built for Builders</div>
+      <p class="hero-intro">You're here because we reached out — no catch. We build first, you pay only when you're happy.</p>
+      <h1 class="hero-headline">
+        We Build<br>
+        Your Website<br>
+        <span class="accent">First.</span><br>
+        <span class="strike">You Pay After.</span>
+      </h1>
+      <p class="hero-sub">
+        No deposit. No risk. We build your professional builder website — <strong>you only pay $500 once you've seen it and love it.</strong> Most builders are online within 7 days.
+      </p>
+      <div class="hero-proof">
+        <div class="proof-item">
+          <div class="proof-num">900+</div>
+          <div class="proof-label">Sites Built</div>
+        </div>
+        <div class="proof-divider"></div>
+        <div class="proof-item">
+          <div class="stars">
+            <span class="star star-icon"><i data-lucide="star"></i></span><span class="star star-icon"><i data-lucide="star"></i></span>
+            <span class="star star-icon"><i data-lucide="star"></i></span><span class="star star-icon"><i data-lucide="star"></i></span><span class="star star-icon"><i data-lucide="star"></i></span>
+          </div>
+          <div class="proof-label">Google Rating</div>
+        </div>
+        <div class="proof-divider"></div>
+        <div class="proof-item">
+          <div class="proof-num">7</div>
+          <div class="proof-label">Day Delivery</div>
+        </div>
+        <div class="proof-divider"></div>
+        <div class="proof-item">
+          <div class="proof-num">$0</div>
+          <div class="proof-label">Upfront Cost</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-card" id="get-started">
+      <div class="form-card-headline">Claim Your Free Build</div>
+      <div class="form-card-sub">
+        No obligation. Fill in 3 fields — we'll build your site. <strong>You pay nothing until you see it.</strong>
+      </div>
+      <form id="buildersForm" class="builders-form" novalidate>
+        <div class="form-group">
+          <label for="fieldName">Full Name</label>
+          <input type="text" id="fieldName" name="name" placeholder="Dave Smith" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="fieldPhone">Mobile Number</label>
+          <input type="tel" id="fieldPhone" name="phone" placeholder="0412 345 678" required autocomplete="tel">
+        </div>
+        <div class="form-group">
+          <label for="fieldEmail">Email Address</label>
+          <input type="email" id="fieldEmail" name="email" placeholder="dave@smithbuilding.com.au" required autocomplete="email">
+        </div>
+        <p class="form-takes">Takes 60 seconds · No credit card</p>
+        <button type="submit" class="submit-btn">
+          BUILD MY WEBSITE FOR FREE →
+        </button>
+      </form>
+      <div class="form-disclaimer">
+        Zero deposit. No lock-in contracts. You only pay $500 when you've seen your site and you're happy with it.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR (separator between hero and content) -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon"><i data-lucide="trophy"></i></span> 900+ Websites Built</div>
+  <div class="trust-item"><span class="trust-icon"><i data-lucide="star"></i></span> 5-Star Google Reviews</div>
+  <div class="trust-item"><span class="trust-icon"><i data-lucide="globe"></i></span> 100% Australian Team</div>
+  <div class="trust-item"><span class="trust-icon"><i data-lucide="lock"></i></span> No Lock-In Contracts</div>
+  <div class="trust-item"><span class="trust-icon"><i data-lucide="zap"></i></span> 7-Day Delivery</div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="section-container">
+    <div class="section-tag">// The Process</div>
+    <h2 class="section-title">From Zero to Online in 7 Days</h2>
+    <div class="steps-grid">
+      <div class="step fade-up">
+        <div class="step-num">01</div>
+        <span class="step-icon"><i data-lucide="clipboard-list"></i></span>
+        <div class="step-title">Fill Your Details</div>
+        <div class="step-desc">Takes 3 minutes. Tell us your name and contact details. That's all we need to get started.</div>
+        <span class="step-highlight">TODAY</span>
+      </div>
+      <div class="step fade-up" style="transition-delay: 0.1s">
+        <div class="step-num">02</div>
+        <span class="step-icon"><i data-lucide="zap"></i></span>
+        <div class="step-title">We Build It</div>
+        <div class="step-desc">Our system builds your professional 4-page builder website. SEO-optimised copy written for you. No input needed.</div>
+        <span class="step-highlight">DAYS 1–5</span>
+      </div>
+      <div class="step fade-up" style="transition-delay: 0.2s">
+        <div class="step-num">03</div>
+        <span class="step-icon"><i data-lucide="eye"></i></span>
+        <div class="step-title">You Review It</div>
+        <div class="step-desc">We book a quick call to show you the finished site. If you love it, you pay $500 to lock it in. If not — you owe nothing.</div>
+        <span class="step-highlight">DAY 7</span>
+      </div>
+      <div class="step fade-up" style="transition-delay: 0.3s">
+        <div class="step-num">04</div>
+        <span class="step-icon"><i data-lucide="rocket"></i></span>
+        <div class="step-title">Live & Getting Leads</div>
+        <div class="step-desc">We go live. Free lifetime hosting included. Start showing up on Google for builders in your area.</div>
+        <span class="step-highlight">DAY 10–14</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="get-section">
+  <div class="section-container">
+    <div class="get-grid">
+      <div>
+        <div class="section-tag">// What's Included</div>
+        <h2 class="section-title">Everything a Builder Needs to Win Online</h2>
+        <ul class="get-list">
+          <li class="get-item fade-up">
+            <div class="get-tick"><i data-lucide="check"></i></div>
+            <div class="get-text">
+              <strong>4-Page Professional Website</strong>
+              <span>Home, About, Services & Contact. Built for builders, not generic templates.</span>
+            </div>
+          </li>
+          <li class="get-item fade-up">
+            <div class="get-tick"><i data-lucide="check"></i></div>
+            <div class="get-text">
+              <strong>SEO-Optimised Copy Written For You</strong>
+              <span>We write every word. You don't touch a keyboard.</span>
+            </div>
+          </li>
+          <li class="get-item fade-up">
+            <div class="get-tick"><i data-lucide="check"></i></div>
+            <div class="get-text">
+              <strong>Mobile-First Design</strong>
+              <span>Looks perfect on any device. Most of your customers will find you on mobile.</span>
+            </div>
+          </li>
+
+          <li class="get-item fade-up">
+            <div class="get-tick"><i data-lucide="check"></i></div>
+            <div class="get-text">
+              <strong>Click-to-Call & Contact Form</strong>
+              <span>Make it dead easy for customers to reach you the moment they land on your site.</span>
+            </div>
+          </li>
+          <li class="get-item fade-up">
+            <div class="get-tick"><i data-lucide="check"></i></div>
+            <div class="get-text">
+              <strong>No Lock-In Contracts</strong>
+              <span>Own your website outright. Walk away any time. No ongoing fees unless you want them.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="get-preview fade-up">
+          <div class="browser-bar">
+            <div class="browser-dot"></div>
+            <div class="browser-dot"></div>
+            <div class="browser-dot"></div>
+            <div class="browser-url">
+              <span class="browser-url-text">smithbuilding.com.au</span>
+            </div>
+          </div>
+          <div class="site-preview-mock">
+            <div class="mock-hero-bar">
+              <div class="mock-title-block">
+                <div class="mock-h1"></div>
+                <div class="mock-h2"></div>
+              </div>
+              <div class="mock-btn-preview">GET A QUOTE</div>
+            </div>
+            <div class="mock-body">
+              <div class="mock-cards">
+                <div class="mock-card"></div>
+                <div class="mock-card"></div>
+                <div class="mock-card"></div>
+              </div>
+              <div class="mock-text-lines">
+                <div class="mock-line"></div>
+                <div class="mock-line"></div>
+                <div class="mock-line"></div>
+              </div>
+            </div>
+          </div>
+          <div class="preview-label">Your site looks like this. <strong>Built in 7 days.</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTIONS -->
+<section class="objection-section">
+  <div class="section-container">
+    <div class="section-tag">// Straight Answers</div>
+    <h2 class="section-title">The Questions Every Builder Asks</h2>
+    <div class="objection-grid">
+      <div class="objection-card fade-up">
+        <div class="obj-q">Sounds too good to be true. What's the catch?</div>
+        <div class="obj-a">No catch. We build it first because we're confident you'll love it. If you don't — <strong>you owe us nothing</strong> and we go our separate ways. We've built over 900 websites. We know what works.</div>
+      </div>
+      <div class="objection-card fade-up" style="transition-delay:0.1s">
+        <div class="obj-q">I get all my work through word of mouth. Why do I need a website?</div>
+        <div class="obj-a">Referrals are gold. But <strong>88% of people Google a business before calling</strong> — even when someone recommended you. No website means half your referrals go elsewhere before they even pick up the phone.</div>
+      </div>
+      <div class="objection-card fade-up" style="transition-delay:0.2s">
+        <div class="obj-q">I don't have time to deal with this stuff.</div>
+        <div class="obj-a">That's exactly why we built this process. <strong>You fill in a form, we do everything else.</strong> One call to approve it. That's your total time investment. Under an hour start to finish.</div>
+      </div>
+      <div class="objection-card fade-up" style="transition-delay:0.3s">
+        <div class="obj-q">I've been burnt by agencies before.</div>
+        <div class="obj-a">So have most of our clients. That's why we <strong>build before you pay a cent.</strong> We put the risk on us, not you. No deposit means we have every incentive to do good work.</div>
+      </div>
+      <div class="objection-card fade-up" style="transition-delay:0.4s">
+        <div class="obj-q">What about ongoing costs?</div>
+        <div class="obj-a">Free lifetime hosting is included. The only ongoing cost is optional — <strong>$29/month</strong> if you want us to keep everything maintained, or <strong>$99/month</strong> for hosting plus monthly content updates. Both totally optional.</div>
+      </div>
+      <div class="objection-card fade-up" style="transition-delay:0.5s">
+        <div class="obj-q">Will it actually bring in leads?</div>
+        <div class="obj-a">It gives you a presence that 59% of your competitors don't have. Combine that with your existing reputation and Google starts sending you enquiries <strong>from people who've never heard of you yet.</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="section-container">
+    <div class="section-tag">// What Builders Say</div>
+    <h2 class="section-title">Real Results from Real Tradies</h2>
+    <div class="testi-grid">
+      <div class="testi-card fade-up">
+        <div class="testi-stars">
+          <span class="star star-icon"><i data-lucide="star"></i></span><span class="star star-icon"><i data-lucide="star"></i></span><span class="star star-icon"><i data-lucide="star"></i></span><span class="star star-icon"><i data-lucide="star"></i></span><span class="star star-icon"><i data-lucide="star"></i></span>
+        </div>
+        <div class="testi-text">"Honestly had no idea it would be this easy. They built it, I had a look, paid the $500 and within a week I was getting calls from people who just found me on Google. Recouped the cost in one job."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">JS</div>
+          <div>
+            <div class="testi-name">Jason S.</div>
+            <div class="testi-trade">Builder — Sunshine Coast, QLD</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card fade-up" style="transition-delay:0.1s">
+        <div class="testi-stars">
+          <span class="star star-icon"><i data-lucide="star"></i></span><span class="star star-icon"><i data-lucide="star"></i></span><span class="star star-icon"><i data-lucide="star"></i></span><span class="star star-icon"><i data-lucide="star"></i></span><span class="star star-icon"><i data-lucide="star"></i></span>
+        </div>
+        <div class="testi-text">"Was sceptical as hell. But when they said 'you don't pay unless you're happy' I thought what have I got to lose. Site looked better than I expected. My missus was impressed and that's saying something."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">MT</div>
+          <div>
+            <div class="testi-name">Mark T.</div>
+            <div class="testi-trade">Residential Builder — Brisbane, QLD</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card fade-up" style="transition-delay:0.2s">
+        <div class="testi-stars">
+          <span class="star star-icon"><i data-lucide="star"></i></span><span class="star star-icon"><i data-lucide="star"></i></span><span class="star star-icon"><i data-lucide="star"></i></span><span class="star star-icon"><i data-lucide="star"></i></span><span class="star star-icon"><i data-lucide="star"></i></span>
+        </div>
+        <div class="testi-text">"Used to feel embarrassed telling people I didn't have a website. Now I hand out my card and my site does the talking. Took less than two weeks from filling in the form to being live."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">CR</div>
+          <div>
+            <div class="testi-name">Craig R.</div>
+            <div class="testi-trade">Building & Renovations — Gold Coast, QLD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-title">
+    Ready to Get Online?<br>It Costs You Nothing to Find Out.
+  </div>
+  <div class="final-cta-sub">
+    We build your site. You see it. You decide. Zero risk, zero deposit, zero BS.
+  </div>
+  <a href="#get-started" class="final-cta-btn">BUILD MY WEBSITE FREE →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="footer-logo" aria-label="Spot On Websites">
+    <img src="https://spotonwebsites.com.au/wp-content/uploads/2025/10/Spot-On-LeadFlow-3.png" alt="Spot On Websites">
+  </a>
+  <div class="footer-text">
+    ABN 49 096 480 123 · Ormeau QLD 4208 · spotonwebsites.com.au<br>
+    © 2025 Spot On Websites. All rights reserved.
+  </div>
+  <div class="footer-contact">
+    <a href="tel:0756071263">07 5607 1263</a><br>
+    <span>Queensland, Australia</span>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta" onclick="document.getElementById('get-started').scrollIntoView({behavior:'smooth'})">
+  Get My Free Website — Zero Deposit →
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() { if (typeof lucide !== 'undefined') lucide.createIcons(); });
+
+  // Fade in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Form submit — same webhook as index.html, redirect to /onboarding with details in query
+  const buildersForm = document.getElementById('buildersForm');
+  if (buildersForm) {
+    buildersForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const name  = document.getElementById('fieldName').value.trim();
+      const email = document.getElementById('fieldEmail').value.trim();
+      const phone = document.getElementById('fieldPhone').value.trim();
+      if (!name || !email || !phone) {
+        alert('Please fill in all fields before continuing.');
+        return;
+      }
+      const submitBtn = buildersForm.querySelector('.submit-btn');
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+      try {
+        await fetch('https://services.leadconnectorhq.com/hooks/30kf4HX82D5x9unRwhNm/webhook-trigger/aa833425-68c4-467a-9476-7168e78151d8', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone })
+        });
+      } catch (_) {
+        // Don't block user if webhook fails
+      }
+      const params = new URLSearchParams({ name, email, phone });
+      window.location.href = 'onboarding.html?' + params.toString();
+    });
+  }
+
+  // Smooth scroll for anchors
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>

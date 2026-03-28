@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get Started | Spot On Websites</title>
+  <meta name="description" content="Tell us about your business. We'll build your website first, then you decide if you want it.">
+  <meta name="robots" content="noindex, nofollow">
+  <!-- Meta Pixel — lazy loaded after first interaction -->
+  <script>(function(){var loaded=false;function loadPixel(){if(loaded)return;loaded=true;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','834466499006537');fbq('track','PageView');}var t=setTimeout(loadPixel,3500);['scroll','click','keydown','touchstart'].forEach(function(e){window.addEventListener(e,function(){clearTimeout(t);loadPixel();},{once:true,passive:true});});}());</script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=834466499006537&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel -->
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vtd0csri5y");</script>
+  <!-- End Clarity -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=optional" rel="stylesheet"></noscript>
+  <!-- Uploadcare widget -->
+  <script>
+    UPLOADCARE_PUBLIC_KEY = '542b15e0bf5f49126ffb';
+    UPLOADCARE_LOCALE = 'en';
+    UPLOADCARE_TABS = 'file url';
+    UPLOADCARE_PREVIEW_STEP = false;
+    UPLOADCARE_IMAGES_ONLY = false;
+  </script>
+  <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js" charset="utf-8"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:   #0B1728;
+      --navy2:  #111F35;
+      --orange: #F97316;
+      --orange2:#EA5A00;
+      --white:  #FFFFFF;
+      --grey:   #9EB2C4;
+      --border: rgba(255,255,255,0.12);
+    }
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { display: flex; align-items: center; }
+    .logo img { height: 40px; width: auto; display: block; object-fit: contain; }
+
+    .progress-wrap {
+      background: var(--navy2);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 40px;
+    }
+    .progress-steps {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .p-step {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+    }
+    .p-step-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      background: var(--border);
+      color: var(--grey);
+      flex-shrink: 0;
+    }
+    .p-step.active .p-step-num { background: var(--orange); color: var(--white); }
+    .p-step.done .p-step-num { background: #4ADE80; color: var(--navy); }
+    .p-step-label { font-size: 0.82rem; color: var(--grey); font-weight: 500; }
+    .p-step.active .p-step-label { color: var(--white); font-weight: 600; }
+    .p-line { flex: 1; height: 1px; background: var(--border); margin: 0 8px; }
+    .progress-time-hint {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--grey);
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    .page-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 50px 20px 80px;
+    }
+
+    .form-header { margin-bottom: 40px; }
+    .form-header .step-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+    .form-header h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .form-header p { color: var(--grey); font-size: 0.98rem; line-height: 1.7; }
+
+    /* Form sections */
+    .form-section {
+      display: none;
+    }
+    .form-section.active { display: block; }
+
+    .field-group { margin-bottom: 22px; }
+    .field-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+    .field-group label span { color: var(--orange); }
+    .field-group small { display: block; color: var(--grey); font-size: 0.83rem; margin-bottom: 8px; line-height: 1.5; }
+
+    input[type=text],
+    input[type=email],
+    input[type=tel],
+    input[type=url],
+    textarea,
+    select {
+      width: 100%;
+      background: var(--navy2);
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+      padding: 13px 16px;
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus, textarea:focus, select:focus { border-color: var(--orange); }
+    input::placeholder, textarea::placeholder { color: var(--grey); }
+    select option { background: var(--navy2); }
+    textarea { resize: vertical; min-height: 100px; }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 500px) { .field-row { grid-template-columns: 1fr; } }
+
+    .checkbox-group { display: flex; flex-direction: column; gap: 10px; }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--navy2);
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+      padding: 12px 16px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .checkbox-item:hover { border-color: var(--orange); }
+    .checkbox-item input[type=checkbox] {
+      width: 18px; height: 18px;
+      accent-color: var(--orange);
+      flex-shrink: 0;
+    }
+    .checkbox-item span { font-size: 0.9rem; }
+
+    .color-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .color-opt {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: border-color 0.2s;
+    }
+    .color-opt input { display: none; }
+    .color-opt:has(input:checked) { border-color: var(--orange); background: rgba(249,115,22,0.1); }
+    .dot { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; }
+
+    .file-upload {
+      border: 1.5px dashed var(--border);
+      border-radius: 4px;
+      padding: 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .file-upload:hover { border-color: var(--orange); }
+    .file-upload .upload-icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .file-upload p { color: var(--grey); font-size: 0.85rem; }
+    .file-upload p strong { color: var(--white); }
+    .file-upload input { display: none; }
+
+    /* Buttons */
+    .btn-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 36px;
+      gap: 16px;
+    }
+    .btn-back {
+      background: transparent;
+      border: 1.5px solid var(--border);
+      color: var(--grey);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-back:hover { border-color: var(--white); color: var(--white); }
+    .btn-next {
+      background: var(--orange);
+      border: none;
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 14px 36px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s;
+      flex: 1;
+    }
+    .btn-next:hover { background: var(--orange2); }
+    .btn-next.shake {
+      animation: btn-shake 0.4s ease;
+    }
+    @keyframes btn-shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-6px); }
+      40% { transform: translateX(6px); }
+      60% { transform: translateX(-4px); }
+      80% { transform: translateX(4px); }
+    }
+
+    .trust-note {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(74,222,128,0.08);
+      border: 1px solid rgba(74,222,128,0.2);
+      border-radius: 4px;
+      padding: 14px 18px;
+      margin-bottom: 32px;
+      font-size: 0.85rem;
+      color: #4ADE80;
+    }
+
+    /* Uploadcare widget overrides */
+    .uploadcare--widget { width: 100%; }
+    .uploadcare--widget__button {
+      background: var(--orange) !important;
+      color: #fff !important;
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 1rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.05em !important;
+      border: none !important;
+      border-radius: 4px !important;
+      padding: 12px 24px !important;
+      cursor: pointer !important;
+      transition: background 0.2s !important;
+    }
+    .uploadcare--widget__button:hover { background: var(--orange2) !important; }
+    .uploadcare--widget__button_type_open { width: 100%; }
+    .uploadcare--widget__file-name {
+      color: var(--grey) !important;
+      font-family: 'Barlow', sans-serif !important;
+      font-size: 0.85rem !important;
+      margin-top: 8px !important;
+      display: block;
+    }
+
+    /* Logo preview */
+    .logo-preview {
+      display: none;
+      align-items: center;
+      gap: 16px;
+      background: var(--navy2);
+      border: 1.5px solid rgba(74,222,128,0.3);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-top: 12px;
+    }
+    .logo-preview img {
+      max-height: 56px;
+      max-width: 140px;
+      object-fit: contain;
+      border-radius: 4px;
+      background: #fff;
+      padding: 4px;
+    }
+    .logo-preview-info { flex: 1; }
+    .logo-preview-info strong { font-size: 0.85rem; display: block; color: var(--white); }
+    .logo-preview-info span { font-size: 0.82rem; color: var(--grey); }
+    .logo-preview-remove {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--grey);
+      font-size: 0.82rem;
+      padding: 5px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .logo-preview-remove:hover { color: #ff6b6b; border-color: #ff6b6b; }
+
+    /* Pre-filled notice */
+    .prefilled-notice {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(74,222,128,0.08);
+      border: 1px solid rgba(74,222,128,0.25);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 22px;
+    }
+    .prefilled-check {
+      width: 32px; height: 32px;
+      background: rgba(74,222,128,0.15);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #4ADE80;
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .prefilled-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .prefilled-text strong { font-size: 0.95rem; color: var(--white); }
+    .prefilled-text span { font-size: 0.8rem; color: var(--grey); }
+    .prefilled-edit {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--grey);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.8rem;
+      padding: 6px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: border-color 0.2s, color 0.2s;
+      flex-shrink: 0;
+    }
+    .prefilled-edit:hover { border-color: var(--white); color: var(--white); }
+
+    /* Colour pickers */
+    /* Field validation errors */
+    .field-error {
+      border-color: #ef4444 !important;
+      background: rgba(239,68,68,0.05) !important;
+    }
+    .field-group.field-error {
+      border: 1px solid rgba(239,68,68,0.6);
+      border-radius: 6px;
+      padding: 20px;
+      background: rgba(239,68,68,0.06);
+    }
+    .field-error-msg {
+      display: block;
+      color: #ef4444;
+      font-size: 0.82rem;
+      margin-top: 6px;
+      font-weight: 500;
+    }
+    .step-error-banner {
+      background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.35);
+      border-radius: 6px;
+      padding: 12px 16px;
+      color: #f87171;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      display: none;
+    }
+    .step-error-banner.visible { display: block; }
+
+    /* Section counter */
+    .section-count {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 28px;
+    }
+    .section-count span { color: var(--orange); }
+
+    /* Radical Transparency / Full Picture box */
+    .transparency-box {
+      background: linear-gradient(135deg, rgba(249,115,22,0.12) 0%, rgba(11,23,40,0.95) 100%);
+      border: 1px solid rgba(249,115,22,0.35);
+      border-radius: 8px;
+      padding: 22px 24px;
+      margin-bottom: 28px;
+    }
+    .transparency-box h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--orange);
+      margin-bottom: 14px;
+    }
+    .transparency-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .transparency-box li {
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: var(--white);
+      padding-left: 0;
+    }
+    .transparency-box li strong { color: var(--white); font-weight: 600; }
+    .transparency-box .transparency-footer {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #4ADE80;
+    }
+
+    /* Two-column main content */
+    .main-content-wrapper {
+      max-width: 1280px;
+      margin: 60px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: stretch;
+    }
+    @media (min-width: 992px) {
+      .main-content-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1.4fr;
+        gap: 60px;
+        align-items: start;
+      }
+    }
+    @media (max-width: 991px) {
+      .main-content-wrapper { padding: 20px; }
+    }
+
+    /* Left column: Trust & value (unified container) */
+    .trust-column {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%);
+      padding-right: 40px;
+    }
+    @media (max-width: 991px) {
+      .trust-column { padding-right: 0; }
+    }
+
+    /* Hero (left-aligned in left column) */
+    .bridge-hero {
+      text-align: left;
+      padding: 0 0 8px;
+    }
+    .bridge-hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+    .bridge-hero .hero-sub {
+      font-size: 1.08rem;
+      line-height: 1.65;
+      color: var(--grey);
+    }
+    @media (max-width: 560px) {
+      .bridge-hero h1 { font-size: 2rem; }
+      .bridge-hero .hero-sub { font-size: 0.98rem; }
+    }
+
+    /* Matt's note */
+    .matt-note {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      background: rgba(255,255,255,0.03);
+      border-left: 3px solid var(--orange);
+      padding: 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 30px 0;
+    }
+    .matt-photo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 2px solid var(--orange);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .matt-note-content { flex: 1; min-width: 0; }
+    .matt-note-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+    .matt-quote {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--grey);
+      margin-bottom: 12px;
+    }
+    .matt-signoff {
+      font-size: 0.85rem;
+      color: var(--white);
+      font-weight: 500;
+    }
+    .matt-signoff strong { font-weight: 600; }
+
+    /* USP / Radical Transparency (no separate background; unified with left column) */
+    .usp-card {
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 24px 0;
+      border: none;
+    }
+    .usp-card h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--orange);
+      margin-bottom: 18px;
+    }
+    .usp-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding-left: 0;
+      margin: 0;
+    }
+    .usp-card .usp-list li {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--white);
+      padding-left: 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .usp-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+    .usp-label {
+      font-weight: 600;
+      color: var(--white);
+    }
+    .usp-desc {
+      color: var(--white);
+    }
+    .usp-check {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F97316' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;
+      background-size: contain;
+    }
+    .usp-card .usp-check { filter: none; }
+    .usp-card li strong { color: var(--white); font-weight: 600; }
+    .usp-card .usp-footer {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #4ADE80;
+    }
+
+    /* Right column: form */
+    .form-column {
+      min-width: 0;
+    }
+
+    /* Form card (premium) */
+    .form-card {
+      background: var(--navy2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+      padding: 0;
+    }
+    .form-card .progress-wrap {
+      background: var(--navy2);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 20px 24px;
+    }
+    .form-card .progress-steps { max-width: 100%; }
+    .form-card .page-wrap {
+      padding: 40px 50px;
+      background: transparent;
+    }
+    @media (max-width: 991px) {
+      .form-card .page-wrap { padding: 20px; }
+    }
+    .form-card .what-happens-next {
+      background: rgba(0,0,0,0.15) !important;
+      border-color: var(--border) !important;
+    }
+    .form-card .what-happens-next h3 { color: var(--white); }
+    .form-card .what-happens-next strong { color: var(--white); }
+    .form-card .what-happens-next span { color: var(--grey); }
+
+    /* Below the fold container */
+    .below-fold-wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 60px 20px 80px;
+    }
+    .below-fold-wrap .reviews-section {
+      margin-bottom: 60px;
+    }
+    .below-fold-wrap .portfolio-section {
+      margin-bottom: 0;
+    }
+
+    /* Reviews section */
+    .reviews-section {
+      padding: 0;
+    }
+    .reviews-section h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .review-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 20px 22px;
+    }
+    .review-card-google .review-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .review-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'Barlow Condensed', sans-serif;
+    }
+    .review-meta { flex: 1; min-width: 0; }
+    .review-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+    .review-stars {
+      color: #fbbc04;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+    }
+    .review-card .quote {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 12px;
+    }
+    .review-company {
+      font-size: 0.8rem;
+      color: var(--grey);
+    }
+    .review-card .author { font-size: 0.9rem; font-weight: 600; color: var(--white); }
+    .review-card .company { font-size: 0.85rem; color: var(--grey); }
+    @media (max-width: 560px) {
+      .reviews-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Portfolio section */
+    .portfolio-section {
+      padding: 0;
+    }
+    .portfolio-section h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .portfolio-preview {
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .portfolio-preview:hover {
+      transform: translateY(-5px);
+      border-color: var(--orange);
+    }
+    .portfolio-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    @media (max-width: 560px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Footer */
+    .bridge-footer {
+      text-align: center;
+      padding: 24px 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--grey);
+    }
+    .bridge-footer span { margin-right: 6px; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo" aria-label="Spot On Websites – Home">
+    <img src="https://spotonwebsites.com.au/wp-content/uploads/2025/10/Spot-On-LeadFlow-3.png" alt="Spot On Websites">
+  </a>
+  <div style="font-size:0.85rem; color: var(--grey);">🔒 Secure Onboarding</div>
+</nav>
+
+<div class="main-content-wrapper">
+  <!-- Left column: Trust & value -->
+  <div class="trust-column">
+    <section class="bridge-hero" aria-label="Introduction">
+      <h1>Let's Get the Ball Rolling.</h1>
+      <p class="hero-sub">Give us 5 minutes to understand your business, and we'll have a custom 4-page website ready for you to review in 7 days.</p>
+    </section>
+
+    <div class="matt-note">
+      <img src="public/matt-profile.webp" alt="Matt" class="matt-photo">
+      <div class="matt-note-content">
+        <p class="matt-note-label">Matt's note</p>
+        <p class="matt-quote">"I know a custom site for $500 sounds like a trap. I get it. But we built this process for service businesses who just want a website that works, without the $5k agency price tag. Fill out the details, and if you don't love what we build, you don't pay. Simple as that."</p>
+        <p class="matt-signoff"><strong>Matt — Founder, Spot On Websites</strong></p>
+      </div>
+    </div>
+
+    <div class="usp-card" id="transparencyBox">
+      <h2>Total Transparency: How the Pricing Actually Works</h2>
+      <ul class="usp-list">
+        <li><span class="usp-check" aria-hidden="true"></span><span class="usp-item"><span class="usp-label">The Build:</span><span class="usp-desc">$500 total. No deposit.</span></span></li>
+        <li><span class="usp-check" aria-hidden="true"></span><span class="usp-item"><span class="usp-label">Milestone 1:</span><span class="usp-desc">Pay $250 only if you love the site on your Reveal Call.</span></span></li>
+        <li><span class="usp-check" aria-hidden="true"></span><span class="usp-item"><span class="usp-label">Milestone 2:</span><span class="usp-desc">Pay the final $250 when we go live (includes one round of revisions).</span></span></li>
+        <li><span class="usp-check" aria-hidden="true"></span><span class="usp-item"><span class="usp-label">Optional Add-ons:</span><span class="usp-desc">$29/mo for secure hosting, or $99/mo for our Growth Bundle (hosting + weekly SEO).</span></span></li>
+      </ul>
+      <p class="usp-footer">No lock-in contracts. No hidden thousands.</p>
+    </div>
+  </div>
+
+  <!-- Right column: Form card -->
+  <div class="form-column">
+<div class="form-card">
+  <div class="progress-wrap">
+    <div class="progress-steps">
+      <div class="p-step active" id="ps1">
+        <div class="p-step-num">1</div>
+        <div class="p-step-label">Your Business</div>
+      </div>
+      <div class="p-line"></div>
+      <div class="p-step" id="ps2">
+        <div class="p-step-num">2</div>
+        <div class="p-step-label">Services</div>
+      </div>
+      <div class="p-line"></div>
+      <div class="p-step" id="ps3">
+        <div class="p-step-num">3</div>
+        <div class="p-step-label">Brand &amp; Look</div>
+      </div>
+      <div class="p-line"></div>
+      <div class="p-step" id="ps4">
+        <div class="p-step-num">4</div>
+        <div class="p-step-label">Confirm</div>
+      </div>
+    </div>
+    <p class="progress-time-hint">About 5 min to complete</p>
+  </div>
+
+  <div class="page-wrap">
+    <div class="trust-note">
+      ✅ <strong>Zero deposit required.</strong> Pay $250 only when you love the build on your Reveal Call.
+    </div>
+
+  <!-- SECTION 1: Business Details -->
+  <div class="form-section active" id="section1">
+    <div class="form-header">
+      <div class="step-tag">Step 1 of 4</div>
+      <h1>Let's Get the Basics Down</h1>
+      <p>Tell us a bit about who you are so we can build a site that actually sounds like you.</p>
+    </div>
+    <div class="section-count">Section <span>01</span> / 04: Business Details</div>
+    <div class="step-error-banner" id="errorBanner1">Please fill in all required fields before continuing.</div>
+
+    <!-- Pre-filled notice (shown when name/email/phone come from optin) -->
+    <div id="contactPrefilled" style="display:none;" class="prefilled-notice">
+      <div class="prefilled-check">✓</div>
+      <div class="prefilled-text">
+        <strong id="prefilledName"></strong>
+        <span id="prefilledMeta"></span>
+      </div>
+      <button class="prefilled-edit" onclick="showContactFields()">Edit</button>
+    </div>
+
+    <!-- Contact fields (hidden when pre-filled from optin) -->
+    <div id="contactFieldsGroup">
+      <div class="field-group">
+        <label>Full Name <span>*</span></label>
+        <input type="text" id="fieldName" name="name" placeholder="e.g. Dave Hutchins" required />
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label>Phone Number <span>*</span></label>
+          <input type="tel" id="fieldPhone" name="phone" placeholder="e.g. 0412 345 678" required />
+        </div>
+        <div class="field-group">
+          <label>Email Address <span>*</span></label>
+          <input type="email" id="fieldEmail" name="email" placeholder="you@yourbusiness.com.au" required />
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>What's the official business name? <span>*</span></label>
+      <input type="text" id="fieldBusinessName" placeholder="e.g. Hutchins Plumbing" required />
+    </div>
+
+    <div class="field-group">
+      <label>Industry / Niche <span>*</span></label>
+      <select id="fieldTrade">
+        <option value="">Select your industry...</option>
+        <optgroup label="Construction / Trades">
+          <option>Plumber</option>
+          <option>Electrician</option>
+          <option>Builder / Carpenter</option>
+          <option>Painter</option>
+          <option>Concreter</option>
+          <option>Roofer</option>
+          <option>Tiler</option>
+          <option>Air Conditioning</option>
+          <option>Pest Control</option>
+          <option>Handyman</option>
+          <option>Flooring Specialist</option>
+          <option>Glazier / Glass</option>
+          <option>Fencer</option>
+          <option>Other Construction / Trade</option>
+        </optgroup>
+        <optgroup label="Clinic">
+          <option>Physiotherapist</option>
+          <option>Chiropractor</option>
+          <option>Dentist</option>
+          <option>GP / Medical Centre</option>
+          <option>Psychologist / Therapist</option>
+          <option>Naturopath</option>
+          <option>Podiatrist</option>
+          <option>Optometrist</option>
+          <option>Nutritionist / Dietitian</option>
+          <option>Osteopath</option>
+          <option>Massage Therapist</option>
+          <option>Other Health Clinic</option>
+        </optgroup>
+        <optgroup label="Consultant">
+          <option>Business Consultant</option>
+          <option>Financial Advisor</option>
+          <option>Accountant</option>
+          <option>Lawyer / Legal</option>
+          <option>Marketing Consultant</option>
+          <option>IT Consultant</option>
+          <option>HR Consultant</option>
+          <option>Mortgage Broker</option>
+          <option>Real Estate Agent</option>
+          <option>Coach / Mentor</option>
+          <option>Insurance Broker</option>
+          <option>Other Consultant</option>
+        </optgroup>
+        <optgroup label="Outdoor / Events">
+          <option>Landscaper / Gardener</option>
+          <option>Cleaner</option>
+          <option>Pool &amp; Spa</option>
+          <option>Tree Services</option>
+          <option>Event Planner</option>
+          <option>Wedding Photographer / Videographer</option>
+          <option>Catering</option>
+          <option>Security Services</option>
+          <option>Other Outdoor / Events</option>
+        </optgroup>
+        <optgroup label="Gym / Fitness">
+          <option>Personal Trainer</option>
+          <option>Gym / Fitness Centre</option>
+          <option>Yoga / Pilates Studio</option>
+          <option>CrossFit / Functional Fitness</option>
+          <option>Martial Arts / Boxing</option>
+          <option>Dance Studio</option>
+          <option>Sports Coaching</option>
+          <option>Nutritionist / Sports Dietitian</option>
+          <option>Other Gym / Fitness</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div class="field-group">
+      <label>Address <span>*</span></label>
+      <small>Your business or home address (used for your service area and contact page)</small>
+      <input type="text" id="fieldAddress" placeholder="e.g. 12 Smith St, Brisbane QLD 4000" required />
+    </div>
+
+    <div class="field-row">
+      <div class="field-group">
+        <label>Years in Business <span>*</span></label>
+        <select id="fieldYearsExperience">
+          <option value="">Select...</option>
+          <option value="Under 1 year">Under 1 year</option>
+          <option value="1-3 years">1-3 years</option>
+          <option value="3-5 years">3-5 years</option>
+          <option value="5-10 years">5-10 years</option>
+          <option value="10-15 years">10-15 years</option>
+          <option value="15-20 years">15-20 years</option>
+          <option value="20+ years">20+ years</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label>Business Hours</label>
+        <input type="text" id="fieldBusinessHours" placeholder="e.g. Mon-Fri 7am-5pm, Sat 8am-1pm" />
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Existing Website (if you have one)</label>
+      <input type="url" id="fieldExistingWebsite" placeholder="https://yourbusiness.com.au" />
+    </div>
+
+    <div class="btn-nav">
+      <button class="btn-next" onclick="validateAndGoTo(1, 2)">Next: Your Services →</button>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Services & Clients -->
+  <div class="form-section" id="section2">
+    <div class="form-header">
+      <div class="step-tag">Step 2 of 4</div>
+      <h1>Your Bread &amp; Butter</h1>
+      <p>Don't overthink this. Pretend we're at a BBQ and just tell us what you do. We'll turn it into professional website copy.</p>
+    </div>
+    <div class="section-count">Section <span>02</span> / 04: Services &amp; Clients</div>
+    <div class="step-error-banner" id="errorBanner2">Please fill in all required fields before continuing.</div>
+
+    <div class="field-group">
+      <label>Give us the quick elevator pitch <span>*</span></label>
+      <small>How would you describe your business to a mate? 1-3 sentences is perfect.</small>
+      <textarea id="fieldBusinessDoes" rows="3" placeholder="e.g. We're a Brisbane-based plumbing company specialising in residential repairs and new installs. We've been serving families and homeowners across Brisbane's northside for over 10 years."></textarea>
+    </div>
+
+    <div class="field-group">
+      <label>What are your core services? <span>*</span></label>
+      <small>List the main jobs you want to get hired for.</small>
+      <textarea id="fieldServices" rows="6" placeholder="e.g.&#10;Hot Water Systems&#10;Blocked Drains&#10;Gas Fitting&#10;Bathroom Renovations&#10;Emergency Plumbing&#10;Leak Detection"></textarea>
+    </div>
+
+    <div class="field-row">
+      <div class="field-group">
+        <label>Which service makes you the most money?</label>
+        <small>We'll make sure this gets prime real estate on the site.</small>
+        <input type="text" id="fieldMostProfitable" placeholder="e.g. Hot Water Replacements" />
+      </div>
+      <div class="field-group">
+        <label>Service Area <span>*</span></label>
+        <small>Suburb, city or region you cover</small>
+        <input type="text" id="fieldServiceArea" placeholder="e.g. Brisbane Northside, QLD" />
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Who are your favourite types of customers? <span>*</span></label>
+      <select id="fieldIdealClient">
+        <option value="">Select the closest match...</option>
+        <option value="Homeowners">Homeowners</option>
+        <option value="Renters / Tenants">Renters / Tenants</option>
+        <option value="Property Managers / Real Estate">Property Managers / Real Estate</option>
+        <option value="Business Owners (B2B)">Business Owners (B2B)</option>
+        <option value="Families & Couples">Families &amp; Couples</option>
+        <option value="Local Residents (general)">Local Residents (general)</option>
+        <option value="Corporate / Enterprise">Corporate / Enterprise</option>
+        <option value="Healthcare Patients">Healthcare Patients</option>
+        <option value="Event Clients / Couples">Event Clients / Couples</option>
+        <option value="Mixed / Multiple types">Mixed / Multiple types</option>
+      </select>
+    </div>
+
+    <div class="btn-nav">
+      <button class="btn-back" onclick="goTo(1)">← Back</button>
+      <button class="btn-next" onclick="validateAndGoTo(2, 3)">Next: Brand &amp; Look →</button>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Brand & Look -->
+  <div class="form-section" id="section3">
+    <div class="form-header">
+      <div class="step-tag">Step 3 of 4</div>
+      <h1>Make It Look Sharp</h1>
+      <p>Upload your logo and tell us your vibe.</p>
+    </div>
+    <div class="section-count">Section <span>03</span> / 04: Brand &amp; Look</div>
+    <div class="step-error-banner" id="errorBanner3">Please upload your logo before continuing.</div>
+
+    <div class="field-group" id="logoFieldGroup">
+      <label>Logo Upload <span>*</span></label>
+      <small>Upload your logo. PNG or SVG is best. Required so we can match your brand.</small>
+      <input type="hidden" role="uploadcare-uploader" id="logoUpload" name="logo" data-crop="disabled" />
+      <div class="logo-preview" id="logoPreview">
+        <img id="logoPreviewImg" src="" alt="Logo preview" />
+        <div class="logo-preview-info">
+          <strong id="logoPreviewName"></strong>
+          <span>Uploaded successfully ✓</span>
+        </div>
+        <button type="button" class="logo-preview-remove" onclick="removeLogo()">Remove</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Information for the About Us page</label>
+      <small>Optional. Background, story, team, or key points you’d like on your About page.</small>
+      <textarea id="fieldAboutUs" rows="4" placeholder="e.g. Family-owned since 2010, based in Brisbane. We specialise in..."></textarea>
+    </div>
+
+    <div class="field-group">
+      <label>Anything Else You Want on Your Website?</label>
+      <small>Any special requests, content notes, or things to avoid</small>
+      <textarea id="fieldNotes" placeholder="e.g. I want a quote form on the home page, I want to mention we're family-owned, etc."></textarea>
+    </div>
+
+    <div class="btn-nav">
+      <button class="btn-back" onclick="goTo(2)">← Back</button>
+      <button class="btn-next" onclick="validateAndGoTo(3, 4)">Next: Confirm →</button>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Confirm -->
+  <div class="form-section" id="section4">
+    <div class="form-header">
+      <div class="step-tag">Step 4 of 4</div>
+      <h1>Lock It In</h1>
+      <p>Review what happens next and submit your details. We'll get building straight away.</p>
+    </div>
+    <div class="section-count">Section <span>04</span> / 04: Confirm</div>
+
+    <div class="what-happens-next" style="background: var(--navy2); border: 1px solid var(--border); border-radius: 6px; padding: 24px; margin-bottom: 28px;">
+      <h3 style="font-family: 'Barlow Condensed', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 16px;">What Happens Next</h3>
+      <div style="display:flex; flex-direction:column; gap: 14px;">
+        <div style="display:flex; gap: 14px; align-items: flex-start;">
+          <div style="width:28px; height:28px; background: var(--orange); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.85rem; flex-shrink:0;">1</div>
+          <div><strong style="font-size:0.9rem;">We start building your website</strong><br><span style="color:var(--grey); font-size:0.82rem;">Within 24 hours of receiving your form, our team begins building your 4-page website.</span></div>
+        </div>
+        <div style="display:flex; gap: 14px; align-items: flex-start;">
+          <div style="width:28px; height:28px; background: var(--orange); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.85rem; flex-shrink:0;">2</div>
+          <div><strong style="font-size:0.9rem;">You book your reveal call</strong><br><span style="color:var(--grey); font-size:0.82rem;">On the next page, you'll book a 20-minute Google Meet for your website reveal — completely risk-free. No obligation. Ready within 7 days.</span></div>
+        </div>
+        <div style="display:flex; gap: 14px; align-items: flex-start;">
+          <div style="width:28px; height:28px; background: var(--orange); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.85rem; flex-shrink:0;">3</div>
+          <div><strong style="font-size:0.9rem;">See it. Love it. Pay $250.</strong><br><span style="color:var(--grey); font-size:0.82rem;">We show you the finished site. If you're happy with the direction, you pay $250 to lock it in and kick off your revisions.</span></div>
+        </div>
+        <div style="display:flex; gap: 14px; align-items: flex-start;">
+          <div style="width:28px; height:28px; background: var(--orange); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.85rem; flex-shrink:0;">4</div>
+          <div><strong style="font-size:0.9rem;">Revisions &amp; Go Live.</strong><br><span style="color:var(--grey); font-size:0.82rem;">We make your changes. Once it's perfect and live, you pay the final $250.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-nav">
+      <button class="btn-back" onclick="goTo(3)">← Back</button>
+      <button class="btn-next" id="submitBtn" onclick="submitOnboarding(this)">Lock This In & Book My Reveal Call →</button>
+    </div>
+  </div>
+
+  </div>
+</div>
+  </div>
+</div>
+
+<!-- Below the fold: Reviews + Portfolio -->
+<div class="below-fold-wrap">
+<section class="reviews-section" aria-label="Client reviews">
+  <h2>Don't just take our word for it.</h2>
+  <div class="reviews-grid">
+    <div class="review-card review-card-google">
+      <div class="review-card-header">
+        <div class="review-avatar" aria-hidden="true">NL</div>
+        <div class="review-meta">
+          <div class="review-name">Nick Lange</div>
+          <div class="review-stars" aria-hidden="true">★★★★★</div>
+        </div>
+      </div>
+      <p class="quote">"Very tuned in to client needs and go above and beyond highly recommend."</p>
+      <div class="review-company">Green Earth Pest Control</div>
+    </div>
+    <div class="review-card review-card-google">
+      <div class="review-card-header">
+        <div class="review-avatar" aria-hidden="true">AT</div>
+        <div class="review-meta">
+          <div class="review-name">Andrew Trask</div>
+          <div class="review-stars" aria-hidden="true">★★★★★</div>
+        </div>
+      </div>
+      <p class="quote">"Matt and the team made this entire process of getting my website up and running a piece of cake!"</p>
+      <div class="review-company">Emergency Blocked Drains</div>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio -->
+<section class="portfolio-section" aria-label="Example work">
+  <h2>Built for Tradies &amp; Service Businesses.</h2>
+  <div class="portfolio-grid">
+    <div class="portfolio-preview">
+      <img src="public/Website Previews/screencapture-binpro-au-2026-01-15-19_58_04.webp" alt="Bin Pro website preview" class="portfolio-img">
+    </div>
+    <div class="portfolio-preview">
+      <img src="public/Website Previews/screencapture-swpatios-au-2026-01-15-20_02_53.webp" alt="SW Patios website preview" class="portfolio-img">
+    </div>
+  </div>
+</section>
+</div>
+
+<footer class="bridge-footer">
+  <span aria-hidden="true">🔒</span> © <span id="footerYear"></span> Spot On Websites. Secure onboarding.
+</footer>
+
+<script>
+  // ── Pre-fill from optin URL params ──
+  (function() {
+    const p = new URLSearchParams(window.location.search);
+    const name  = (p.get('name')  || '').trim();
+    const email = (p.get('email') || '').trim();
+    const phone = (p.get('phone') || '').trim();
+
+    if (name || email || phone) {
+      // Populate the inputs (keeps values in the form even when hidden)
+      if (name)  document.getElementById('fieldName').value  = name;
+      if (email) document.getElementById('fieldEmail').value = email;
+      if (phone) document.getElementById('fieldPhone').value = phone;
+    }
+
+    if (name && email && phone) {
+      // Hide the contact input group and show the pre-filled notice
+      document.getElementById('contactFieldsGroup').style.display = 'none';
+      const notice = document.getElementById('contactPrefilled');
+      notice.style.display = 'flex';
+      document.getElementById('prefilledName').textContent = name;
+      document.getElementById('prefilledMeta').textContent = email + ' · ' + phone;
+    }
+  })();
+
+  function showContactFields() {
+    document.getElementById('contactFieldsGroup').style.display = 'block';
+    document.getElementById('contactPrefilled').style.display = 'none';
+  }
+
+  // ── Uploadcare logo widget ──
+  var logoUrl = '';
+  var logoFileName = '';
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof uploadcare === 'undefined') return;
+    var widget = uploadcare.Widget('#logoUpload');
+    widget.onUploadComplete(function(info) {
+      logoUrl = info.cdnUrl;
+      logoFileName = info.name || 'logo';
+      var preview = document.getElementById('logoPreview');
+      var img     = document.getElementById('logoPreviewImg');
+      var name    = document.getElementById('logoPreviewName');
+      img.src     = info.cdnUrl + '-/preview/300x120/';
+      name.textContent = logoFileName;
+      preview.style.display = 'flex';
+      var logoGroup = document.getElementById('logoFieldGroup');
+      if (logoGroup) clearFieldError(logoGroup);
+    });
+  });
+
+  function removeLogo() {
+    logoUrl = '';
+    logoFileName = '';
+    document.getElementById('logoPreview').style.display = 'none';
+    if (typeof uploadcare !== 'undefined') uploadcare.Widget('#logoUpload').value(null);
+    var logoGroup = document.getElementById('logoFieldGroup');
+    if (logoGroup) clearFieldError(logoGroup);
+  }
+
+  // ── Address parser — best-effort extraction of suburb / postcode / state ──
+  function parseAddress(raw) {
+    const states = ['NSW','VIC','QLD','SA','WA','TAS','ACT','NT'];
+    const postcode = (raw.match(/\b(\d{4})\b/) || [])[1] || '';
+    const stateMatch = raw.match(new RegExp('\\b(' + states.join('|') + ')\\b', 'i'));
+    const state = stateMatch ? stateMatch[1].toUpperCase() : '';
+    // Suburb is the word(s) immediately before the state abbreviation
+    const suburbMatch = raw.match(new RegExp('([\\w\\s]+?)\\s*,?\\s*' + state + '\\b', 'i'));
+    const suburb = suburbMatch ? suburbMatch[1].trim().replace(/^.*,\s*/, '') : '';
+    return { suburb, postcode, state };
+  }
+
+  // ── Final submit — fire both webhooks in parallel then go to booking ──
+  async function submitOnboarding(btn) {
+    btn.textContent = 'Submitting…';
+    btn.disabled = true;
+
+    const p = new URLSearchParams(window.location.search);
+
+    // Collect shared values once
+    const name     = document.getElementById('fieldName').value.trim()  || p.get('name')  || '';
+    const email    = document.getElementById('fieldEmail').value.trim() || p.get('email') || '';
+    const phone    = document.getElementById('fieldPhone').value.trim() || p.get('phone') || '';
+    const address  = document.getElementById('fieldAddress').value.trim();
+    const parsed   = parseAddress(address);
+
+    // Resolve logo URL from widget at submit time (avoid stale/cached value)
+    var resolvedLogoUrl = logoUrl;
+    try {
+      if (typeof uploadcare !== 'undefined') {
+        var w = uploadcare.Widget('#logoUpload');
+        var val = w.getValue();
+        if (val != null && typeof val.then === 'function') {
+          var file = await val;
+          resolvedLogoUrl = (file && file.cdnUrl) ? file.cdnUrl : '';
+        } else if (val && val.cdnUrl) {
+          resolvedLogoUrl = val.cdnUrl;
+        } else if (!val) {
+          resolvedLogoUrl = '';
+        }
+      }
+    } catch (e) {
+      resolvedLogoUrl = logoUrl;
+    }
+
+    // ── Payload 1: GHL webhook ──
+    const ghlPayload = {
+      name, email, phone,
+      business_name:    document.getElementById('fieldBusinessName').value.trim(),
+      industry:         document.getElementById('fieldTrade').value,
+      address,
+      years_of_experience: document.getElementById('fieldYearsExperience').value,
+      business_hours:   document.getElementById('fieldBusinessHours').value.trim(),
+      existing_website: document.getElementById('fieldExistingWebsite').value.trim(),
+      explain_what_your_business_does: document.getElementById('fieldBusinessDoes').value.trim(),
+      list_of_main_services:           document.getElementById('fieldServices').value.trim(),
+      most_profitable_services:        document.getElementById('fieldMostProfitable').value.trim(),
+      service_area:                    document.getElementById('fieldServiceArea').value.trim(),
+      ideal_client:                    document.getElementById('fieldIdealClient').value,
+      colour_primary:   '#F97316',
+      colour_secondary: '#0B1728',
+      logo_url:         resolvedLogoUrl,
+      about_us_info:    document.getElementById('fieldAboutUs').value.trim(),
+      notes:            document.getElementById('fieldNotes').value.trim()
+    };
+
+    // ── Payload 2: Apex builder webhook ──
+    const apexPayload = {
+      business_name:    document.getElementById('fieldBusinessName').value.trim(),
+      niche:            document.getElementById('fieldTrade').value,
+      contact_email:    email,
+      contact_id:       '',
+      business_suburb:  parsed.suburb,
+      business_postcode: parsed.postcode,
+      business_state:   parsed.state,
+      suburb:           parsed.suburb,
+      postcode:         parsed.postcode,
+      post_code:        parsed.postcode,
+      state:            parsed.state,
+      explain_what_your_busines_does:     document.getElementById('fieldBusinessDoes').value.trim(),
+      ideal_client:     document.getElementById('fieldIdealClient').value,
+      list_of_main_services: document.getElementById('fieldServices').value.trim(),
+      service_area:     document.getElementById('fieldServiceArea').value.trim(),
+      years_of_experience: document.getElementById('fieldYearsExperience').value,
+      most_profitable_services: document.getElementById('fieldMostProfitable').value.trim(),
+      google_business_profile: false,
+      target_suburbs:   document.getElementById('fieldServiceArea').value.trim(),
+      business_hours:   document.getElementById('fieldBusinessHours').value.trim(),
+      email,
+      phone,
+      address,
+      existing_website: document.getElementById('fieldExistingWebsite').value.trim()
+    };
+
+    const post = (url, data) => fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    const slackPayload = {
+      email: email,
+      name: name,
+      niche: document.getElementById('fieldTrade').value || ''
+    };
+
+    // Fire all webhooks simultaneously — redirect regardless of outcome
+    await Promise.allSettled([
+      post('https://services.leadconnectorhq.com/hooks/30kf4HX82D5x9unRwhNm/webhook-trigger/b7bf577c-0ff2-4377-98e0-3a2cca479421', ghlPayload),
+      post('https://apex.spotonwebsites.com.au/api/webhooks/ghl?secret=abc123xyz789', apexPayload),
+      post('https://hooks.slack.com/triggers/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', slackPayload)
+    ]);
+
+    if (typeof fbq !== 'undefined') fbq('trackCustom', 'Optin');
+    logoUrl = '';
+    logoFileName = '';
+    window.location.href = 'booking.html';
+  }
+
+  // ── Field validation ──
+  const stepRules = {
+    1: [
+      { id: 'fieldName',         label: 'Full Name',          visibleCheck: () => document.getElementById('contactFieldsGroup').style.display !== 'none' },
+      { id: 'fieldPhone',        label: 'Phone Number',       visibleCheck: () => document.getElementById('contactFieldsGroup').style.display !== 'none' },
+      { id: 'fieldEmail',        label: 'Email Address',      visibleCheck: () => document.getElementById('contactFieldsGroup').style.display !== 'none' },
+      { id: 'fieldBusinessName', label: 'Official business name' },
+      { id: 'fieldTrade',        label: 'Industry / Niche' },
+      { id: 'fieldAddress',      label: 'Address' },
+      { id: 'fieldYearsExperience', label: 'Years in Business' }
+    ],
+    2: [
+      { id: 'fieldBusinessDoes', label: 'Quick elevator pitch' },
+      { id: 'fieldServices',     label: 'Core services' },
+      { id: 'fieldServiceArea',  label: 'Service Area' },
+      { id: 'fieldIdealClient',  label: 'Favourite types of customers' }
+    ],
+    3: [
+      { id: 'logoUpload', label: 'Logo', customValue: () => logoUrl }
+    ]
+  };
+
+  function clearFieldError(el) {
+    el.classList.remove('field-error');
+    const next = el.nextElementSibling;
+    if (next && next.classList.contains('field-error-msg')) next.remove();
+    var inner = el.querySelector('.field-error-msg');
+    if (inner) inner.remove();
+  }
+
+  function validateAndGoTo(fromStep, toStep) {
+    const rules = stepRules[fromStep] || [];
+    const banner = document.getElementById('errorBanner' + fromStep);
+
+    // Clear previous errors
+    rules.forEach(r => {
+      const el = document.getElementById(r.id);
+      if (el) clearFieldError(el);
+      if (r.customValue && fromStep === 3) {
+        const logoGroup = document.getElementById('logoFieldGroup');
+        if (logoGroup) clearFieldError(logoGroup);
+      }
+    });
+    if (banner) banner.classList.remove('visible');
+
+    const missingLabels = [];
+    let firstError = null;
+    rules.forEach(r => {
+      if (r.visibleCheck && !r.visibleCheck()) return;
+      const value = r.customValue ? r.customValue() : (function() {
+        const el = document.getElementById(r.id);
+        return el ? el.value.trim() : '';
+      })();
+      if (value !== '') return;
+      missingLabels.push(r.label);
+      const el = document.getElementById(r.id);
+      if (r.customValue) {
+        var container = document.getElementById('logoFieldGroup');
+        if (container) {
+          container.classList.add('field-error');
+          var existing = container.querySelector('.field-error-msg');
+          if (!existing) {
+            var msg = document.createElement('span');
+            msg.className = 'field-error-msg';
+            msg.textContent = r.label + ' is required.';
+            container.appendChild(msg);
+          }
+          if (!firstError) firstError = container;
+        }
+      } else if (el) {
+        el.classList.add('field-error');
+        var msg = document.createElement('span');
+        msg.className = 'field-error-msg';
+        msg.textContent = r.label + ' is required.';
+        el.insertAdjacentElement('afterend', msg);
+        if (!firstError) firstError = el;
+      }
+    });
+
+    if (firstError) {
+      if (banner) {
+        if (missingLabels.length === 1) {
+          banner.textContent = 'Please complete the required field: ' + missingLabels[0] + '.';
+        } else {
+          banner.textContent = 'Please complete the ' + missingLabels.length + ' required fields below: ' + missingLabels.join(', ') + '.';
+        }
+        banner.classList.add('visible');
+      }
+      firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      firstError.focus();
+      var nextBtn = document.querySelector('#section' + fromStep + ' .btn-next');
+      if (nextBtn) {
+        nextBtn.classList.remove('shake');
+        void nextBtn.offsetWidth;
+        nextBtn.classList.add('shake');
+        setTimeout(function() { nextBtn.classList.remove('shake'); }, 400);
+      }
+      return;
+    }
+    goTo(toStep);
+  }
+
+  // Clear field errors on input/change
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('input, select, textarea').forEach(function(el) {
+      el.addEventListener('input', function() { clearFieldError(el); });
+      el.addEventListener('change', function() { clearFieldError(el); });
+    });
+  });
+
+  function goTo(step) {
+    // Hide all sections
+    document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.p-step').forEach(s => { 
+      s.classList.remove('active'); 
+    });
+
+    // Show target section
+    document.getElementById('section' + step).classList.add('active');
+    document.getElementById('ps' + step).classList.add('active');
+
+    // Mark previous steps done
+    for (let i = 1; i < step; i++) {
+      document.getElementById('ps' + i).classList.add('done');
+    }
+
+    var formCard = document.querySelector('.form-card');
+    if (formCard) {
+      formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  // Footer year
+  var footerEl = document.getElementById('footerYear');
+  if (footerEl) footerEl.textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Keep funnel steps out of search results (noindex also set in HTML)
+Disallow: /onboarding.html
+Disallow: /onboarding-cold.html
+Disallow: /booking.html
+Disallow: /thank-you.html
