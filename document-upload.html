@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Documents & Images - Spot On Websites</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Facebook Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '834466499006537');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=834466499006537&ev=PageView&noscript=1"/>
+    </noscript>
+    
+    <style>
+        :root {
+            --bg-dark: #0F0F0F;
+            --bg-card: #161616;
+            --text-white: #FFFFFF;
+            --text-grey: #C0C0C0;
+            --text-muted: #999999;
+            --accent-blue: #00D4FF;
+            --accent-green: #00FF88;
+            --accent-red: #FF4444;
+            --font-head: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            padding: 40px 0;
+        }
+
+        h1, h2, h3, h4 { 
+            font-family: var(--font-head); 
+            text-transform: uppercase; 
+            letter-spacing: -0.5px; 
+            line-height: 1.15;
+            color: var(--text-white);
+        }
+        
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 0 24px; 
+        }
+
+        .text-center { text-align: center; }
+
+        /* Hero Section */
+        .hero {
+            padding: 40px 0 30px;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0F0F0F 70%);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: var(--text-grey);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Upload Card */
+        .upload-card {
+            background: var(--bg-card);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 0 auto;
+            max-width: 800px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .upload-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-blue);
+            text-align: center;
+        }
+
+        .upload-card p {
+            color: var(--text-grey);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .info-box {
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-box h3 {
+            color: var(--accent-blue);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .info-box li {
+            color: var(--text-white);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .warning-box {
+            background: rgba(255, 68, 68, 0.1);
+            border: 2px solid rgba(255, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .warning-box h3 {
+            color: var(--accent-red);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .warning-box p {
+            color: var(--text-white);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .warning-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .warning-box strong {
+            color: var(--accent-red);
+        }
+
+        .info-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: 800;
+        }
+
+        /* GHL Form Container */
+        .ghl-form-container {
+            position: relative;
+            width: 100%;
+            min-height: 600px;
+            margin: 30px auto 0;
+            padding: 0;
+            overflow: hidden;
+            max-width: 800px;
+        }
+
+        .ghl-form-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 600px;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        /* Note: Direct iframe styling is limited due to cross-origin restrictions.
+           Styles will be injected via JavaScript when iframe loads. */
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .upload-card {
+                padding: 30px 20px;
+            }
+
+            .ghl-form-container {
+                margin: 30px -24px 0 !important;
+                width: calc(100% + 48px) !important;
+                max-width: none !important;
+            }
+
+            .ghl-form-container iframe {
+                min-height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <img src="https://spotonwebsites.com.au/wp-content/uploads/2025/10/Spot-On-LeadFlow-3.png" alt="Spot On Websites" style="max-width: 250px; height: auto; filter: brightness(1.1);" width="250" height="auto" loading="eager">
+            </div>
+            <h1>📎 Upload Documents & Images</h1>
+            <p>Share your files, logos, photos, and documents for your website build</p>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section class="upload-section">
+        <div class="container">
+            <div class="upload-card">
+                <h2>Upload Your Files</h2>
+                <p>You can upload up to 10 files at a time. After submitting, you can upload 10 more.</p>
+
+                <!-- 7-Day Warning Box -->
+                <div class="warning-box">
+                    <h3>
+                        <span>⚠️</span>
+                        <span>Important: 7-Day Submission Deadline</span>
+                    </h3>
+                    <p>
+                        <strong>If you are uploading files 7 days or more after your deposit payment,</strong> please call our office to confirm before submitting, as it's highly likely your website build has already commenced.
+                    </p>
+                    <p>
+                        <strong>Submissions after 7 days from the date of your deposit payment are not guaranteed to be included on your website.</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- GHL Form Container (Outside the card) -->
+            <div class="ghl-form-container" id="ghlFormContainer">
+                <iframe
+                    id="ghlFormIframe"
+                    src="https://crm.spotonwebsites.com.au/widget/form/YAVKp0S8lL6rrVWEPcBB"
+                    style="width:100%;height:100%;border:none;border-radius:0;display:block;margin:0;padding:0;"
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-trigger-value=""
+                    data-activation-type="alwaysActivated"
+                    data-activation-value=""
+                    data-deactivation-type="neverDeactivate"
+                    data-deactivation-value=""
+                    data-form-name="Image Uploader"
+                    data-height="667"
+                    data-layout-iframe-id="inline-YAVKp0S8lL6rrVWEPcBB"
+                    data-form-id="YAVKp0S8lL6rrVWEPcBB"
+                    title="Image Uploader"
+                    frameborder="0"
+                    scrolling="no"
+                    allow="camera; microphone">
+                </iframe>
+            </div>
+            <script src="https://crm.spotonwebsites.com.au/js/form_embed.js"></script>
+            
+            <!-- Encryption Notice -->
+            <div class="upload-card" style="margin-top: 30px;">
+                <div style="text-align: center; padding: 15px;">
+                    <p style="color: var(--text-grey); font-size: 0.85rem; margin: 0; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                        <span style="color: var(--accent-green); font-size: 1.1rem;">🔒</span>
+                        <span>Your files are encrypted and securely transmitted</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        (() => {
+            const FORM_SRC = "https://crm.spotonwebsites.com.au/widget/form/YAVKp0S8lL6rrVWEPcBB";
+            const IFRAME_ID = "ghlFormIframe";
+            const EMAIL_KEY = "spoton_upload_email";
+
+            const allowedOrigins = new Set([
+                "https://crm.spotonwebsites.com.au",
+            ]);
+
+            const qs = new URLSearchParams(window.location.search);
+
+            function getEmail() {
+                return qs.get("email") || localStorage.getItem(EMAIL_KEY) || "";
+            }
+
+            function setEmail(email) {
+                if (email) localStorage.setItem(EMAIL_KEY, email);
+            }
+
+            function loadForm() {
+                const iframe = document.getElementById(IFRAME_ID);
+                if (!iframe) return;
+
+                const url = new URL(FORM_SRC);
+                const email = getEmail();
+                if (email) url.searchParams.set("email", email);
+
+                // cache-buster so the form actually reloads
+                url.searchParams.set("_t", Date.now().toString());
+
+                iframe.src = url.toString();
+            }
+
+            // store email from the page URL if present
+            setEmail(qs.get("email") || "");
+
+            // initial load
+            window.addEventListener("DOMContentLoaded", loadForm);
+
+            // listen for submit ping from the form
+            window.addEventListener("message", (event) => {
+                if (!allowedOrigins.has(event.origin)) return;
+
+                const data = event.data || {};
+                if (data.type !== "GHL_UPLOAD_SUBMITTED") return;
+
+                if (data.email) setEmail(data.email);
+
+                // let the success message show briefly, then reload
+                setTimeout(loadForm, 1200);
+            });
+        })();
+    </script>
+<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "45c989d82d2d403fae6f24ed376a0bdd"}'></script><!-- Cloudflare Pages Analytics --></body>
+</html>
+

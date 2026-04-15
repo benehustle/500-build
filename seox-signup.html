@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Your SEOx Trial - Spot On Websites</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Facebook Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '834466499006537');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=834466499006537&ev=PageView&noscript=1"/>
+    </noscript>
+    
+    <style>
+        :root {
+            --bg-dark: #0F0F0F;
+            --bg-card: #161616;
+            --text-white: #FFFFFF;
+            --text-grey: #C0C0C0;
+            --text-muted: #999999;
+            --accent-blue: #00D4FF;
+            --accent-green: #00FF88;
+            --accent-red: #FF4444;
+            --font-head: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 { 
+            font-family: var(--font-head); 
+            text-transform: uppercase; 
+            letter-spacing: -0.5px; 
+            line-height: 1.15;
+            color: var(--text-white);
+        }
+        
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+        .text-center { text-align: center; }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0 40px;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0F0F0F 70%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-grey);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Trial Badge */
+        .trial-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-blue) 100%);
+            color: #000;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin: 20px 0;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Signup Card */
+        .signup-card {
+            background: var(--bg-card);
+            border: 2px solid var(--accent-green);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 700px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(0, 255, 136, 0.2);
+            position: relative;
+        }
+
+        .signup-card::before {
+            content: '⚡ HIGH OCTANE';
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--accent-green);
+            color: #000;
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 0.75rem;
+        }
+
+        .signup-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-green);
+            text-align: center;
+        }
+
+        .price-box {
+            text-align: center;
+            margin: 30px 0;
+            padding: 25px;
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 15px;
+            border: 2px solid var(--accent-green);
+        }
+
+        .price-box .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-green);
+            margin-bottom: 5px;
+        }
+
+        .price-box .price-label {
+            font-size: 1rem;
+            color: var(--text-grey);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ad-spend-box {
+            background: rgba(255, 68, 68, 0.15);
+            border: 2px solid rgba(255, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .ad-spend-box p {
+            color: var(--text-white);
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .ad-spend-box .amount {
+            color: #ff6b6b;
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .features-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: start;
+            gap: 15px;
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: var(--accent-green);
+            font-weight: 800;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .info-box {
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid var(--accent-green);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+
+        .info-box h3 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .info-box p {
+            color: var(--text-white);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .warning-box {
+            background: rgba(255, 68, 68, 0.1);
+            border: 2px solid rgba(255, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+
+        .warning-box p {
+            color: var(--text-white);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent-green) 0%, #00cc66 100%);
+            color: #000;
+            padding: 20px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.4), 0 0 60px rgba(0, 255, 136, 0.2);
+            transition: all 0.3s ease;
+            border: 3px solid var(--accent-green);
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 50px rgba(0, 255, 136, 0.5), 0 0 80px rgba(0, 255, 136, 0.3);
+        }
+
+        .guarantee {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .guarantee p {
+            color: var(--text-grey);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .signup-card {
+                padding: 30px 20px;
+            }
+
+            .price-box .price {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>⚡ Start Your SEOx Trial</h1>
+            <p>Get 35 days FREE to test our high-octane marketing services. Immediate traffic + long-term growth.</p>
+            <div class="trial-badge">35 DAY FREE TRIAL</div>
+        </div>
+    </section>
+
+    <!-- Signup Section -->
+    <section class="signup-section">
+        <div class="container">
+            <div class="signup-card">
+                <h2>SEOx - High Octane</h2>
+                
+                <div class="price-box">
+                    <div class="price">$1,200<span style="font-size: 1.5rem;">/month</span></div>
+                    <div class="price-label">After 35-Day Free Trial</div>
+                </div>
+
+                <div class="ad-spend-box">
+                    <p>⚠️ <strong>Ad Spend Required:</strong> You must budget at least <span class="amount">$1,000/month</span> in ad spend</p>
+                    <p style="font-size: 0.85rem; font-weight: 400; margin-top: 8px; color: var(--text-grey);">(Separate from the $1,200/month service fee)</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>🎁 What You Get</h3>
+                    <p><strong>35-Day Free Trial:</strong> Test our SEOx services completely free for 35 days (1 month + 5 days for migration).</p>
+                    <p><strong>Hands-Off Service:</strong> Our team handles everything after onboarding. You just watch the results.</p>
+                    <p><strong>Best of Both Worlds:</strong> Immediate traffic from ads (Day 1) + long-term SEO growth (3-6 months).</p>
+                    <p><strong>Smart Platform Selection:</strong> Our team decides whether Google Ads or Meta Ads is best for your business.</p>
+                </div>
+
+                <ul class="features-list">
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span><strong>Everything in SEO</strong> - Complete SEO optimization package</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span><strong>Google Analytics Management</strong> - Track and optimize performance</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span><strong>Google Ads & Meta Ads Management</strong> - Our team decides which is best</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span><strong>Ad Creative & Copy</strong> - Professional ads that convert</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span><strong>Campaign Optimization</strong> - Continuous improvement for better results</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span><strong>Dedicated Account Manager</strong> - Personal support when you need it</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span><strong>Monthly Strategy Review</strong> - Regular check-ins and adjustments</span>
+                    </li>
+                </ul>
+
+                <div class="warning-box">
+                    <p><strong>⚠️ Trial Terms:</strong></p>
+                    <p>• <strong>Free for 35 days</strong> (1 month + 5 days for migration)</p>
+                    <p>• After trial: <strong>$1,200/month</strong> with 3-month minimum commitment</p>
+                    <p>• <strong>Cancel anytime during trial</strong> with no penalty</p>
+                    <p>• We ask for a <strong>video testimonial and Google review</strong> as a thank you for the free trial</p>
+                    <p>• <strong>Ad spend required:</strong> Minimum $1,000/month (separate from service fee)</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>📈 Expected Results</h3>
+                    <p><strong>Timeline:</strong> Expect immediate traffic and leads from ads (Day 1). SEO improvements will start showing within 3-6 months, with significant growth by 6-12 months.</p>
+                    <p><strong>Best For:</strong> Businesses that want both immediate results AND long-term sustainable growth.</p>
+                </div>
+
+                <button id="checkout-button" class="cta-button">
+                    Start My 35-Day Free Trial →
+                </button>
+
+                <div class="guarantee">
+                    <p>✓ Cancel anytime during the 35-day trial period with no penalty</p>
+                    <p>✓ Hands-off service - we handle everything after onboarding</p>
+                    <p>✓ Our team decides which ad platform (Google or Meta) is best for your business</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stripe Checkout Script -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        // Get URL parameter function
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Get email from URL parameter
+        let customerEmail = getUrlParameter('email');
+
+        const checkoutButton = document.getElementById('checkout-button');
+        
+        checkoutButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Track Facebook Pixel event
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout', {
+                    content_name: 'SEOx Trial',
+                    value: 1200,
+                    currency: 'AUD'
+                });
+            }
+
+            // Check if backend endpoint exists, otherwise use direct Stripe Checkout Link
+            // Option 1: If you have a backend endpoint, uncomment this:
+            /*
+            fetch('/create-checkout-session-seox', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    productId: 'prod_TWPlijGlkxrWbs',
+                    trialDays: 35,
+                    productName: 'SEOx - High Octane',
+                    customerEmail: customerEmail || null
+                }),
+            })
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error('Backend endpoint not found. Please use Stripe Checkout Link instead.');
+                }
+                return response.json();
+            })
+            .then(function(session) {
+                if (typeof Stripe !== 'undefined') {
+                    const stripe = Stripe('YOUR_STRIPE_PUBLISHABLE_KEY');
+                    return stripe.redirectToCheckout({ sessionId: session.id });
+                }
+            })
+            .catch(function(error) {
+                console.error('Error:', error);
+                alert('Please contact support or use the direct checkout link.');
+            });
+            */
+
+            // Option 2: Direct Payment Link (RECOMMENDED - Works immediately)
+            const paymentLink = 'https://crm.spotonwebsites.com.au/payment-link/695f338abf418208391b226f';
+            
+            // Add email to payment link if available
+            let finalLink = paymentLink;
+            if (customerEmail) {
+                finalLink += (finalLink.includes('?') ? '&' : '?') + 'email=' + encodeURIComponent(customerEmail);
+            }
+            window.location.href = finalLink;
+        });
+    </script>
+<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "45c989d82d2d403fae6f24ed376a0bdd"}'></script><!-- Cloudflare Pages Analytics --></body>
+</html>
+
