@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, follow">
-  <title>Secure Payment - Spot On Websites</title>
+  <title>Final Payment & Go Live - Spot On Websites</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -392,9 +392,9 @@
 <body>
   <main class="container">
     <header class="page-header">
-      <span class="status-pill">Secure Stripe Payment</span>
-      <h1>Lock In Your Build Spot</h1>
-      <p>Pay your $100 deposit now to secure your slot and lifetime hosting bonus. Then pay $600 on first draft approval and the final $297 on go live.</p>
+      <span class="status-pill">Go live</span>
+      <h1>Final payment — launch your site</h1>
+      <p>Pay your final $297 to go live. Once this clears, we complete DNS, handover, and your site is yours — with lifetime hosting included on this offer.</p>
     </header>
 
     <section class="proof-strip" aria-label="Social proof">
@@ -428,7 +428,7 @@
         </blockquote>
       </div>
       <p class="trust-line">
-        <strong>SSL secure checkout</strong> · <strong>$100 refundable</strong> if you are not happy · Milestone payments: $100 now · $600 on draft approval · $297 on go live
+        <strong>SSL secure checkout</strong> · Milestone payments: $100 deposit · $600 on draft approval · <strong>$297 go live (this page)</strong>
       </p>
     </section>
 
@@ -464,21 +464,24 @@
             </div>
           </div>
 
-          <button id="pay-button" class="btn-pay" type="submit">Pay Deposit</button>
+          <button id="pay-button" class="btn-pay" type="submit">Pay $297 &amp; go live</button>
           <div id="payment-message" class="message" role="status" aria-live="polite"></div>
           <div id="post-pay-actions" class="post-pay-actions">
-            <a href="site-onboarding.html" class="btn-continue" id="btn-continue-onboarding">Continue to onboarding →</a>
+            <a href="thank-you.html" class="btn-continue" id="btn-continue-onboarding">Continue to confirmation →</a>
             <p class="redirect-note" id="redirect-countdown">You will be redirected automatically in a few seconds…</p>
           </div>
           <p class="secure-note">Payments are processed securely by Stripe. We never store your raw card details.</p>
         </form>
 
-        <a href="bridge.html" class="back-link">← Back to your locked offer page</a>
+        <a href="booking.html" class="back-link">← Back to booking</a>
+        <span class="back-link" style="display:block;margin-top:8px;">
+          <a href="payment-progress.html" style="color:inherit;">Need the $600 milestone first? →</a>
+        </span>
       </section>
 
       <aside class="card summary-card">
         <h2 class="section-title">Order Summary</h2>
-        <p class="section-subtitle">Your deposit secures this offer.</p>
+        <p class="section-subtitle">Final instalment when you are ready to launch.</p>
 
         <div class="total-row">
           <span>Total Website Package</span>
@@ -488,22 +491,18 @@
           <span>Lifetime Hosting Bonus</span>
           <span style="color:#00ff88;">Included</span>
         </div>
-        <div class="total-row highlight">
-          <span>Deposit Due Today</span>
-          <span id="deposit-amount">$100.00</span>
+        <div class="total-row">
+          <span>Deposit (paid)</span>
+          <span>$100.00</span>
         </div>
         <div class="total-row">
-          <span>On First Draft Approval</span>
+          <span>Progress payment (paid)</span>
           <span>$600.00</span>
         </div>
-        <div class="total-row">
-          <span>Final Payment On Go Live</span>
-          <span>$297.00</span>
+        <div class="total-row highlight">
+          <span>Due now — go live</span>
+          <span id="deposit-amount">$297.00</span>
         </div>
-        <p style="margin-top:14px;font-size:0.85rem;color:var(--text-muted);line-height:1.5;">
-          Draft approved? <a href="payment-progress.html" style="color:var(--accent-blue);">Pay $600 progress →</a><br>
-          Ready to launch? <a href="payment-final.html" style="color:var(--accent-blue);">Pay $297 final →</a>
-        </p>
       </aside>
     </div>
   </main>
@@ -553,7 +552,7 @@
 
     async function initStripeForm() {
       try {
-        const configRes = await fetch("/api/stripe-config");
+        const configRes = await fetch("/api/stripe-config?tier=final");
         const config = await configRes.json();
 
         if (!configRes.ok) {
@@ -615,7 +614,7 @@
             const intentRes = await fetch("/api/create-payment-intent", {
               method: "POST",
               headers: { "content-type": "application/json" },
-              body: JSON.stringify({ customerName, customerEmail, tier: "deposit" })
+              body: JSON.stringify({ customerName, customerEmail, tier: "final" })
             });
             const intentData = await intentRes.json();
 
@@ -638,10 +637,10 @@
             }
 
             if (result.paymentIntent && result.paymentIntent.status === "succeeded") {
-              await sendPaymentCompletedWebhook(customerEmail, "deposit");
+              await sendPaymentCompletedWebhook(customerEmail, "final");
 
               showMessage(
-                "Payment successful. Your build spot is now secured. Next steps: $600 on first draft approval, then $297 on go live.",
+                "Payment successful. Your final payment is received — we will finalise go-live and handover.",
                 "success"
               );
               payButton.textContent = "Payment Complete";
@@ -655,11 +654,11 @@
                 if (countdownEl) {
                   countdownEl.textContent =
                     seconds > 0
-                      ? `Redirecting to onboarding in ${seconds}s… (or tap the button above)`
+                      ? `Redirecting to confirmation in ${seconds}s… (or tap the button above)`
                       : "Redirecting…";
                 }
                 if (seconds <= 0) {
-                  window.location.href = "site-onboarding.html";
+                  window.location.href = "thank-you.html";
                   return;
                 }
                 seconds -= 1;
@@ -671,11 +670,11 @@
 
             showMessage("Payment submitted. Please wait while we confirm your status.", "success");
             payButton.disabled = false;
-            payButton.textContent = "Pay Deposit";
+            payButton.textContent = "Pay $297 & go live";
           } catch (error) {
             showMessage(error.message || "Something went wrong processing your payment.", "error");
             payButton.disabled = false;
-            payButton.textContent = "Pay Deposit";
+            payButton.textContent = "Pay $297 & go live";
           }
         });
       } catch (error) {

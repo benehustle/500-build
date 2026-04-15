@@ -1,3 +1,5 @@
+import { getStripeTierDetails, parseTier, type PaymentTier } from "../utils/stripeTiers";
+
 interface Env {
   STRIPE_SECRET_KEY: string;
   STRIPE_AMOUNT_CENTS?: string;
@@ -8,6 +10,7 @@ interface Env {
 type CreateIntentBody = {
   customerName?: string;
   customerEmail?: string;
+  tier?: PaymentTier | string;
 };
 
 const json = (body: unknown, status = 200) =>
@@ -31,10 +34,10 @@ export const onRequestPost: PagesFunction<Env> = async ({ env, request }) => {
     return json({ error: "Invalid JSON payload." }, 400);
   }
 
-  const amountCents = Number.parseInt(env.STRIPE_AMOUNT_CENTS ?? "10000", 10);
+  const tier = parseTier(typeof payload.tier === "string" ? payload.tier : undefined);
+  const { amountCents, description } = getStripeTierDetails(tier, env);
   const safeAmount = Number.isFinite(amountCents) && amountCents > 0 ? amountCents : 10000;
   const currency = (env.STRIPE_CURRENCY ?? "aud").toLowerCase();
-  const description = env.STRIPE_DESCRIPTION ?? "Website build deposit";
 
   const body = new URLSearchParams();
   body.set("amount", String(safeAmount));
@@ -42,6 +45,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ env, request }) => {
   body.set("description", description);
   body.set("automatic_payment_methods[enabled]", "true");
   body.set("metadata[source]", "landing-pages-payment");
+  body.set("metadata[payment_tier]", tier);
 
   if (payload.customerName?.trim()) {
     body.set("metadata[customer_name]", payload.customerName.trim());

@@ -34,6 +34,8 @@ const rootFiles = [
   "index.html",
   "bridge.html",
   "payment.html",
+  "payment-progress.html",
+  "payment-final.html",
   "site-onboarding.html",
   "booking.html",
   "thank-you.html",

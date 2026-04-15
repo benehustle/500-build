@@ -1,7 +1,10 @@
+import { getStripeTierDetails, parseTier } from "../utils/stripeTiers";
+
 interface Env {
   STRIPE_PUBLISHABLE_KEY: string;
   STRIPE_AMOUNT_CENTS?: string;
   STRIPE_CURRENCY?: string;
+  STRIPE_DESCRIPTION?: string;
 }
 
 const json = (body: unknown, status = 200) =>
@@ -13,7 +16,10 @@ const json = (body: unknown, status = 200) =>
     }
   });
 
-export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
+export const onRequestGet: PagesFunction<Env> = async ({ env, request }) => {
+  const url = new URL(request.url);
+  const tier = parseTier(url.searchParams.get("tier"));
+
   const pk = (env.STRIPE_PUBLISHABLE_KEY ?? "").trim();
   if (!pk) {
     return json(
@@ -29,12 +35,13 @@ export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
     );
   }
 
-  const amountCents = Number.parseInt(env.STRIPE_AMOUNT_CENTS ?? "10000", 10);
+  const { amountCents } = getStripeTierDetails(tier, env);
   const safeAmount = Number.isFinite(amountCents) && amountCents > 0 ? amountCents : 10000;
 
   return json({
     publishableKey: pk,
     amountCents: safeAmount,
-    currency: (env.STRIPE_CURRENCY ?? "aud").toLowerCase()
+    currency: (env.STRIPE_CURRENCY ?? "aud").toLowerCase(),
+    tier
   });
 };

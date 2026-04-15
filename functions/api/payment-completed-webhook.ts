@@ -11,6 +11,7 @@ type Body = {
   leadEmail?: string;
   email?: string;
   customerEmail?: string;
+  paymentTier?: string;
 };
 
 export const onRequestOptions: PagesFunction<Env> = async ({ request, env }) =>
@@ -35,11 +36,14 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     return json({ error: "leadEmail (or email) is required." }, 400, cHeaders);
   }
 
+  const tier = (body.paymentTier ?? "").trim().toLowerCase();
+
   const payload = {
     formType: "Payment Completed",
     event: "payment_completed",
     timestamp: new Date().toISOString(),
-    leadEmail: email
+    leadEmail: email,
+    ...(tier ? { paymentTier: tier } : {})
   };
 
   const forwardRes = await forwardJson(env.PAYMENT_COMPLETED_WEBHOOK_URL, payload, env);
