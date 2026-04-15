@@ -1,0 +1,12 @@
+{
+  "name": "spoton-offer-funnel",
+  "private": true,
+  "scripts": {
+    "pages:build": "node scripts/build-pages-dist.mjs",
+    "pages:dev": "wrangler pages dev .",
+    "pages:deploy": "npm run pages:build && wrangler pages deploy dist --project-name=landing"
+  },
+  "devDependencies": {
+    "wrangler": "4.83.0"
+  }
+}

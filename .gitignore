@@ -1,3 +1,4 @@
 .cursor/
 .wrangler/
 node_modules/
+dist/

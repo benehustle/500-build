@@ -1,0 +1,45 @@
+# Deploys this repo to Cloudflare Pages project "landing" (landing-5xo.pages.dev, custom domains).
+# Wrangler cannot attach the dashboard "Connect to Git" integration; this workflow deploys with Wrangler on every push.
+#
+# GitHub repo secrets (Settings → Secrets → Actions):
+#   CLOUDFLARE_API_TOKEN  — Create at https://dash.cloudflare.com/profile/api-tokens
+#                         Use template "Edit Cloudflare Workers" or custom with Account → Cloudflare Pages → Edit
+#   CLOUDFLARE_ACCOUNT_ID — From wrangler whoami or dashboard sidebar (copy account id)
+
+name: Deploy Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: pages-deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Build static output
+        run: node scripts/build-pages-dist.mjs
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.83.0"
+          command: pages deploy dist --project-name=landing --branch=${{ github.ref_name }} --commit-hash=${{ github.sha }}
