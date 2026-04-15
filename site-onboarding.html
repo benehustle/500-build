@@ -476,7 +476,7 @@
               logoMimeType: file.type || "application/octet-stream",
               logoBase64: b64
             };
-            return fetch("/api/lead-webhook", {
+            return fetch("/api/onboarding-webhook", {
               method: "POST",
               headers: { "content-type": "application/json" },
               body: JSON.stringify(payload)

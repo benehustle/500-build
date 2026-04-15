@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -938,11 +938,9 @@
             monthMobile.textContent = monthNamesShort[currentMonth] + ' BATCH';
         }
 
-        // --- 5. FORM WEBHOOK HANDLER ---
-        // IMPORTANT: Replace 'YOUR_WEBHOOK_URL' below with your actual Zapier/Make Webhook URL
-        const WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/30kf4HX82D5x9unRwhNm/webhook-trigger/350c7429-4fd6-4e54-aaf4-388272714319'; 
-        // Redirect to bridge page after form submission
-        const NEXT_PAGE_URL = 'bridge.html'; 
+        // --- 5. FORM WEBHOOK HANDLER (opt-in → /api/lead-optin-webhook → GHL/Zapier URL in Cloudflare secret) ---
+        const OPTIN_WEBHOOK_PATH = '/api/lead-optin-webhook';
+        const NEXT_PAGE_URL = 'bridge.html';
 
         const form = document.getElementById('buildForm');
         const btn = document.getElementById('submitBtn');
@@ -954,7 +952,11 @@
 
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
+            data.formType = 'Landing opt-in';
             data.source = 'LP_Form';
+            data.timestamp = new Date().toISOString();
+            data.sourceDomain = window.location.hostname;
+            data.sourcePath = window.location.pathname;
 
             // Track Facebook Pixel Lead event
             if (typeof fbq !== 'undefined') {
@@ -966,8 +968,7 @@
                 gtag_report_conversion();
             }
 
-            // Send to Webhook
-            fetch(WEBHOOK_URL, {
+            fetch(OPTIN_WEBHOOK_PATH, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
@@ -1297,16 +1298,16 @@
                 
                 const formData = new FormData(this);
                 const data = Object.fromEntries(formData.entries());
+                data.formType = 'Landing opt-in (popup)';
                 data.source = 'Popup_BinPro';
+                data.timestamp = new Date().toISOString();
+                data.sourceDomain = window.location.hostname;
+                data.sourcePath = window.location.pathname;
 
-                // Reuse the same webhook as the main form
-                const WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/30kf4HX82D5x9unRwhNm/webhook-trigger/350c7429-4fd6-4e54-aaf4-388272714319'; 
-                
-                // Track Conversion
                 if (typeof fbq !== 'undefined') fbq('track', 'Lead');
                 if (typeof gtag_report_conversion !== 'undefined') gtag_report_conversion();
 
-                fetch(WEBHOOK_URL, {
+                fetch('/api/lead-optin-webhook', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)

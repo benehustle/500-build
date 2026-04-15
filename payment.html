@@ -530,20 +530,20 @@
       }).format(cents / 100);
     };
 
-    async function sendLeadWebhook(payload) {
+    async function sendPaymentCompletedWebhook(email) {
       try {
-        const res = await fetch("/api/lead-webhook", {
+        const res = await fetch("/api/payment-completed-webhook", {
           method: "POST",
           headers: { "content-type": "application/json" },
-          body: JSON.stringify(payload)
+          body: JSON.stringify({ leadEmail: email })
         });
 
         if (!res.ok) {
           const errorData = await res.json().catch(() => ({}));
-          console.error("Lead webhook failed:", errorData);
+          console.error("Payment completed webhook failed:", errorData);
         }
       } catch (error) {
-        console.error("Lead webhook request failed:", error);
+        console.error("Payment completed webhook request failed:", error);
       }
     }
 
@@ -634,25 +634,7 @@
             }
 
             if (result.paymentIntent && result.paymentIntent.status === "succeeded") {
-              await sendLeadWebhook({
-                formType: "Payment Deposit",
-                event: "payment_succeeded",
-                timestamp: new Date().toISOString(),
-                sourceDomain: window.location.hostname,
-                sourcePath: window.location.pathname,
-                customerName,
-                leadEmail: customerEmail,
-                paymentIntentId: result.paymentIntent.id,
-                paymentAmountCents: result.paymentIntent.amount,
-                paymentCurrency: result.paymentIntent.currency,
-                paymentStatus: result.paymentIntent.status,
-                paymentSchedule: {
-                  depositTodayCents: 10000,
-                  firstDraftApprovalCents: 60000,
-                  goLiveBalanceCents: 29700,
-                  totalCents: 99700
-                }
-              });
+              await sendPaymentCompletedWebhook(customerEmail);
 
               showMessage(
                 "Payment successful. Your build spot is now secured. Next steps: $600 on first draft approval, then $297 on go live.",
