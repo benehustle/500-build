@@ -37,6 +37,11 @@ const rootFiles = [
   "site-onboarding.html",
   "booking.html",
   "thank-you.html",
+  "builders.html",
+  "onboarding-cold.html",
+  "onboarding.html",
+  "privacy-policy.html",
+  "terms.html",
   "robots.txt",
   "sitemap.xml"
 ];
@@ -50,7 +55,7 @@ for (const f of rootFiles) {
   }
 }
 
-const dirs = ["logos", "website examples", "Assets"];
+const dirs = ["logos", "website examples", "Assets", "public"];
 for (const d of dirs) {
   const src = path.join(root, d);
   if (fs.existsSync(src)) {
