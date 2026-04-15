@@ -27,12 +27,12 @@
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '834466499006537');
+        fbq('init', '2097855790686250');
         fbq('track', 'PageView');
     </script>
     <noscript>
         <img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=834466499006537&ev=PageView&noscript=1"/>
+        src="https://www.facebook.com/tr?id=2097855790686250&ev=PageView&noscript=1"/>
     </noscript>
     <!-- End Meta Pixel Code -->
     
@@ -151,6 +151,40 @@
         }
         
         /* --- HERO SECTION --- */
+        .fast-action-ribbon {
+            background: linear-gradient(90deg, rgba(0, 212, 255, 0.15) 0%, rgba(0, 255, 136, 0.12) 50%, rgba(0, 212, 255, 0.15) 100%);
+            border-bottom: 2px solid var(--accent-blue);
+            padding: 14px 20px;
+            text-align: center;
+        }
+        .fast-action-ribbon-inner {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .fast-action-ribbon .tag {
+            display: inline-block;
+            font-family: var(--font-head);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            color: #000;
+            background: var(--accent-blue);
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .fast-action-ribbon p {
+            font-size: 0.95rem;
+            color: var(--text-white);
+            line-height: 1.5;
+            margin: 0;
+            max-width: none;
+        }
+        .fast-action-ribbon strong {
+            color: var(--accent-green);
+        }
+
         .hero {
             padding: 80px 0 60px 0;
             background: radial-gradient(circle at center, #1a1a1a 0%, #0F0F0F 70%);
@@ -456,6 +490,8 @@
         @media (max-width: 768px) {
             body { padding-bottom: 20px; }
             .container { padding: 0 20px; }
+            .fast-action-ribbon { padding: 12px 14px; }
+            .fast-action-ribbon p { font-size: 0.85rem; }
             
             .hero { padding: 40px 0; }
             .hero h1 { font-size: 2rem; }
@@ -1323,6 +1359,16 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZJRVP28"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
+    <div class="fast-action-ribbon" role="region" aria-label="Limited time bonus">
+        <div class="fast-action-ribbon-inner">
+            <span class="tag">Fast action bonus</span>
+            <p>
+                Your price is locked for <strong>48 hours</strong>. Pay the <strong>$100 deposit today</strong> to start your build immediately and we will include
+                <strong>lifetime hosting free</strong> (normally billed monthly). Wait, and you still get the same $997 build — just without the hosting bonus.
+            </p>
+        </div>
+    </div>
     
     <!-- Hero Section -->
     <section class="hero">
@@ -1398,7 +1444,7 @@
                         </div>
                         
                         <!-- PRIMARY CTA - HUGE AND CLEAR -->
-                        <a href="https://sales.spotonwebsites.com.au/payment" 
+                        <a href="payment.html" 
                            class="btn-primary" 
                            style="font-size: 1.35rem; 
                                   padding: 25px 55px; 
@@ -1436,7 +1482,7 @@
                                         border-left: 4px solid var(--accent-blue);">
                                 <span style="font-size: 1.3rem; flex-shrink: 0;">✅</span>
                                 <span style="font-size: 0.95rem; color: var(--text-white); font-weight: 600;">
-                                    Pay remaining $897 only after you see your site
+                                    Pay $600 on first draft approval, then $297 on go live
                                 </span>
                             </div>
                             
@@ -1459,7 +1505,7 @@
                                        font-family: var(--font-head);
                                        text-transform: uppercase;
                                        letter-spacing: 0.5px;">
-                            Only <span id="spotsLeft" style="font-size: 1.4rem; text-shadow: 0 0 15px rgba(255, 68, 68, 0.5);">7</span> spots left in January batch
+                            Only <span id="spotsLeft" style="font-size: 1.4rem; text-shadow: 0 0 15px rgba(255, 68, 68, 0.5);">7</span> spots left in <span class="current-month-name">Current</span> batch
                         </strong>
                         <span style="font-size: 1.5rem; animation: pulse 2s ease-in-out infinite;">⚠️</span>
                     </div>
@@ -1583,7 +1629,7 @@
                         <p style="color: var(--text-grey); margin-bottom: 5px;">Pay $100 deposit now and get:</p>
                         <div class="bonus-value">UNLIMITED LIFETIME HOSTING</div>
                         <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0;">Worth $29/month forever = <strong style="color: var(--accent-green);">$1,000s+ in VALUE</strong></p>
-                        <p style="font-size: 0.9rem; color: var(--text-grey); margin-top: 8px;">(Pay remaining $897 only after you see & love your site)</p>
+                        <p style="font-size: 0.9rem; color: var(--text-grey); margin-top: 8px;">($600 on first draft approval, then $297 on go live)</p>
                         <div style="background: rgba(255, 68, 68, 0.15); border-left: 4px solid var(--accent-red); padding: 15px; margin-top: 15px; border-radius: 6px;">
                             <p style="font-size: 0.9rem; color: var(--text-white); margin: 0; font-weight: 600;">
                                 ⏰ When timer hits zero: Hosting reverts to $29/month
@@ -1620,7 +1666,7 @@
                 Lock in your spot + get <strong style="color: var(--accent-green);">UNLIMITED LIFETIME HOSTING</strong> before this offer expires
             </p>
             
-            <a href="https://sales.spotonwebsites.com.au/payment" 
+            <a href="payment.html" 
                class="btn-primary" 
                style="font-size: 1.2rem; padding: 20px 45px;"
                onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');">
@@ -1628,7 +1674,7 @@
             </a>
             
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 15px;">
-                <span id="spotsLeft2">7</span> spots left • Full refund guarantee • Pay $897 only after approval
+                <span id="spotsLeft2">7</span> spots left • Full refund guarantee • $600 on first draft approval, $297 on go live
             </p>
             
             <div style="margin-top: 25px; padding-top: 25px; border-top: 1px solid #333;">
@@ -1651,7 +1697,7 @@
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <div class="gallery-hint">Hover to Scroll ↓</div>
-                    <img src="Assets/website examples/screencapture-debonairdesign-au-2026-01-05-15_35_50.webp" alt="Debonair Design Website">
+                    <img src="website examples/screencapture-debonairdesign-au-2026-01-05-15_35_50.webp" alt="Debonair Design Website">
                     <div class="gallery-overlay">
                         <h4>Debonair Design</h4>
                         <p>✓ Luxury Brand | Custom Build</p>
@@ -1659,7 +1705,7 @@
                 </div>
                 <div class="gallery-item">
                     <div class="gallery-hint">Hover to Scroll ↓</div>
-                    <img src="Assets/website examples/screencapture-donutbros-au-2026-01-05-15_37_06.webp" alt="Donut Bros Website">
+                    <img src="website examples/screencapture-donutbros-au-2026-01-05-15_37_06.webp" alt="Donut Bros Website">
                     <div class="gallery-overlay">
                         <h4>Donut Bros</h4>
                         <p>✓ E-commerce | Fast Loading</p>
@@ -1667,7 +1713,7 @@
                 </div>
                 <div class="gallery-item">
                     <div class="gallery-hint">Hover to Scroll ↓</div>
-                    <img src="Assets/website examples/screencapture-eurokaprojects-au-2026-01-05-15_33_34.webp" alt="Euroka Projects Website">
+                    <img src="website examples/screencapture-eurokaprojects-au-2026-01-05-15_33_34.webp" alt="Euroka Projects Website">
                     <div class="gallery-overlay">
                         <h4>Euroka Projects</h4>
                         <p>✓ Construction | Professional</p>
@@ -1675,7 +1721,7 @@
                 </div>
                 <div class="gallery-item">
                     <div class="gallery-hint">Hover to Scroll ↓</div>
-                    <img src="Assets/website examples/screencapture-fruitilicious-au-2026-01-05-15_36_18.webp" alt="Fruitilicious Website">
+                    <img src="website examples/screencapture-fruitilicious-au-2026-01-05-15_36_18.webp" alt="Fruitilicious Website">
                     <div class="gallery-overlay">
                         <h4>Fruitilicious</h4>
                         <p>✓ Food & Beverage | Vibrant</p>
@@ -1683,7 +1729,7 @@
                 </div>
                 <div class="gallery-item">
                     <div class="gallery-hint">Hover to Scroll ↓</div>
-                    <img src="Assets/website examples/screencapture-huntervalleyvilla-2026-01-05-15_34_03.webp" alt="Hunter Valley Villa Website">
+                    <img src="website examples/screencapture-huntervalleyvilla-2026-01-05-15_34_03.webp" alt="Hunter Valley Villa Website">
                     <div class="gallery-overlay">
                         <h4>Hunter Valley Villa</h4>
                         <p>✓ Hospitality | Elegant Design</p>
@@ -1691,7 +1737,7 @@
                 </div>
                 <div class="gallery-item">
                     <div class="gallery-hint">Hover to Scroll ↓</div>
-                    <img src="Assets/website examples/screencapture-mulligangolfballs-au-2026-01-05-15_42_48.webp" alt="Mulligan Golf Balls Website">
+                    <img src="website examples/screencapture-mulligangolfballs-au-2026-01-05-15_42_48.webp" alt="Mulligan Golf Balls Website">
                     <div class="gallery-overlay">
                         <h4>Mulligan Golf Balls</h4>
                         <p>✓ E-commerce | Sports</p>
@@ -1769,7 +1815,7 @@
                     </div>
                 </div>
                 <div class="comparison-row">
-                    <div class="comparison-cell" style="text-align: left; color: var(--text-grey);">January Batch Spot</div>
+                    <div class="comparison-cell" style="text-align: left; color: var(--text-grey);"><span class="current-month-name">Current</span> Batch Spot</div>
                     <div class="comparison-cell" style="color: var(--accent-green); font-weight: 600;">
                         <div class="comparison-feature-label">Batch Spot</div>
                         Guaranteed
@@ -1856,7 +1902,7 @@
                         <span class="faq-icon">▼</span>
                     </div>
                     <div class="faq-answer">
-                        <p>You get a full $100 refund, no questions asked. You only pay the remaining $897 (total $997) if you love the final result. The guarantee is exactly the same whether you pay now or later. The only difference is you start your build immediately and get the free hosting bonus.</p>
+                        <p>You get a full $100 refund, no questions asked. The payment flow is simple: $100 deposit now, $600 on first draft approval, and the final $297 on go live (total $997). The guarantee is exactly the same whether you pay now or later. The only difference is you start your build immediately and get the free hosting bonus.</p>
                     </div>
                 </div>
                 
@@ -1953,20 +1999,28 @@
             <p>You're about to lose your locked $100 deposit price AND the fast action bonus...</p>
             <div class="highlight-text">UNLIMITED LIFETIME HOSTING</div>
             <p style="font-size: 0.95rem;">This bonus (worth $1,000s+) is only available if you secure your spot with the $100 deposit now. Once you leave, it's gone forever.</p>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">(Total investment: $997 | Pay $100 now, $897 after you see & approve your site)</p>
-            <a href="https://sales.spotonwebsites.com.au/payment" class="btn-primary" onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout'); closeExitModal();">PAY $100 DEPOSIT + GET LIFETIME HOSTING →</a>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">(Total investment: $997 | Pay $100 now, $600 on first draft approval, $297 on go live)</p>
+            <a href="payment.html" class="btn-primary" onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout'); closeExitModal();">PAY $100 DEPOSIT + GET LIFETIME HOSTING →</a>
             <button class="btn-secondary" onclick="closeExitModal()" style="margin-top: 10px;">No Thanks, I'll Pass</button>
         </div>
     </div>
 
     <script>
+        // Populate month labels from current date (e.g., "April")
+        function setCurrentMonthText() {
+            const currentMonth = new Date().toLocaleString('en-US', { month: 'long' });
+            document.querySelectorAll('.current-month-name').forEach((el) => {
+                el.textContent = currentMonth;
+            });
+        }
+
         // Countdown Timer with localStorage
         function initTimer() {
             const timerKey = 'priceLockedTimer';
-            let endTime = localStorage.getItem(timerKey);
+            let endTime = parseInt(localStorage.getItem(timerKey), 10);
             
             // If no timer exists, create one for 48 hours from now
-            if (!endTime) {
+            if (!Number.isFinite(endTime) || endTime <= 0) {
                 endTime = new Date().getTime() + (48 * 60 * 60 * 1000);
                 localStorage.setItem(timerKey, endTime);
             }
@@ -1986,9 +2040,11 @@
                 return;
             }
             
-            const hours = Math.floor(distance / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            // Use ceil so first render starts at 48:00:00 rather than 47:59:59.
+            const totalSeconds = Math.ceil(distance / 1000);
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
             
             document.getElementById('hours').textContent = String(hours).padStart(2, '0');
             document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
@@ -2125,7 +2181,8 @@
             scheduleNextUpdate();
         }, 10000);
         
-        // Initialize timer on page load
+        // Initialize month labels and timer on page load
+        setCurrentMonthText();
         initTimer();
         
         // Sync quick timer display with main timer
@@ -2199,7 +2256,7 @@
     
     <!-- Mobile Sticky CTA -->
     <div class="mobile-sticky-cta visible">
-        <a href="https://sales.spotonwebsites.com.au/payment" 
+        <a href="payment.html"
            class="btn-sticky"
            onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');">
             GET FREE LIFETIME HOSTING →

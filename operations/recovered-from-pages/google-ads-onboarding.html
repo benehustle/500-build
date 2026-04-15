@@ -1,0 +1,2238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Ads Management Onboarding - Spot On Websites</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Facebook Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2097855790686250');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=2097855790686250&ev=PageView&noscript=1"/>
+    </noscript>
+    
+    <style>
+        :root {
+            --bg-dark: #0F0F0F;
+            --bg-card: #161616;
+            --text-white: #FFFFFF;
+            --text-grey: #C0C0C0;
+            --text-muted: #999999;
+            --accent-blue: #00D4FF;
+            --accent-green: #00FF88;
+            --accent-red: #FF4444;
+            --font-head: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .text-center { text-align: center; }
+
+        /* Hero Section */
+        .hero {
+            padding: 40px 0 30px;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0F0F0F 70%);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: var(--font-head);
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: var(--text-grey);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Platform Selection Buttons */
+        .platform-selector {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0 20px;
+            flex-wrap: nowrap;
+        }
+
+        .platform-selector-seox {
+            display: flex;
+            justify-content: center;
+            margin: 0 0 40px;
+            width: 100%;
+        }
+
+        .platform-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 35px;
+            background: var(--bg-card);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 12px;
+            color: var(--text-white);
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: var(--font-head);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            min-width: 250px;
+            justify-content: center;
+        }
+
+        .platform-btn.seox-btn {
+            width: 100%;
+            max-width: 100%;
+            min-width: auto;
+            flex: 1;
+        }
+
+        .platform-btn:hover {
+            border-color: var(--accent-blue);
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .platform-btn.active {
+            border-color: var(--accent-blue);
+            background: rgba(0, 212, 255, 0.15);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .platform-btn .logo {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+
+        .platform-btn .pending-badge {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-left: 5px;
+        }
+
+        /* Form Container */
+        .form-container {
+            display: none;
+        }
+
+        .form-container.active {
+            display: block;
+        }
+
+        /* Form Card */
+        .form-card {
+            background: var(--bg-card);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 0 auto 40px;
+            max-width: 900px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .form-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .form-section h2 {
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            font-family: var(--font-head);
+            font-weight: 800;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text-white);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-group label .required {
+            color: var(--accent-red);
+            margin-left: 3px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="url"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 10px;
+            color: var(--text-white);
+            font-size: 0.95rem;
+            font-family: var(--font-body);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-group .help-text {
+            color: var(--text-grey);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .form-group .instruction-text {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        /* Checkbox and Radio Styling */
+        .checkbox-group,
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .checkbox-item,
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-item input[type="checkbox"],
+        .radio-item input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--accent-blue);
+        }
+
+        .checkbox-item label,
+        .radio-item label {
+            color: var(--text-white);
+            font-weight: 400;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        /* Submit Button */
+        .submit-section {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--accent-blue) 0%, #0099CC 100%);
+            color: #000000;
+            border: none;
+            padding: 18px 50px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            font-family: var(--font-head);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 50px rgba(0, 212, 255, 0.6);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Encryption Notice */
+        .encryption-notice {
+            text-align: center;
+            margin-top: 25px;
+            padding: 15px;
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        .encryption-notice p {
+            color: var(--text-grey);
+            font-size: 0.85rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .encryption-notice .lock-icon {
+            color: var(--accent-green);
+            font-size: 1.1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .form-card {
+                padding: 30px 20px;
+            }
+
+            .form-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .submit-btn {
+                width: 100%;
+                padding: 16px 30px;
+            }
+
+            .platform-selector {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .platform-selector-seox {
+                margin-top: 15px;
+            }
+
+            .platform-btn {
+                flex: 1;
+                min-width: 140px;
+                padding: 15px 20px;
+                font-size: 0.9rem;
+            }
+
+            .platform-btn.seox-btn {
+                width: 100%;
+            }
+
+            .platform-btn .logo {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <img src="https://spotonwebsites.com.au/wp-content/uploads/2025/10/Spot-On-LeadFlow-3.png" alt="Spot On Websites" style="max-width: 250px; height: auto; filter: brightness(1.1);" width="250" height="auto" loading="eager">
+            </div>
+            <h1>Marketing Platform Onboarding</h1>
+            <p>Select your platform to get started with campaign management</p>
+        </div>
+    </section>
+
+    <!-- Platform Selector -->
+    <section class="platform-selector-section">
+        <div class="container">
+            <div class="platform-selector">
+                <button type="button" class="platform-btn" id="metaBtn" onclick="showForm('meta')">
+                    <img src="https://pngimg.com/d/meta_PNG6.png" alt="Meta" class="logo">
+                    <span>Meta Onboarding</span>
+                </button>
+                <button type="button" class="platform-btn" id="googleBtn" onclick="showForm('google')">
+                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google Ads" class="logo">
+                    <span>Google Ads Onboarding</span>
+                </button>
+                <button type="button" class="platform-btn" id="seoBtn" onclick="showForm('seo')">
+                    <span>SEO</span>
+                </button>
+            </div>
+            <div class="platform-selector-seox">
+                <button type="button" class="platform-btn seox-btn" id="seoxBtn" onclick="showForm('seox')">
+                    <span>SEOx</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meta Form Section (Placeholder) -->
+    <section class="form-section-main">
+        <div class="container">
+            <div class="form-container" id="metaForm">
+                <form class="form-card" id="metaOnboardingForm" method="POST" action="#">
+                    
+                    <!-- Business Information -->
+                    <div class="form-section">
+                        <h2>Business Information</h2>
+                        
+                        <div class="form-group">
+                            <label for="metaBusinessName">Business Name <span class="required">*</span></label>
+                            <input type="text" id="metaBusinessName" name="metaBusinessName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metaWebsiteUrl">Website URL <span class="required">*</span></label>
+                            <input type="url" id="metaWebsiteUrl" name="metaWebsiteUrl" placeholder="https://example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metaContactName">Primary Contact Name <span class="required">*</span></label>
+                            <input type="text" id="metaContactName" name="metaContactName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metaPhoneNumber">Best Phone Number For Leads <span class="required">*</span></label>
+                            <input type="tel" id="metaPhoneNumber" name="metaPhoneNumber" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metaLeadEmail">Lead Handling Email <span class="required">*</span></label>
+                            <input type="email" id="metaLeadEmail" name="metaLeadEmail" required>
+                        </div>
+                    </div>
+
+                    <!-- Meta Account Information -->
+                    <div class="form-section">
+                        <h2>Meta Account Information</h2>
+                        
+                        <div class="form-group">
+                            <label for="metaAdAccountId">Meta Ad Account ID <span class="required">*</span></label>
+                            <input type="text" id="metaAdAccountId" name="metaAdAccountId" placeholder="e.g., act_123456789" required>
+                            <p class="help-text">Found in Meta Business Suite under Ad Accounts. Format: act_XXXXXXXXX</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metaBusinessManagerId">Business Manager ID</label>
+                            <input type="text" id="metaBusinessManagerId" name="metaBusinessManagerId" placeholder="e.g., 123456789">
+                            <p class="help-text">If you have a Business Manager account, enter the ID here</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metaPixelId">Meta Pixel ID</label>
+                            <input type="text" id="metaPixelId" name="metaPixelId" placeholder="e.g., 123456789012345">
+                            <p class="help-text">If you already have a Meta Pixel installed, enter the Pixel ID. We can create one if needed.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metaPageUrl">Facebook Page URL</label>
+                            <input type="url" id="metaPageUrl" name="metaPageUrl" placeholder="https://facebook.com/yourpage">
+                            <p class="help-text">Your business Facebook Page URL (if you have one)</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metaInstagramHandle">Instagram Business Handle</label>
+                            <input type="text" id="metaInstagramHandle" name="metaInstagramHandle" placeholder="@yourbusiness">
+                            <p class="help-text">Your Instagram business account handle (if you have one)</p>
+                        </div>
+                    </div>
+
+                    <!-- Service & Revenue -->
+                    <div class="form-section">
+                        <h2>Service & Revenue</h2>
+                        
+                        <div class="form-group">
+                            <label for="metaMainServices">List your main services in priority order <span class="required">*</span></label>
+                            <textarea id="metaMainServices" name="metaMainServices" placeholder="Example: Emergency plumbing, blocked drains, hot water systems, general plumbing" required></textarea>
+                            <p class="help-text">Example: Emergency plumbing, blocked drains, hot water systems, general plumbing</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metaAverageJobValue">What is your average job value? <span class="required">*</span></label>
+                            <select id="metaAverageJobValue" name="metaAverageJobValue" required>
+                                <option value="">Select an option</option>
+                                <option value="under-200">Under $200</option>
+                                <option value="200-400">$200 to $400</option>
+                                <option value="400-600">$400 to $600</option>
+                                <option value="600-800">$600 to $800</option>
+                                <option value="800-1200">$800 to $1,200</option>
+                                <option value="1200-plus">$1,200+</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metaEnquiryToJob">Roughly how many enquiries turn into a booked job? <span class="required">*</span></label>
+                            <select id="metaEnquiryToJob" name="metaEnquiryToJob" required>
+                                <option value="">Select an option</option>
+                                <option value="1-in-10">1 in 10</option>
+                                <option value="2-in-10">2 in 10</option>
+                                <option value="3-in-10">3 in 10</option>
+                                <option value="4-in-10">4 in 10</option>
+                                <option value="5-in-10">5 in 10</option>
+                                <option value="more-than-5">More than 5 in 10</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Location & Targeting -->
+                    <div class="form-section">
+                        <h2>Location & Targeting</h2>
+                        
+                        <div class="form-group">
+                            <label for="metaPrimaryLocation">Primary service location (suburb and state) <span class="required">*</span></label>
+                            <input type="text" id="metaPrimaryLocation" name="metaPrimaryLocation" placeholder="e.g., Sydney NSW" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metaServiceRadius">Service radius in kilometres <span class="required">*</span></label>
+                            <select id="metaServiceRadius" name="metaServiceRadius" required>
+                                <option value="">Select an option</option>
+                                <option value="5">5 km</option>
+                                <option value="10">10 km</option>
+                                <option value="15">15 km</option>
+                                <option value="20">20 km</option>
+                                <option value="25">25 km</option>
+                                <option value="30">30 km</option>
+                                <option value="50">50 km</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metaTargetSpecificSuburbs">Do you want to target specific suburbs instead of a radius? <span class="required">*</span></label>
+                            <select id="metaTargetSpecificSuburbs" name="metaTargetSpecificSuburbs" required>
+                                <option value="">Select an option</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="metaSuburbsListGroup" style="display: none;">
+                            <label for="metaSuburbsList">If yes, list the suburbs</label>
+                            <textarea id="metaSuburbsList" name="metaSuburbsList"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Budget & Growth -->
+                    <div class="form-section">
+                        <h2>Budget & Growth</h2>
+                        
+                        <div class="form-group">
+                            <label for="metaDailyBudget">Daily Meta Ads budget <span class="required">*</span></label>
+                            <select id="metaDailyBudget" name="metaDailyBudget" required>
+                                <option value="">Select an option</option>
+                                <option value="20">$20</option>
+                                <option value="30">$30</option>
+                                <option value="40">$40</option>
+                                <option value="50">$50</option>
+                                <option value="75">$75</option>
+                                <option value="100">$100</option>
+                                <option value="150">$150</option>
+                                <option value="200">$200</option>
+                                <option value="300-plus">$300+</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metaIncreaseBudget">Are you open to increasing budget if results are profitable? <span class="required">*</span></label>
+                            <select id="metaIncreaseBudget" name="metaIncreaseBudget" required>
+                                <option value="">Select an option</option>
+                                <option value="yes">Yes</option>
+                                <option value="maybe">Maybe</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Campaign Goals -->
+                    <div class="form-section">
+                        <h2>Campaign Goals</h2>
+                        
+                        <div class="form-group">
+                            <label>What counts as a lead for your business? <span class="required">*</span></label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="metaLeadPhone" name="metaLeadTypes" value="phone">
+                                    <label for="metaLeadPhone">Phone call</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="metaLeadForm" name="metaLeadTypes" value="form">
+                                    <label for="metaLeadForm">Form submission</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="metaLeadSMS" name="metaLeadTypes" value="sms">
+                                    <label for="metaLeadSMS">SMS</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="metaLeadChat" name="metaLeadTypes" value="chat">
+                                    <label for="metaLeadChat">Messenger/WhatsApp</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="metaLeadWebsite" name="metaLeadTypes" value="website">
+                                    <label for="metaLeadWebsite">Website visit</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metaMainGoal">What is your main goal from Meta Ads? <span class="required">*</span></label>
+                            <select id="metaMainGoal" name="metaMainGoal" required>
+                                <option value="">Select an option</option>
+                                <option value="phone-calls">More phone calls</option>
+                                <option value="quote-requests">More quote requests</option>
+                                <option value="jobs-booked">More jobs booked</option>
+                                <option value="website-traffic">More website traffic</option>
+                                <option value="brand-awareness">Brand awareness</option>
+                                <option value="engagement">Engagement (likes, comments, shares)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Ad Creative & Assets -->
+                    <div class="form-section">
+                        <h2>Ad Creative & Assets</h2>
+                        
+                        <div class="form-group">
+                            <label for="metaHasCreative">Do you have existing ad creative (images/videos)? <span class="required">*</span></label>
+                            <select id="metaHasCreative" name="metaHasCreative" required>
+                                <option value="">Select an option</option>
+                                <option value="yes">Yes, I have images/videos ready</option>
+                                <option value="some">I have some, but need more</option>
+                                <option value="no">No, I need help creating ads</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metaCreativeStyle">What style of ads do you prefer? <span class="required">*</span></label>
+                            <select id="metaCreativeStyle" name="metaCreativeStyle" required>
+                                <option value="">Select an option</option>
+                                <option value="professional">Professional/Corporate</option>
+                                <option value="casual">Casual/Friendly</option>
+                                <option value="bold">Bold/Eye-catching</option>
+                                <option value="minimal">Minimal/Clean</option>
+                                <option value="no-preference">No preference</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metaBrandColors">Brand colors (if applicable)</label>
+                            <input type="text" id="metaBrandColors" name="metaBrandColors" placeholder="e.g., #00D4FF, #000000">
+                            <p class="help-text">Enter hex color codes separated by commas</p>
+                        </div>
+                    </div>
+
+                    <!-- Scheduling & Availability -->
+                    <div class="form-section">
+                        <h2>Scheduling & Availability</h2>
+                        
+                        <div class="form-group">
+                            <label>What days do you operate? <span class="required">*</span></label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="metaDayMonday" name="metaOperatingDays" value="monday">
+                                    <label for="metaDayMonday">Monday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="metaDayTuesday" name="metaOperatingDays" value="tuesday">
+                                    <label for="metaDayTuesday">Tuesday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="metaDayWednesday" name="metaOperatingDays" value="wednesday">
+                                    <label for="metaDayWednesday">Wednesday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="metaDayThursday" name="metaOperatingDays" value="thursday">
+                                    <label for="metaDayThursday">Thursday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="metaDayFriday" name="metaOperatingDays" value="friday">
+                                    <label for="metaDayFriday">Friday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="metaDaySaturday" name="metaOperatingDays" value="saturday">
+                                    <label for="metaDaySaturday">Saturday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="metaDaySunday" name="metaOperatingDays" value="sunday">
+                                    <label for="metaDaySunday">Sunday</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metaPhoneHours">What hours do you answer the phone? <span class="required">*</span></label>
+                            <input type="text" id="metaPhoneHours" name="metaPhoneHours" placeholder="Example: 7am to 6pm" required>
+                            <p class="help-text">Example: 7am to 6pm</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metaEmergencyServices">Do you offer emergency or after hours services? <span class="required">*</span></label>
+                            <select id="metaEmergencyServices" name="metaEmergencyServices" required>
+                                <option value="">Select an option</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Positioning & Trust -->
+                    <div class="form-section">
+                        <h2>Positioning & Trust</h2>
+                        
+                        <div class="form-group">
+                            <label for="metaDifferentiator">What makes your business different from competitors? <span class="required">*</span></label>
+                            <textarea id="metaDifferentiator" name="metaDifferentiator" placeholder="Example: fastest response, best pricing, family owned, longest warranty" required></textarea>
+                            <p class="help-text">Example: fastest response, best pricing, family owned, longest warranty</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metaSpecialOffers">Do you have any special offers or guarantees? <span class="required">*</span></label>
+                            <textarea id="metaSpecialOffers" name="metaSpecialOffers" placeholder="Example: free quotes, same day service, fixed pricing" required></textarea>
+                            <p class="help-text">Example: free quotes, same day service, fixed pricing</p>
+                        </div>
+                    </div>
+
+                    <!-- Communication -->
+                    <div class="form-section">
+                        <h2>Communication</h2>
+                        
+                        <div class="form-group">
+                            <label for="metaContactMethod">Preferred contact method <span class="required">*</span></label>
+                            <select id="metaContactMethod" name="metaContactMethod" required>
+                                <option value="">Select an option</option>
+                                <option value="phone">Phone</option>
+                                <option value="email">Email</option>
+                                <option value="sms">SMS</option>
+                                <option value="whatsapp">WhatsApp</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Submit Section -->
+                    <div class="submit-section">
+                        <button type="submit" class="submit-btn">Submit Meta Onboarding Form</button>
+                        
+                        <div class="encryption-notice">
+                            <p>
+                                <span class="lock-icon">🔒</span>
+                                <span>Your information is encrypted and securely transmitted</span>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Google Ads Form Section -->
+            <div class="form-container" id="googleForm">
+                <form class="form-card" id="onboardingForm" method="POST" action="#">
+                
+                <!-- Business Information -->
+                <div class="form-section">
+                    <h2>Business Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="businessName">Business Name <span class="required">*</span></label>
+                        <input type="text" id="businessName" name="businessName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="websiteUrl">Website URL <span class="required">*</span></label>
+                        <input type="url" id="websiteUrl" name="websiteUrl" placeholder="https://example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactName">Primary Contact Name <span class="required">*</span></label>
+                        <input type="text" id="contactName" name="contactName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phoneNumber">Best Phone Number For Leads <span class="required">*</span></label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="leadEmail">Lead Handling Email <span class="required">*</span></label>
+                        <input type="email" id="leadEmail" name="leadEmail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="googleAdsAccountId">Google Ads Account ID <span class="required">*</span></label>
+                        <input type="text" id="googleAdsAccountId" name="googleAdsAccountId" placeholder="e.g., 123-456-7890" required>
+                        <p class="help-text">Enter your Account ID (found in the top right of your Google Ads dashboard)</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phoneAnswerHours">Do you answer the phone during business hours? <span class="required">*</span></label>
+                        <select id="phoneAnswerHours" name="phoneAnswerHours" required>
+                            <option value="">Select an option</option>
+                            <option value="always">Yes, always</option>
+                            <option value="most">Most of the time</option>
+                            <option value="sometimes">Sometimes</option>
+                            <option value="rarely">Rarely</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phoneAnswerAfterHours">Do you answer the phone after hours? <span class="required">*</span></label>
+                        <select id="phoneAnswerAfterHours" name="phoneAnswerAfterHours" required>
+                            <option value="">Select an option</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Service & Revenue -->
+                <div class="form-section">
+                    <h2>Service & Revenue</h2>
+                    
+                    <div class="form-group">
+                        <label for="mainServices">List your main services in priority order <span class="required">*</span></label>
+                        <textarea id="mainServices" name="mainServices" placeholder="Example: Emergency plumbing, blocked drains, hot water systems, general plumbing" required></textarea>
+                        <p class="help-text">Example: Emergency plumbing, blocked drains, hot water systems, general plumbing</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="averageJobValue">What is your average job value? <span class="required">*</span></label>
+                        <select id="averageJobValue" name="averageJobValue" required>
+                            <option value="">Select an option</option>
+                            <option value="under-200">Under $200</option>
+                            <option value="200-400">$200 to $400</option>
+                            <option value="400-600">$400 to $600</option>
+                            <option value="600-800">$600 to $800</option>
+                            <option value="800-1200">$800 to $1,200</option>
+                            <option value="1200-plus">$1,200+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="enquiryToJob">Roughly how many enquiries turn into a booked job? <span class="required">*</span></label>
+                        <select id="enquiryToJob" name="enquiryToJob" required>
+                            <option value="">Select an option</option>
+                            <option value="1-in-10">1 in 10</option>
+                            <option value="2-in-10">2 in 10</option>
+                            <option value="3-in-10">3 in 10</option>
+                            <option value="4-in-10">4 in 10</option>
+                            <option value="5-in-10">5 in 10</option>
+                            <option value="more-than-5">More than 5 in 10</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Location & Targeting -->
+                <div class="form-section">
+                    <h2>Location & Targeting</h2>
+                    
+                    <div class="form-group">
+                        <label for="primaryLocation">Primary service location (suburb and state) <span class="required">*</span></label>
+                        <input type="text" id="primaryLocation" name="primaryLocation" placeholder="e.g., Sydney NSW" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serviceRadius">Service radius in kilometres <span class="required">*</span></label>
+                        <select id="serviceRadius" name="serviceRadius" required>
+                            <option value="">Select an option</option>
+                            <option value="5">5 km</option>
+                            <option value="10">10 km</option>
+                            <option value="15">15 km</option>
+                            <option value="20">20 km</option>
+                            <option value="25">25 km</option>
+                            <option value="30">30 km</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="targetSpecificSuburbs">Do you want to target specific suburbs instead of a radius? <span class="required">*</span></label>
+                        <select id="targetSpecificSuburbs" name="targetSpecificSuburbs" required>
+                            <option value="">Select an option</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="suburbsListGroup" style="display: none;">
+                        <label for="suburbsList">If yes, list the suburbs</label>
+                        <textarea id="suburbsList" name="suburbsList"></textarea>
+                    </div>
+                </div>
+
+                <!-- Budget & Growth -->
+                <div class="form-section">
+                    <h2>Budget & Growth</h2>
+                    
+                    <div class="form-group">
+                        <label for="dailyBudget">Daily Google Ads budget <span class="required">*</span></label>
+                        <select id="dailyBudget" name="dailyBudget" required>
+                            <option value="">Select an option</option>
+                            <option value="20">$20</option>
+                            <option value="30">$30</option>
+                            <option value="40">$40</option>
+                            <option value="50">$50</option>
+                            <option value="75">$75</option>
+                            <option value="100">$100</option>
+                            <option value="150-plus">$150+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="increaseBudget">Are you open to increasing budget if results are profitable? <span class="required">*</span></label>
+                        <select id="increaseBudget" name="increaseBudget" required>
+                            <option value="">Select an option</option>
+                            <option value="yes">Yes</option>
+                            <option value="maybe">Maybe</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Conversion & Tracking -->
+                <div class="form-section">
+                    <h2>Conversion & Tracking</h2>
+                    
+                    <div class="form-group">
+                        <label>What counts as a lead for your business? <span class="required">*</span></label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="leadPhone" name="leadTypes" value="phone">
+                                <label for="leadPhone">Phone call</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="leadForm" name="leadTypes" value="form">
+                                <label for="leadForm">Form submission</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="leadSMS" name="leadTypes" value="sms">
+                                <label for="leadSMS">SMS</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="leadChat" name="leadTypes" value="chat">
+                                <label for="leadChat">Live chat</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mainGoal">What is your main goal from Google Ads? <span class="required">*</span></label>
+                        <select id="mainGoal" name="mainGoal" required>
+                            <option value="">Select an option</option>
+                            <option value="phone-calls">More phone calls</option>
+                            <option value="quote-requests">More quote requests</option>
+                            <option value="jobs-booked">More jobs booked</option>
+                            <option value="brand-awareness">Brand awareness</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="crm">Do you use any CRM? <span class="required">*</span></label>
+                        <select id="crm" name="crm" required>
+                            <option value="">Select an option</option>
+                            <option value="no">No</option>
+                            <option value="ghl">GoHighLevel</option>
+                            <option value="servicem8">ServiceM8</option>
+                            <option value="housecall-pro">Housecall Pro</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="crmOtherGroup" style="display: none;">
+                        <label for="crmOther">What CRM do you use? <span class="required">*</span></label>
+                        <input type="text" id="crmOther" name="crmOther" required>
+                    </div>
+                </div>
+
+                <!-- Scheduling & Availability -->
+                <div class="form-section">
+                    <h2>Scheduling & Availability</h2>
+                    
+                    <div class="form-group">
+                        <label>What days do you operate? <span class="required">*</span></label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dayMonday" name="operatingDays" value="monday">
+                                <label for="dayMonday">Monday</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dayTuesday" name="operatingDays" value="tuesday">
+                                <label for="dayTuesday">Tuesday</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dayWednesday" name="operatingDays" value="wednesday">
+                                <label for="dayWednesday">Wednesday</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dayThursday" name="operatingDays" value="thursday">
+                                <label for="dayThursday">Thursday</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dayFriday" name="operatingDays" value="friday">
+                                <label for="dayFriday">Friday</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="daySaturday" name="operatingDays" value="saturday">
+                                <label for="daySaturday">Saturday</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="daySunday" name="operatingDays" value="sunday">
+                                <label for="daySunday">Sunday</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phoneHours">What hours do you answer the phone? <span class="required">*</span></label>
+                        <input type="text" id="phoneHours" name="phoneHours" placeholder="Example: 7am to 6pm" required>
+                        <p class="help-text">Example: 7am to 6pm</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="emergencyServices">Do you offer emergency or after hours services? <span class="required">*</span></label>
+                        <select id="emergencyServices" name="emergencyServices" required>
+                            <option value="">Select an option</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Positioning & Trust -->
+                <div class="form-section">
+                    <h2>Positioning & Trust</h2>
+                    
+                    <div class="form-group">
+                        <label for="differentiator">What makes your business different from competitors? <span class="required">*</span></label>
+                        <textarea id="differentiator" name="differentiator" placeholder="Example: fastest response, best pricing, family owned, longest warranty" required></textarea>
+                        <p class="help-text">Example: fastest response, best pricing, family owned, longest warranty</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specialOffers">Do you have any special offers or guarantees? <span class="required">*</span></label>
+                        <textarea id="specialOffers" name="specialOffers" placeholder="Example: free quotes, same day service, fixed pricing" required></textarea>
+                        <p class="help-text">Example: free quotes, same day service, fixed pricing</p>
+                    </div>
+                </div>
+
+                <!-- Competitors & Market -->
+                <div class="form-section">
+                    <h2>Competitors & Market</h2>
+                    
+                    <div class="form-group">
+                        <label>List three local competitors you want us to analyse <span class="required">*</span></label>
+                        <div style="margin-bottom: 15px;">
+                            <label for="competitor1" style="font-size: 0.9rem; color: var(--text-grey); margin-bottom: 5px; display: block;">Competitor 1 Website URL</label>
+                            <input type="url" id="competitor1" name="competitor1" placeholder="https://competitor1.com" required>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label for="competitor2" style="font-size: 0.9rem; color: var(--text-grey); margin-bottom: 5px; display: block;">Competitor 2 Website URL</label>
+                            <input type="url" id="competitor2" name="competitor2" placeholder="https://competitor2.com" required>
+                        </div>
+                        <div>
+                            <label for="competitor3" style="font-size: 0.9rem; color: var(--text-grey); margin-bottom: 5px; display: block;">Competitor 3 Website URL</label>
+                            <input type="url" id="competitor3" name="competitor3" placeholder="https://competitor3.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="excludedServices">Are there any services you do NOT want leads for?</label>
+                        <textarea id="excludedServices" name="excludedServices"></textarea>
+                    </div>
+                </div>
+
+                <!-- Communication -->
+                <div class="form-section">
+                    <h2>Communication</h2>
+                    
+                    <div class="form-group">
+                        <label for="contactMethod">Preferred contact method <span class="required">*</span></label>
+                        <select id="contactMethod" name="contactMethod" required>
+                            <option value="">Select an option</option>
+                            <option value="phone">Phone</option>
+                            <option value="email">Email</option>
+                            <option value="sms">SMS</option>
+                            <option value="whatsapp">WhatsApp</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Submit Section -->
+                <div class="submit-section">
+                    <button type="submit" class="submit-btn">Submit Onboarding Form</button>
+                    
+                    <div class="encryption-notice">
+                        <p>
+                            <span class="lock-icon">🔒</span>
+                            <span>Your information is encrypted and securely transmitted</span>
+                        </p>
+                    </div>
+                </div>
+            </form>
+            </div>
+
+            <!-- SEO Form Section (Google Ads without Account ID) -->
+            <div class="form-container" id="seoForm">
+                <form class="form-card" id="seoOnboardingForm" method="POST" action="#">
+                    
+                    <!-- Business Information -->
+                    <div class="form-section">
+                        <h2>Business Information</h2>
+                        
+                        <div class="form-group">
+                            <label for="seoBusinessName">Business Name <span class="required">*</span></label>
+                            <input type="text" id="seoBusinessName" name="seoBusinessName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoWebsiteUrl">Website URL <span class="required">*</span></label>
+                            <input type="url" id="seoWebsiteUrl" name="seoWebsiteUrl" placeholder="https://example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoContactName">Primary Contact Name <span class="required">*</span></label>
+                            <input type="text" id="seoContactName" name="seoContactName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoPhoneNumber">Best Phone Number For Leads <span class="required">*</span></label>
+                            <input type="tel" id="seoPhoneNumber" name="seoPhoneNumber" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoLeadEmail">Lead Handling Email <span class="required">*</span></label>
+                            <input type="email" id="seoLeadEmail" name="seoLeadEmail" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoPhoneAnswerHours">Do you answer the phone during business hours? <span class="required">*</span></label>
+                            <select id="seoPhoneAnswerHours" name="seoPhoneAnswerHours" required>
+                                <option value="">Select an option</option>
+                                <option value="always">Yes, always</option>
+                                <option value="most">Most of the time</option>
+                                <option value="sometimes">Sometimes</option>
+                                <option value="rarely">Rarely</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoPhoneAnswerAfterHours">Do you answer the phone after hours? <span class="required">*</span></label>
+                            <select id="seoPhoneAnswerAfterHours" name="seoPhoneAnswerAfterHours" required>
+                                <option value="">Select an option</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Service & Revenue -->
+                    <div class="form-section">
+                        <h2>Service & Revenue</h2>
+                        
+                        <div class="form-group">
+                            <label for="seoMainServices">List your main services in priority order <span class="required">*</span></label>
+                            <textarea id="seoMainServices" name="seoMainServices" placeholder="Example: Emergency plumbing, blocked drains, hot water systems, general plumbing" required></textarea>
+                            <p class="help-text">Example: Emergency plumbing, blocked drains, hot water systems, general plumbing</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoAverageJobValue">What is your average job value? <span class="required">*</span></label>
+                            <select id="seoAverageJobValue" name="seoAverageJobValue" required>
+                                <option value="">Select an option</option>
+                                <option value="under-200">Under $200</option>
+                                <option value="200-400">$200 to $400</option>
+                                <option value="400-600">$400 to $600</option>
+                                <option value="600-800">$600 to $800</option>
+                                <option value="800-1200">$800 to $1,200</option>
+                                <option value="1200-plus">$1,200+</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoEnquiryToJob">Roughly how many enquiries turn into a booked job? <span class="required">*</span></label>
+                            <select id="seoEnquiryToJob" name="seoEnquiryToJob" required>
+                                <option value="">Select an option</option>
+                                <option value="1-in-10">1 in 10</option>
+                                <option value="2-in-10">2 in 10</option>
+                                <option value="3-in-10">3 in 10</option>
+                                <option value="4-in-10">4 in 10</option>
+                                <option value="5-in-10">5 in 10</option>
+                                <option value="more-than-5">More than 5 in 10</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Location & Targeting -->
+                    <div class="form-section">
+                        <h2>Location & Targeting</h2>
+                        
+                        <div class="form-group">
+                            <label for="seoPrimaryLocation">Primary service location (suburb and state) <span class="required">*</span></label>
+                            <input type="text" id="seoPrimaryLocation" name="seoPrimaryLocation" placeholder="e.g., Sydney NSW" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoServiceRadius">Service radius in kilometres <span class="required">*</span></label>
+                            <select id="seoServiceRadius" name="seoServiceRadius" required>
+                                <option value="">Select an option</option>
+                                <option value="5">5 km</option>
+                                <option value="10">10 km</option>
+                                <option value="15">15 km</option>
+                                <option value="20">20 km</option>
+                                <option value="25">25 km</option>
+                                <option value="30">30 km</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoTargetSpecificSuburbs">Do you want to target specific suburbs instead of a radius? <span class="required">*</span></label>
+                            <select id="seoTargetSpecificSuburbs" name="seoTargetSpecificSuburbs" required>
+                                <option value="">Select an option</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="seoSuburbsListGroup" style="display: none;">
+                            <label for="seoSuburbsList">If yes, list the suburbs</label>
+                            <textarea id="seoSuburbsList" name="seoSuburbsList"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Conversion & Tracking -->
+                    <div class="form-section">
+                        <h2>Conversion & Tracking</h2>
+                        
+                        <div class="form-group">
+                            <label>What counts as a lead for your business? <span class="required">*</span></label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoLeadPhone" name="seoLeadTypes" value="phone">
+                                    <label for="seoLeadPhone">Phone call</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoLeadForm" name="seoLeadTypes" value="form">
+                                    <label for="seoLeadForm">Form submission</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoLeadSMS" name="seoLeadTypes" value="sms">
+                                    <label for="seoLeadSMS">SMS</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoLeadChat" name="seoLeadTypes" value="chat">
+                                    <label for="seoLeadChat">Live chat</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoMainGoal">What is your main goal from SEO? <span class="required">*</span></label>
+                            <select id="seoMainGoal" name="seoMainGoal" required>
+                                <option value="">Select an option</option>
+                                <option value="phone-calls">More phone calls</option>
+                                <option value="quote-requests">More quote requests</option>
+                                <option value="jobs-booked">More jobs booked</option>
+                                <option value="brand-awareness">Brand awareness</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoCrm">Do you use any CRM? <span class="required">*</span></label>
+                            <select id="seoCrm" name="seoCrm" required>
+                                <option value="">Select an option</option>
+                                <option value="no">No</option>
+                                <option value="ghl">GoHighLevel</option>
+                                <option value="servicem8">ServiceM8</option>
+                                <option value="housecall-pro">Housecall Pro</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="seoCrmOtherGroup" style="display: none;">
+                            <label for="seoCrmOther">What CRM do you use? <span class="required">*</span></label>
+                            <input type="text" id="seoCrmOther" name="seoCrmOther" required>
+                        </div>
+                    </div>
+
+                    <!-- Scheduling & Availability -->
+                    <div class="form-section">
+                        <h2>Scheduling & Availability</h2>
+                        
+                        <div class="form-group">
+                            <label>What days do you operate? <span class="required">*</span></label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoDayMonday" name="seoOperatingDays" value="monday">
+                                    <label for="seoDayMonday">Monday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoDayTuesday" name="seoOperatingDays" value="tuesday">
+                                    <label for="seoDayTuesday">Tuesday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoDayWednesday" name="seoOperatingDays" value="wednesday">
+                                    <label for="seoDayWednesday">Wednesday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoDayThursday" name="seoOperatingDays" value="thursday">
+                                    <label for="seoDayThursday">Thursday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoDayFriday" name="seoOperatingDays" value="friday">
+                                    <label for="seoDayFriday">Friday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoDaySaturday" name="seoOperatingDays" value="saturday">
+                                    <label for="seoDaySaturday">Saturday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoDaySunday" name="seoOperatingDays" value="sunday">
+                                    <label for="seoDaySunday">Sunday</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoPhoneHours">What hours do you answer the phone? <span class="required">*</span></label>
+                            <input type="text" id="seoPhoneHours" name="seoPhoneHours" placeholder="Example: 7am to 6pm" required>
+                            <p class="help-text">Example: 7am to 6pm</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoEmergencyServices">Do you offer emergency or after hours services? <span class="required">*</span></label>
+                            <select id="seoEmergencyServices" name="seoEmergencyServices" required>
+                                <option value="">Select an option</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Positioning & Trust -->
+                    <div class="form-section">
+                        <h2>Positioning & Trust</h2>
+                        
+                        <div class="form-group">
+                            <label for="seoDifferentiator">What makes your business different from competitors? <span class="required">*</span></label>
+                            <textarea id="seoDifferentiator" name="seoDifferentiator" placeholder="Example: fastest response, best pricing, family owned, longest warranty" required></textarea>
+                            <p class="help-text">Example: fastest response, best pricing, family owned, longest warranty</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoSpecialOffers">Do you have any special offers or guarantees? <span class="required">*</span></label>
+                            <textarea id="seoSpecialOffers" name="seoSpecialOffers" placeholder="Example: free quotes, same day service, fixed pricing" required></textarea>
+                            <p class="help-text">Example: free quotes, same day service, fixed pricing</p>
+                        </div>
+                    </div>
+
+                    <!-- Competitors & Market -->
+                    <div class="form-section">
+                        <h2>Competitors & Market</h2>
+                        
+                        <div class="form-group">
+                            <label>List three local competitors you want us to analyse <span class="required">*</span></label>
+                            <div style="margin-bottom: 15px;">
+                                <label for="seoCompetitor1" style="font-size: 0.9rem; color: var(--text-grey); margin-bottom: 5px; display: block;">Competitor 1 Website URL</label>
+                                <input type="url" id="seoCompetitor1" name="seoCompetitor1" placeholder="https://competitor1.com" required>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label for="seoCompetitor2" style="font-size: 0.9rem; color: var(--text-grey); margin-bottom: 5px; display: block;">Competitor 2 Website URL</label>
+                                <input type="url" id="seoCompetitor2" name="seoCompetitor2" placeholder="https://competitor2.com" required>
+                            </div>
+                            <div>
+                                <label for="seoCompetitor3" style="font-size: 0.9rem; color: var(--text-grey); margin-bottom: 5px; display: block;">Competitor 3 Website URL</label>
+                                <input type="url" id="seoCompetitor3" name="seoCompetitor3" placeholder="https://competitor3.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoExcludedServices">Are there any services you do NOT want leads for?</label>
+                            <textarea id="seoExcludedServices" name="seoExcludedServices"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Communication -->
+                    <div class="form-section">
+                        <h2>Communication</h2>
+                        
+                        <div class="form-group">
+                            <label for="seoContactMethod">Preferred contact method <span class="required">*</span></label>
+                            <select id="seoContactMethod" name="seoContactMethod" required>
+                                <option value="">Select an option</option>
+                                <option value="phone">Phone</option>
+                                <option value="email">Email</option>
+                                <option value="sms">SMS</option>
+                                <option value="whatsapp">WhatsApp</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Submit Section -->
+                    <div class="submit-section">
+                        <button type="submit" class="submit-btn">Submit SEO Onboarding Form</button>
+                        
+                        <div class="encryption-notice">
+                            <p>
+                                <span class="lock-icon">🔒</span>
+                                <span>Your information is encrypted and securely transmitted</span>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- SEOx Form Section (Meta + Google Ads Combined) -->
+            <div class="form-container" id="seoxForm">
+                <form class="form-card" id="seoxOnboardingForm" method="POST" action="#">
+                    
+                    <!-- Business Information -->
+                    <div class="form-section">
+                        <h2>Business Information</h2>
+                        
+                        <div class="form-group">
+                            <label for="seoxBusinessName">Business Name <span class="required">*</span></label>
+                            <input type="text" id="seoxBusinessName" name="seoxBusinessName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxWebsiteUrl">Website URL <span class="required">*</span></label>
+                            <input type="url" id="seoxWebsiteUrl" name="seoxWebsiteUrl" placeholder="https://example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxContactName">Primary Contact Name <span class="required">*</span></label>
+                            <input type="text" id="seoxContactName" name="seoxContactName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxPhoneNumber">Best Phone Number For Leads <span class="required">*</span></label>
+                            <input type="tel" id="seoxPhoneNumber" name="seoxPhoneNumber" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxLeadEmail">Lead Handling Email <span class="required">*</span></label>
+                            <input type="email" id="seoxLeadEmail" name="seoxLeadEmail" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxPhoneAnswerHours">Do you answer the phone during business hours? <span class="required">*</span></label>
+                            <select id="seoxPhoneAnswerHours" name="seoxPhoneAnswerHours" required>
+                                <option value="">Select an option</option>
+                                <option value="always">Yes, always</option>
+                                <option value="most">Most of the time</option>
+                                <option value="sometimes">Sometimes</option>
+                                <option value="rarely">Rarely</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxPhoneAnswerAfterHours">Do you answer the phone after hours? <span class="required">*</span></label>
+                            <select id="seoxPhoneAnswerAfterHours" name="seoxPhoneAnswerAfterHours" required>
+                                <option value="">Select an option</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Account Information -->
+                    <div class="form-section">
+                        <h2>Account Information</h2>
+                        
+                        <div class="form-group">
+                            <label for="seoxGoogleAdsAccountId">Google Ads Account ID <span class="required">*</span></label>
+                            <input type="text" id="seoxGoogleAdsAccountId" name="seoxGoogleAdsAccountId" placeholder="e.g., 123-456-7890" required>
+                            <p class="help-text">Enter your Account ID (found in the top right of your Google Ads dashboard)</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxMetaAdAccountId">Meta Ad Account ID <span class="required">*</span></label>
+                            <input type="text" id="seoxMetaAdAccountId" name="seoxMetaAdAccountId" placeholder="e.g., act_123456789" required>
+                            <p class="help-text">Found in Meta Business Suite under Ad Accounts. Format: act_XXXXXXXXX</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxMetaBusinessManagerId">Meta Business Manager ID</label>
+                            <input type="text" id="seoxMetaBusinessManagerId" name="seoxMetaBusinessManagerId" placeholder="e.g., 123456789">
+                            <p class="help-text">If you have a Business Manager account, enter the ID here</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxMetaPixelId">Meta Pixel ID</label>
+                            <input type="text" id="seoxMetaPixelId" name="seoxMetaPixelId" placeholder="e.g., 123456789012345">
+                            <p class="help-text">If you already have a Meta Pixel installed, enter the Pixel ID. We can create one if needed.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxMetaPageUrl">Facebook Page URL</label>
+                            <input type="url" id="seoxMetaPageUrl" name="seoxMetaPageUrl" placeholder="https://facebook.com/yourpage">
+                            <p class="help-text">Your business Facebook Page URL (if you have one)</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxMetaInstagramHandle">Instagram Business Handle</label>
+                            <input type="text" id="seoxMetaInstagramHandle" name="seoxMetaInstagramHandle" placeholder="@yourbusiness">
+                            <p class="help-text">Your Instagram business account handle (if you have one)</p>
+                        </div>
+                    </div>
+
+                    <!-- Service & Revenue -->
+                    <div class="form-section">
+                        <h2>Service & Revenue</h2>
+                        
+                        <div class="form-group">
+                            <label for="seoxMainServices">List your main services in priority order <span class="required">*</span></label>
+                            <textarea id="seoxMainServices" name="seoxMainServices" placeholder="Example: Emergency plumbing, blocked drains, hot water systems, general plumbing" required></textarea>
+                            <p class="help-text">Example: Emergency plumbing, blocked drains, hot water systems, general plumbing</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxAverageJobValue">What is your average job value? <span class="required">*</span></label>
+                            <select id="seoxAverageJobValue" name="seoxAverageJobValue" required>
+                                <option value="">Select an option</option>
+                                <option value="under-200">Under $200</option>
+                                <option value="200-400">$200 to $400</option>
+                                <option value="400-600">$400 to $600</option>
+                                <option value="600-800">$600 to $800</option>
+                                <option value="800-1200">$800 to $1,200</option>
+                                <option value="1200-plus">$1,200+</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxEnquiryToJob">Roughly how many enquiries turn into a booked job? <span class="required">*</span></label>
+                            <select id="seoxEnquiryToJob" name="seoxEnquiryToJob" required>
+                                <option value="">Select an option</option>
+                                <option value="1-in-10">1 in 10</option>
+                                <option value="2-in-10">2 in 10</option>
+                                <option value="3-in-10">3 in 10</option>
+                                <option value="4-in-10">4 in 10</option>
+                                <option value="5-in-10">5 in 10</option>
+                                <option value="more-than-5">More than 5 in 10</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Location & Targeting -->
+                    <div class="form-section">
+                        <h2>Location & Targeting</h2>
+                        
+                        <div class="form-group">
+                            <label for="seoxPrimaryLocation">Primary service location (suburb and state) <span class="required">*</span></label>
+                            <input type="text" id="seoxPrimaryLocation" name="seoxPrimaryLocation" placeholder="e.g., Sydney NSW" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxServiceRadius">Service radius in kilometres <span class="required">*</span></label>
+                            <select id="seoxServiceRadius" name="seoxServiceRadius" required>
+                                <option value="">Select an option</option>
+                                <option value="5">5 km</option>
+                                <option value="10">10 km</option>
+                                <option value="15">15 km</option>
+                                <option value="20">20 km</option>
+                                <option value="25">25 km</option>
+                                <option value="30">30 km</option>
+                                <option value="50">50 km</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxTargetSpecificSuburbs">Do you want to target specific suburbs instead of a radius? <span class="required">*</span></label>
+                            <select id="seoxTargetSpecificSuburbs" name="seoxTargetSpecificSuburbs" required>
+                                <option value="">Select an option</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="seoxSuburbsListGroup" style="display: none;">
+                            <label for="seoxSuburbsList">If yes, list the suburbs</label>
+                            <textarea id="seoxSuburbsList" name="seoxSuburbsList"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Budget & Growth -->
+                    <div class="form-section">
+                        <h2>Budget & Growth</h2>
+                        
+                        <div class="form-group">
+                            <label for="seoxGoogleDailyBudget">Daily Google Ads budget <span class="required">*</span></label>
+                            <select id="seoxGoogleDailyBudget" name="seoxGoogleDailyBudget" required>
+                                <option value="">Select an option</option>
+                                <option value="20">$20</option>
+                                <option value="30">$30</option>
+                                <option value="40">$40</option>
+                                <option value="50">$50</option>
+                                <option value="75">$75</option>
+                                <option value="100">$100</option>
+                                <option value="150-plus">$150+</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxMetaDailyBudget">Daily Meta Ads budget <span class="required">*</span></label>
+                            <select id="seoxMetaDailyBudget" name="seoxMetaDailyBudget" required>
+                                <option value="">Select an option</option>
+                                <option value="20">$20</option>
+                                <option value="30">$30</option>
+                                <option value="40">$40</option>
+                                <option value="50">$50</option>
+                                <option value="75">$75</option>
+                                <option value="100">$100</option>
+                                <option value="150">$150</option>
+                                <option value="200">$200</option>
+                                <option value="300-plus">$300+</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxIncreaseBudget">Are you open to increasing budget if results are profitable? <span class="required">*</span></label>
+                            <select id="seoxIncreaseBudget" name="seoxIncreaseBudget" required>
+                                <option value="">Select an option</option>
+                                <option value="yes">Yes</option>
+                                <option value="maybe">Maybe</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Conversion & Tracking -->
+                    <div class="form-section">
+                        <h2>Conversion & Tracking</h2>
+                        
+                        <div class="form-group">
+                            <label>What counts as a lead for your business? <span class="required">*</span></label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoxLeadPhone" name="seoxLeadTypes" value="phone">
+                                    <label for="seoxLeadPhone">Phone call</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoxLeadForm" name="seoxLeadTypes" value="form">
+                                    <label for="seoxLeadForm">Form submission</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoxLeadSMS" name="seoxLeadTypes" value="sms">
+                                    <label for="seoxLeadSMS">SMS</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoxLeadChat" name="seoxLeadTypes" value="chat">
+                                    <label for="seoxLeadChat">Messenger/WhatsApp</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoxLeadWebsite" name="seoxLeadTypes" value="website">
+                                    <label for="seoxLeadWebsite">Website visit</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxGoogleMainGoal">What is your main goal from Google Ads? <span class="required">*</span></label>
+                            <select id="seoxGoogleMainGoal" name="seoxGoogleMainGoal" required>
+                                <option value="">Select an option</option>
+                                <option value="phone-calls">More phone calls</option>
+                                <option value="quote-requests">More quote requests</option>
+                                <option value="jobs-booked">More jobs booked</option>
+                                <option value="brand-awareness">Brand awareness</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxMetaMainGoal">What is your main goal from Meta Ads? <span class="required">*</span></label>
+                            <select id="seoxMetaMainGoal" name="seoxMetaMainGoal" required>
+                                <option value="">Select an option</option>
+                                <option value="phone-calls">More phone calls</option>
+                                <option value="quote-requests">More quote requests</option>
+                                <option value="jobs-booked">More jobs booked</option>
+                                <option value="website-traffic">More website traffic</option>
+                                <option value="brand-awareness">Brand awareness</option>
+                                <option value="engagement">Engagement (likes, comments, shares)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxCrm">Do you use any CRM? <span class="required">*</span></label>
+                            <select id="seoxCrm" name="seoxCrm" required>
+                                <option value="">Select an option</option>
+                                <option value="no">No</option>
+                                <option value="ghl">GoHighLevel</option>
+                                <option value="servicem8">ServiceM8</option>
+                                <option value="housecall-pro">Housecall Pro</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="seoxCrmOtherGroup" style="display: none;">
+                            <label for="seoxCrmOther">What CRM do you use? <span class="required">*</span></label>
+                            <input type="text" id="seoxCrmOther" name="seoxCrmOther" required>
+                        </div>
+                    </div>
+
+                    <!-- Ad Creative & Assets (Meta Specific) -->
+                    <div class="form-section">
+                        <h2>Ad Creative & Assets</h2>
+                        
+                        <div class="form-group">
+                            <label for="seoxHasCreative">Do you have existing ad creative (images/videos)? <span class="required">*</span></label>
+                            <select id="seoxHasCreative" name="seoxHasCreative" required>
+                                <option value="">Select an option</option>
+                                <option value="yes">Yes, I have images/videos ready</option>
+                                <option value="some">I have some, but need more</option>
+                                <option value="no">No, I need help creating ads</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxCreativeStyle">What style of ads do you prefer? <span class="required">*</span></label>
+                            <select id="seoxCreativeStyle" name="seoxCreativeStyle" required>
+                                <option value="">Select an option</option>
+                                <option value="professional">Professional/Corporate</option>
+                                <option value="casual">Casual/Friendly</option>
+                                <option value="bold">Bold/Eye-catching</option>
+                                <option value="minimal">Minimal/Clean</option>
+                                <option value="no-preference">No preference</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxBrandColors">Brand colors (if applicable)</label>
+                            <input type="text" id="seoxBrandColors" name="seoxBrandColors" placeholder="e.g., #00D4FF, #000000">
+                            <p class="help-text">Enter hex color codes separated by commas</p>
+                        </div>
+                    </div>
+
+                    <!-- Scheduling & Availability -->
+                    <div class="form-section">
+                        <h2>Scheduling & Availability</h2>
+                        
+                        <div class="form-group">
+                            <label>What days do you operate? <span class="required">*</span></label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoxDayMonday" name="seoxOperatingDays" value="monday">
+                                    <label for="seoxDayMonday">Monday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoxDayTuesday" name="seoxOperatingDays" value="tuesday">
+                                    <label for="seoxDayTuesday">Tuesday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoxDayWednesday" name="seoxOperatingDays" value="wednesday">
+                                    <label for="seoxDayWednesday">Wednesday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoxDayThursday" name="seoxOperatingDays" value="thursday">
+                                    <label for="seoxDayThursday">Thursday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoxDayFriday" name="seoxOperatingDays" value="friday">
+                                    <label for="seoxDayFriday">Friday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoxDaySaturday" name="seoxOperatingDays" value="saturday">
+                                    <label for="seoxDaySaturday">Saturday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="seoxDaySunday" name="seoxOperatingDays" value="sunday">
+                                    <label for="seoxDaySunday">Sunday</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxPhoneHours">What hours do you answer the phone? <span class="required">*</span></label>
+                            <input type="text" id="seoxPhoneHours" name="seoxPhoneHours" placeholder="Example: 7am to 6pm" required>
+                            <p class="help-text">Example: 7am to 6pm</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxEmergencyServices">Do you offer emergency or after hours services? <span class="required">*</span></label>
+                            <select id="seoxEmergencyServices" name="seoxEmergencyServices" required>
+                                <option value="">Select an option</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Positioning & Trust -->
+                    <div class="form-section">
+                        <h2>Positioning & Trust</h2>
+                        
+                        <div class="form-group">
+                            <label for="seoxDifferentiator">What makes your business different from competitors? <span class="required">*</span></label>
+                            <textarea id="seoxDifferentiator" name="seoxDifferentiator" placeholder="Example: fastest response, best pricing, family owned, longest warranty" required></textarea>
+                            <p class="help-text">Example: fastest response, best pricing, family owned, longest warranty</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxSpecialOffers">Do you have any special offers or guarantees? <span class="required">*</span></label>
+                            <textarea id="seoxSpecialOffers" name="seoxSpecialOffers" placeholder="Example: free quotes, same day service, fixed pricing" required></textarea>
+                            <p class="help-text">Example: free quotes, same day service, fixed pricing</p>
+                        </div>
+                    </div>
+
+                    <!-- Competitors & Market -->
+                    <div class="form-section">
+                        <h2>Competitors & Market</h2>
+                        
+                        <div class="form-group">
+                            <label>List three local competitors you want us to analyse <span class="required">*</span></label>
+                            <div style="margin-bottom: 15px;">
+                                <label for="seoxCompetitor1" style="font-size: 0.9rem; color: var(--text-grey); margin-bottom: 5px; display: block;">Competitor 1 Website URL</label>
+                                <input type="url" id="seoxCompetitor1" name="seoxCompetitor1" placeholder="https://competitor1.com" required>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label for="seoxCompetitor2" style="font-size: 0.9rem; color: var(--text-grey); margin-bottom: 5px; display: block;">Competitor 2 Website URL</label>
+                                <input type="url" id="seoxCompetitor2" name="seoxCompetitor2" placeholder="https://competitor2.com" required>
+                            </div>
+                            <div>
+                                <label for="seoxCompetitor3" style="font-size: 0.9rem; color: var(--text-grey); margin-bottom: 5px; display: block;">Competitor 3 Website URL</label>
+                                <input type="url" id="seoxCompetitor3" name="seoxCompetitor3" placeholder="https://competitor3.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seoxExcludedServices">Are there any services you do NOT want leads for?</label>
+                            <textarea id="seoxExcludedServices" name="seoxExcludedServices"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Communication -->
+                    <div class="form-section">
+                        <h2>Communication</h2>
+                        
+                        <div class="form-group">
+                            <label for="seoxContactMethod">Preferred contact method <span class="required">*</span></label>
+                            <select id="seoxContactMethod" name="seoxContactMethod" required>
+                                <option value="">Select an option</option>
+                                <option value="phone">Phone</option>
+                                <option value="email">Email</option>
+                                <option value="sms">SMS</option>
+                                <option value="whatsapp">WhatsApp</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Submit Section -->
+                    <div class="submit-section">
+                        <button type="submit" class="submit-btn">Submit SEOx Onboarding Form</button>
+                        
+                        <div class="encryption-notice">
+                            <p>
+                                <span class="lock-icon">🔒</span>
+                                <span>Your information is encrypted and securely transmitted</span>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Platform form switcher
+        function showForm(platform) {
+            // Hide all forms
+            document.querySelectorAll('.form-container').forEach(form => {
+                form.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.platform-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected form(s) and activate button
+            if (platform === 'meta') {
+                document.getElementById('metaForm').classList.add('active');
+                document.getElementById('metaBtn').classList.add('active');
+            } else if (platform === 'google') {
+                document.getElementById('googleForm').classList.add('active');
+                document.getElementById('googleBtn').classList.add('active');
+            } else if (platform === 'seo') {
+                document.getElementById('seoForm').classList.add('active');
+                document.getElementById('seoBtn').classList.add('active');
+            } else if (platform === 'seox') {
+                // Show SEOx form (Meta + Google Ads combined)
+                document.getElementById('seoxForm').classList.add('active');
+                document.getElementById('seoxBtn').classList.add('active');
+            }
+        }
+
+        // Initialize - check for UTM parameter or show buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const serviceType = urlParams.get('servicetype');
+            
+            // If servicetype UTM parameter exists, auto-show the corresponding form
+            if (serviceType) {
+                // Hide the platform selector buttons section
+                const platformSelectorSection = document.querySelector('.platform-selector-section');
+                if (platformSelectorSection) {
+                    platformSelectorSection.style.display = 'none';
+                }
+                
+                // Show the appropriate form based on servicetype
+                switch(serviceType.toLowerCase()) {
+                    case 'seox':
+                        showForm('seox');
+                        break;
+                    case 'ga':
+                        showForm('google');
+                        break;
+                    case 'seo':
+                        showForm('seo');
+                        break;
+                    case 'meta':
+                        showForm('meta');
+                        break;
+                    default:
+                        // Unknown servicetype, show buttons
+                        if (platformSelectorSection) {
+                            platformSelectorSection.style.display = 'block';
+                        }
+                        break;
+                }
+            }
+            // If no servicetype parameter, buttons are already visible (default state)
+        });
+    </script>
+
+    <script>
+        // Show/hide conditional fields - Google Ads
+        document.getElementById('targetSpecificSuburbs').addEventListener('change', function() {
+            const suburbsGroup = document.getElementById('suburbsListGroup');
+            if (this.value === 'yes') {
+                suburbsGroup.style.display = 'block';
+                document.getElementById('suburbsList').setAttribute('required', 'required');
+            } else {
+                suburbsGroup.style.display = 'none';
+                document.getElementById('suburbsList').removeAttribute('required');
+            }
+        });
+
+        // Show/hide conditional fields - Meta Ads
+        document.getElementById('metaTargetSpecificSuburbs').addEventListener('change', function() {
+            const suburbsGroup = document.getElementById('metaSuburbsListGroup');
+            if (this.value === 'yes') {
+                suburbsGroup.style.display = 'block';
+                document.getElementById('metaSuburbsList').setAttribute('required', 'required');
+            } else {
+                suburbsGroup.style.display = 'none';
+                document.getElementById('metaSuburbsList').removeAttribute('required');
+            }
+        });
+
+        // Show/hide conditional fields - SEO
+        document.getElementById('seoTargetSpecificSuburbs').addEventListener('change', function() {
+            const suburbsGroup = document.getElementById('seoSuburbsListGroup');
+            if (this.value === 'yes') {
+                suburbsGroup.style.display = 'block';
+                document.getElementById('seoSuburbsList').setAttribute('required', 'required');
+            } else {
+                suburbsGroup.style.display = 'none';
+                document.getElementById('seoSuburbsList').removeAttribute('required');
+            }
+        });
+
+        document.getElementById('seoCrm').addEventListener('change', function() {
+            const crmOtherGroup = document.getElementById('seoCrmOtherGroup');
+            if (this.value === 'other') {
+                crmOtherGroup.style.display = 'block';
+                document.getElementById('seoCrmOther').setAttribute('required', 'required');
+            } else {
+                crmOtherGroup.style.display = 'none';
+                document.getElementById('seoCrmOther').removeAttribute('required');
+            }
+        });
+
+        // Show/hide conditional fields - SEOx
+        document.getElementById('seoxTargetSpecificSuburbs').addEventListener('change', function() {
+            const suburbsGroup = document.getElementById('seoxSuburbsListGroup');
+            if (this.value === 'yes') {
+                suburbsGroup.style.display = 'block';
+                document.getElementById('seoxSuburbsList').setAttribute('required', 'required');
+            } else {
+                suburbsGroup.style.display = 'none';
+                document.getElementById('seoxSuburbsList').removeAttribute('required');
+            }
+        });
+
+        document.getElementById('seoxCrm').addEventListener('change', function() {
+            const crmOtherGroup = document.getElementById('seoxCrmOtherGroup');
+            if (this.value === 'other') {
+                crmOtherGroup.style.display = 'block';
+                document.getElementById('seoxCrmOther').setAttribute('required', 'required');
+            } else {
+                crmOtherGroup.style.display = 'none';
+                document.getElementById('seoxCrmOther').removeAttribute('required');
+            }
+        });
+
+        document.getElementById('crm').addEventListener('change', function() {
+            const crmOtherGroup = document.getElementById('crmOtherGroup');
+            if (this.value === 'other') {
+                crmOtherGroup.style.display = 'block';
+                document.getElementById('crmOther').setAttribute('required', 'required');
+            } else {
+                crmOtherGroup.style.display = 'none';
+                document.getElementById('crmOther').removeAttribute('required');
+            }
+        });
+
+        // Function to collect form data and send to webhook
+        function submitFormToWebhook(formId, formType) {
+            const form = document.getElementById(formId);
+            if (!form) return;
+
+            // Collect all form data
+            const formData = new FormData(form);
+            const data = {
+                formType: formType,
+                timestamp: new Date().toISOString()
+            };
+
+            // Convert FormData to object
+            for (let [key, value] of formData.entries()) {
+                // Handle checkboxes and multi-select
+                if (data[key]) {
+                    if (Array.isArray(data[key])) {
+                        data[key].push(value);
+                    } else {
+                        data[key] = [data[key], value];
+                    }
+                } else {
+                    data[key] = value;
+                }
+            }
+
+            // Handle checkboxes separately
+            const checkboxes = form.querySelectorAll('input[type="checkbox"]:checked');
+            checkboxes.forEach(checkbox => {
+                const name = checkbox.name;
+                if (name) {
+                    if (data[name]) {
+                        if (!Array.isArray(data[name])) {
+                            data[name] = [data[name]];
+                        }
+                        if (!data[name].includes(checkbox.value)) {
+                            data[name].push(checkbox.value);
+                        }
+                    } else {
+                        data[name] = [checkbox.value];
+                    }
+                }
+            });
+
+            // Webhook URL
+            const webhookUrl = 'https://services.leadconnectorhq.com/hooks/30kf4HX82D5x9unRwhNm/webhook-trigger/b42cffd7-ce96-4465-a162-56fe4e5709e9';
+
+            // Send to webhook
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .catch(error => {
+                console.error('Error submitting form:', error);
+                // Still show success message even if webhook fails
+            });
+        }
+
+        // Form validation for checkboxes - Google Ads
+        document.getElementById('onboardingForm').addEventListener('submit', function(e) {
+            // Validate lead types
+            const leadTypes = document.querySelectorAll('input[name="leadTypes"]:checked');
+            if (leadTypes.length === 0) {
+                e.preventDefault();
+                alert('Please select at least one lead type.');
+                return false;
+            }
+
+            // Validate operating days
+            const operatingDays = document.querySelectorAll('input[name="operatingDays"]:checked');
+            if (operatingDays.length === 0) {
+                e.preventDefault();
+                alert('Please select at least one operating day.');
+                return false;
+            }
+
+            // Submit to webhook
+            submitFormToWebhook('onboardingForm', 'Google Ads');
+
+            // Track form submission
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'Google Ads Onboarding Form',
+                    content_category: 'Form Submission'
+                });
+            }
+
+            // Show important message about account access
+            alert('Thank you for submitting your onboarding form!\n\nIMPORTANT: Please check your Google Ads account within 24 hours to accept our access request. Keep an eye out for a request from us - we\'ll need access to set up and manage your campaigns.\n\nWe\'ll be in touch soon!');
+        });
+
+        // Form validation for checkboxes - Meta Ads
+        document.getElementById('metaOnboardingForm').addEventListener('submit', function(e) {
+            // Validate lead types
+            const leadTypes = document.querySelectorAll('input[name="metaLeadTypes"]:checked');
+            if (leadTypes.length === 0) {
+                e.preventDefault();
+                alert('Please select at least one lead type.');
+                return false;
+            }
+
+            // Validate operating days
+            const operatingDays = document.querySelectorAll('input[name="metaOperatingDays"]:checked');
+            if (operatingDays.length === 0) {
+                e.preventDefault();
+                alert('Please select at least one operating day.');
+                return false;
+            }
+
+            // Submit to webhook
+            submitFormToWebhook('metaOnboardingForm', 'Meta Ads');
+
+            // Track form submission
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'Meta Ads Onboarding Form',
+                    content_category: 'Form Submission'
+                });
+            }
+
+            // Show important message about account access
+            alert('Thank you for submitting your Meta onboarding form!\n\nIMPORTANT: Please check your Meta Business Manager within 24 hours to accept our access request. Keep an eye out for a request from us - we\'ll need access to your Ad Account to set up and manage your campaigns.\n\nWe\'ll be in touch soon!');
+        });
+
+        // Form validation for checkboxes - SEO
+        document.getElementById('seoOnboardingForm').addEventListener('submit', function(e) {
+            // Validate lead types
+            const leadTypes = document.querySelectorAll('input[name="seoLeadTypes"]:checked');
+            if (leadTypes.length === 0) {
+                e.preventDefault();
+                alert('Please select at least one lead type.');
+                return false;
+            }
+
+            // Validate operating days
+            const operatingDays = document.querySelectorAll('input[name="seoOperatingDays"]:checked');
+            if (operatingDays.length === 0) {
+                e.preventDefault();
+                alert('Please select at least one operating day.');
+                return false;
+            }
+
+            // Submit to webhook
+            submitFormToWebhook('seoOnboardingForm', 'SEO');
+
+            // Track form submission
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'SEO Onboarding Form',
+                    content_category: 'Form Submission'
+                });
+            }
+
+            // Show success message
+            alert('Thank you for submitting your SEO onboarding form!\n\nWe\'ll be in touch soon to get started!');
+        });
+
+        // Form validation for checkboxes - SEOx
+        document.getElementById('seoxOnboardingForm').addEventListener('submit', function(e) {
+            // Validate lead types
+            const leadTypes = document.querySelectorAll('input[name="seoxLeadTypes"]:checked');
+            if (leadTypes.length === 0) {
+                e.preventDefault();
+                alert('Please select at least one lead type.');
+                return false;
+            }
+
+            // Validate operating days
+            const operatingDays = document.querySelectorAll('input[name="seoxOperatingDays"]:checked');
+            if (operatingDays.length === 0) {
+                e.preventDefault();
+                alert('Please select at least one operating day.');
+                return false;
+            }
+
+            // Submit to webhook
+            submitFormToWebhook('seoxOnboardingForm', 'SEOx');
+
+            // Track form submission
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'SEOx Onboarding Form',
+                    content_category: 'Form Submission'
+                });
+            }
+
+            // Show important message about account access
+            alert('Thank you for submitting your SEOx onboarding form!\n\nIMPORTANT:\n- Please check your Google Ads account within 24 hours to accept our access request.\n- Please check your Meta Business Manager within 24 hours to accept our access request.\n\nKeep an eye out for requests from us - we\'ll need access to both accounts to set up and manage your campaigns.\n\nWe\'ll be in touch soon!');
+        });
+    </script>
+<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "45c989d82d2d403fae6f24ed376a0bdd"}'></script><!-- Cloudflare Pages Analytics --></body>
+</html>
+

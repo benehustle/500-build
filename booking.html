@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
+  <title>Book your handover call - Spot On Websites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f0f0f;
+      --text-white: #ffffff;
+      --text-grey: #c0c0c0;
+      --text-muted: #999999;
+      --accent-blue: #00d4ff;
+      --accent-green: #00ff88;
+      --font-head: "Montserrat", sans-serif;
+      --font-body: "Inter", sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      background: radial-gradient(circle at top, #1a1a1a 0%, var(--bg-dark) 60%);
+      color: var(--text-white);
+      min-height: 100vh;
+      padding: 28px 18px 40px;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    h1 {
+      font-family: var(--font-head);
+      text-transform: uppercase;
+      letter-spacing: -0.4px;
+      font-size: clamp(1.35rem, 4vw, 1.85rem);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .sub {
+      color: var(--text-grey);
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 20px;
+      line-height: 1.55;
+      font-size: 0.95rem;
+    }
+    .sub strong { color: var(--accent-green); }
+    .card {
+      background: linear-gradient(180deg, #181818 0%, #101010 100%);
+      border: 1px solid rgba(0, 212, 255, 0.35);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      margin-bottom: 20px;
+    }
+    .iframe-wrap {
+      position: relative;
+      width: 100%;
+      min-height: 720px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #2a2a2a;
+      background: #0a0a0a;
+    }
+    .iframe-wrap iframe {
+      width: 100%;
+      height: 720px;
+      border: 0;
+      display: block;
+    }
+    .note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+      text-align: center;
+    }
+    .actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin-top: 22px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-blue);
+      color: #000;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 16px 28px;
+      border-radius: 10px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-body);
+    }
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+    .link-muted { color: var(--accent-blue); font-size: 0.9rem; text-decoration: none; }
+    .warn {
+      background: rgba(255, 180, 0, 0.1);
+      border: 1px solid rgba(255, 200, 80, 0.4);
+      color: #ffe4a8;
+      padding: 14px 16px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+      display: none;
+    }
+    .warn.show { display: block; }
+    .loading { text-align: center; color: var(--text-muted); padding: 40px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Book your handover call</h1>
+    <p class="sub">
+      Choose a time that suits you for a short call to hand your project over to our team.
+      <strong>We typically schedule these within 3–4 business days</strong> so we can align on your brief, assets, and next milestones.
+    </p>
+
+    <div class="warn" id="cfg-warn" role="status"></div>
+
+    <div class="card" id="cal-card">
+      <div class="loading" id="cal-loading">Loading calendar…</div>
+      <div class="iframe-wrap" id="cal-frame" style="display:none">
+        <iframe title="Book a call" id="booking-iframe" src="about:blank"></iframe>
+      </div>
+    </div>
+
+    <p class="note">After you have booked your slot, continue below.</p>
+    <div class="actions">
+      <a class="btn" id="btn-continue" href="thank-you.html">I have booked my call →</a>
+      <a class="link-muted" href="site-onboarding.html">← Back to brief</a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var warn = document.getElementById("cfg-warn");
+      var loading = document.getElementById("cal-loading");
+      var frameWrap = document.getElementById("cal-frame");
+      var iframe = document.getElementById("booking-iframe");
+      var btn = document.getElementById("btn-continue");
+
+      fetch("/api/booking-config")
+        .then(function (r) {
+          return r.json();
+        })
+        .then(function (data) {
+          var url = (data && data.bookingUrl) ? String(data.bookingUrl).trim() : "";
+          loading.style.display = "none";
+          if (!url) {
+            warn.textContent =
+              "Calendar is not configured yet. Your project manager will reach out by phone or email to schedule your handover. You can still continue.";
+            warn.classList.add("show");
+            btn.focus();
+            return;
+          }
+          iframe.src = url;
+          frameWrap.style.display = "block";
+        })
+        .catch(function () {
+          loading.style.display = "none";
+          warn.textContent = "Could not load the calendar. Please refresh, or reply to your confirmation email and we will book you manually.";
+          warn.classList.add("show");
+        });
+    })();
+  </script>
+</body>
+</html>

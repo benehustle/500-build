@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
+  <title>Secure Payment - Spot On Websites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://js.stripe.com/v3/"></script>
+  <style>
+    :root {
+      --bg-dark: #0f0f0f;
+      --bg-card: #151515;
+      --text-white: #ffffff;
+      --text-grey: #c0c0c0;
+      --text-muted: #999999;
+      --accent-blue: #00d4ff;
+      --accent-green: #00ff88;
+      --accent-red: #ff4444;
+      --font-head: "Montserrat", sans-serif;
+      --font-body: "Inter", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      background: radial-gradient(circle at top, #1a1a1a 0%, var(--bg-dark) 60%);
+      color: var(--text-white);
+      min-height: 100vh;
+      padding: 32px 18px 56px;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .page-header h1 {
+      font-family: var(--font-head);
+      text-transform: uppercase;
+      letter-spacing: -0.4px;
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      margin-bottom: 10px;
+    }
+
+    .page-header p {
+      color: var(--text-grey);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .status-pill {
+      display: inline-block;
+      background: rgba(0, 255, 136, 0.14);
+      border: 1px solid rgba(0, 255, 136, 0.45);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: var(--accent-green);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      margin-bottom: 14px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .card {
+      background: linear-gradient(180deg, #181818 0%, #101010 100%);
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .payment-card {
+      border-color: rgba(0, 212, 255, 0.45);
+      box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.2), 0 20px 52px rgba(0, 0, 0, 0.45);
+    }
+
+    .summary-card {
+      border-color: rgba(0, 255, 136, 0.35);
+      position: sticky;
+      top: 18px;
+    }
+
+    .section-title {
+      font-family: var(--font-head);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-grey);
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+    }
+
+    .field {
+      margin-bottom: 14px;
+    }
+
+    .field label {
+      display: block;
+      color: var(--text-grey);
+      margin-bottom: 7px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .field input {
+      width: 100%;
+      background: #0c0c0c;
+      border: 1px solid #333;
+      border-radius: 10px;
+      color: #fff;
+      padding: 12px 13px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .field input:focus {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.2);
+    }
+
+    .element-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .stripe-hosted-field {
+      background: #0c0c0c;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 13px;
+      min-height: 47px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .stripe-hosted-field.focused {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.2);
+    }
+
+    .stripe-hosted-field.invalid {
+      border-color: var(--accent-red);
+      box-shadow: 0 0 0 3px rgba(255, 68, 68, 0.18);
+    }
+
+    .secure-note {
+      margin-top: 14px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 13px 0;
+      border-bottom: 1px solid #2b2b2b;
+      color: var(--text-grey);
+      font-size: 0.95rem;
+    }
+
+    .total-row:last-child { border-bottom: none; }
+
+    .total-row.highlight {
+      color: var(--accent-green);
+      font-weight: 800;
+      font-size: 1.12rem;
+    }
+
+    .btn-pay {
+      margin-top: 16px;
+      width: 100%;
+      background: var(--accent-blue);
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      padding: 15px 18px;
+      font-weight: 900;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+      box-shadow: 0 0 28px rgba(0, 212, 255, 0.35);
+    }
+
+    .btn-pay:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 38px rgba(0, 212, 255, 0.5);
+    }
+
+    .btn-pay:disabled {
+      cursor: not-allowed;
+      opacity: 0.65;
+      transform: none;
+    }
+
+    .message {
+      margin-top: 14px;
+      padding: 12px 13px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      display: none;
+      line-height: 1.5;
+    }
+
+    .message.error {
+      display: block;
+      background: rgba(255, 68, 68, 0.14);
+      border: 1px solid rgba(255, 68, 68, 0.35);
+      color: #ffd4d4;
+    }
+
+    .message.success {
+      display: block;
+      background: rgba(0, 255, 136, 0.12);
+      border: 1px solid rgba(0, 255, 136, 0.35);
+      color: #ccffe8;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: var(--text-grey);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .back-link:hover { color: #fff; }
+
+    .proof-strip {
+      margin-bottom: 28px;
+      padding: 22px 24px;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 212, 255, 0.25);
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, rgba(0, 255, 136, 0.05) 100%);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .proof-strip h2 {
+      font-family: var(--font-head);
+      text-transform: uppercase;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      color: var(--accent-blue);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .proof-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .proof-stat {
+      text-align: center;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: 12px;
+      border: 1px solid #2a2a2a;
+    }
+
+    .proof-stat strong {
+      display: block;
+      font-family: var(--font-head);
+      font-size: 1.5rem;
+      color: var(--accent-green);
+      margin-bottom: 4px;
+    }
+
+    .proof-stat span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-card {
+      padding: 14px 16px;
+      background: #121212;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      color: var(--text-grey);
+      line-height: 1.55;
+    }
+
+    .testimonial-card cite {
+      display: block;
+      margin-top: 10px;
+      font-style: normal;
+      font-size: 0.75rem;
+      color: var(--accent-blue);
+      font-weight: 700;
+    }
+
+    .trust-line {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .trust-line strong { color: var(--text-grey); }
+
+    .post-pay-actions {
+      margin-top: 18px;
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .post-pay-actions.visible {
+      display: flex;
+    }
+
+    .btn-continue {
+      width: 100%;
+      background: var(--accent-green);
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      padding: 16px 18px;
+      font-weight: 900;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0 0 28px rgba(0, 255, 136, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-continue:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 38px rgba(0, 255, 136, 0.45);
+    }
+
+    .redirect-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .summary-card {
+        position: static;
+      }
+
+      .proof-stats,
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <span class="status-pill">Secure Stripe Payment</span>
+      <h1>Lock In Your Build Spot</h1>
+      <p>Pay your $100 deposit now to secure your slot and lifetime hosting bonus. Then pay $600 on first draft approval and the final $297 on go live.</p>
+    </header>
+
+    <section class="proof-strip" aria-label="Social proof">
+      <h2>Why businesses choose Spot On</h2>
+      <div class="proof-stats">
+        <div class="proof-stat">
+          <strong>495+</strong>
+          <span>Happy clients</span>
+        </div>
+        <div class="proof-stat">
+          <strong>98%</strong>
+          <span>Satisfaction</span>
+        </div>
+        <div class="proof-stat">
+          <strong>7 days</strong>
+          <span>Avg delivery</span>
+        </div>
+      </div>
+      <div class="testimonial-grid">
+        <blockquote class="testimonial-card">
+          &ldquo;Professional build, fast turnaround. Leads started coming in within the first week.&rdquo;
+          <cite>— Trade services, NSW</cite>
+        </blockquote>
+        <blockquote class="testimonial-card">
+          &ldquo;Clear process and we knew exactly what we were paying at each step. No surprises.&rdquo;
+          <cite>— Retail, QLD</cite>
+        </blockquote>
+        <blockquote class="testimonial-card">
+          &ldquo;The site looks premium and loads fast on mobile. Worth every dollar of the package.&rdquo;
+          <cite>— Hospitality, VIC</cite>
+        </blockquote>
+      </div>
+      <p class="trust-line">
+        <strong>SSL secure checkout</strong> · <strong>$100 refundable</strong> if you are not happy · Milestone payments: $100 now · $600 on draft approval · $297 on go live
+      </p>
+    </section>
+
+    <div class="layout">
+      <section class="card payment-card">
+        <h2 class="section-title">Payment Details</h2>
+        <p class="section-subtitle">Enter your contact info and card details below.</p>
+
+        <form id="payment-form" novalidate>
+          <div class="field">
+            <label for="customerName">Full Name</label>
+            <input id="customerName" name="customerName" type="text" autocomplete="name" required>
+          </div>
+
+          <div class="field">
+            <label for="customerEmail">Email Address</label>
+            <input id="customerEmail" name="customerEmail" type="email" autocomplete="email" required>
+          </div>
+
+          <div class="field">
+            <label>Card Number</label>
+            <div id="card-number" class="stripe-hosted-field"></div>
+          </div>
+
+          <div class="element-grid">
+            <div class="field">
+              <label>Expiry</label>
+              <div id="card-expiry" class="stripe-hosted-field"></div>
+            </div>
+            <div class="field">
+              <label>CVC</label>
+              <div id="card-cvc" class="stripe-hosted-field"></div>
+            </div>
+          </div>
+
+          <button id="pay-button" class="btn-pay" type="submit">Pay Deposit</button>
+          <div id="payment-message" class="message" role="status" aria-live="polite"></div>
+          <div id="post-pay-actions" class="post-pay-actions">
+            <a href="site-onboarding.html" class="btn-continue" id="btn-continue-onboarding">Continue to onboarding →</a>
+            <p class="redirect-note" id="redirect-countdown">You will be redirected automatically in a few seconds…</p>
+          </div>
+          <p class="secure-note">Payments are processed securely by Stripe. We never store your raw card details.</p>
+        </form>
+
+        <a href="bridge.html" class="back-link">← Back to your locked offer page</a>
+      </section>
+
+      <aside class="card summary-card">
+        <h2 class="section-title">Order Summary</h2>
+        <p class="section-subtitle">Your deposit secures this offer.</p>
+
+        <div class="total-row">
+          <span>Total Website Package</span>
+          <span>$997.00</span>
+        </div>
+        <div class="total-row">
+          <span>Lifetime Hosting Bonus</span>
+          <span style="color:#00ff88;">Included</span>
+        </div>
+        <div class="total-row highlight">
+          <span>Deposit Due Today</span>
+          <span id="deposit-amount">$100.00</span>
+        </div>
+        <div class="total-row">
+          <span>On First Draft Approval</span>
+          <span>$600.00</span>
+        </div>
+        <div class="total-row">
+          <span>Final Payment On Go Live</span>
+          <span>$297.00</span>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    const paymentForm = document.getElementById("payment-form");
+    const payButton = document.getElementById("pay-button");
+    const messageEl = document.getElementById("payment-message");
+    const amountEl = document.getElementById("deposit-amount");
+    const postPayActions = document.getElementById("post-pay-actions");
+    let redirectTimerId = null;
+
+    const showMessage = (text, type) => {
+      messageEl.textContent = text;
+      messageEl.className = `message ${type}`;
+    };
+
+    const setFieldStateClass = (event, id) => {
+      const host = document.getElementById(id);
+      host.classList.toggle("focused", event.type === "focus");
+      host.classList.toggle("invalid", !!event.error);
+    };
+
+    const formatAmount = (cents, currency) => {
+      return new Intl.NumberFormat("en-AU", {
+        style: "currency",
+        currency: (currency || "aud").toUpperCase()
+      }).format(cents / 100);
+    };
+
+    async function sendLeadWebhook(payload) {
+      try {
+        const res = await fetch("/api/lead-webhook", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if (!res.ok) {
+          const errorData = await res.json().catch(() => ({}));
+          console.error("Lead webhook failed:", errorData);
+        }
+      } catch (error) {
+        console.error("Lead webhook request failed:", error);
+      }
+    }
+
+    async function initStripeForm() {
+      try {
+        const configRes = await fetch("/api/stripe-config");
+        const config = await configRes.json();
+
+        if (!configRes.ok) {
+          throw new Error(config.error || "Could not load Stripe settings.");
+        }
+
+        amountEl.textContent = formatAmount(config.amountCents, config.currency);
+
+        const stripe = Stripe(config.publishableKey);
+        const elements = stripe.elements({
+          appearance: {
+            theme: "night",
+            variables: {
+              colorPrimary: "#00d4ff",
+              colorText: "#ffffff",
+              colorBackground: "#0c0c0c",
+              colorDanger: "#ff4444",
+              borderRadius: "10px",
+              fontFamily: "Inter, sans-serif"
+            }
+          }
+        });
+
+        const cardNumber = elements.create("cardNumber");
+        const cardExpiry = elements.create("cardExpiry");
+        const cardCvc = elements.create("cardCvc");
+
+        cardNumber.mount("#card-number");
+        cardExpiry.mount("#card-expiry");
+        cardCvc.mount("#card-cvc");
+
+        cardNumber.on("focus", (e) => setFieldStateClass(e, "card-number"));
+        cardNumber.on("blur", (e) => setFieldStateClass(e, "card-number"));
+        cardNumber.on("change", (e) => setFieldStateClass(e, "card-number"));
+        cardExpiry.on("focus", (e) => setFieldStateClass(e, "card-expiry"));
+        cardExpiry.on("blur", (e) => setFieldStateClass(e, "card-expiry"));
+        cardExpiry.on("change", (e) => setFieldStateClass(e, "card-expiry"));
+        cardCvc.on("focus", (e) => setFieldStateClass(e, "card-cvc"));
+        cardCvc.on("blur", (e) => setFieldStateClass(e, "card-cvc"));
+        cardCvc.on("change", (e) => setFieldStateClass(e, "card-cvc"));
+
+        paymentForm.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          messageEl.className = "message";
+          messageEl.textContent = "";
+
+          const customerName = document.getElementById("customerName").value.trim();
+          const customerEmail = document.getElementById("customerEmail").value.trim();
+
+          if (!customerName || !customerEmail) {
+            showMessage("Please enter your full name and email address.", "error");
+            return;
+          }
+
+          payButton.disabled = true;
+          payButton.textContent = "Processing...";
+
+          try {
+            const intentRes = await fetch("/api/create-payment-intent", {
+              method: "POST",
+              headers: { "content-type": "application/json" },
+              body: JSON.stringify({ customerName, customerEmail })
+            });
+            const intentData = await intentRes.json();
+
+            if (!intentRes.ok || !intentData.clientSecret) {
+              throw new Error(intentData.error || "Could not create payment.");
+            }
+
+            const result = await stripe.confirmCardPayment(intentData.clientSecret, {
+              payment_method: {
+                card: cardNumber,
+                billing_details: {
+                  name: customerName,
+                  email: customerEmail
+                }
+              }
+            });
+
+            if (result.error) {
+              throw new Error(result.error.message || "Payment was not completed.");
+            }
+
+            if (result.paymentIntent && result.paymentIntent.status === "succeeded") {
+              await sendLeadWebhook({
+                formType: "Payment Deposit",
+                event: "payment_succeeded",
+                timestamp: new Date().toISOString(),
+                sourceDomain: window.location.hostname,
+                sourcePath: window.location.pathname,
+                customerName,
+                leadEmail: customerEmail,
+                paymentIntentId: result.paymentIntent.id,
+                paymentAmountCents: result.paymentIntent.amount,
+                paymentCurrency: result.paymentIntent.currency,
+                paymentStatus: result.paymentIntent.status,
+                paymentSchedule: {
+                  depositTodayCents: 10000,
+                  firstDraftApprovalCents: 60000,
+                  goLiveBalanceCents: 29700,
+                  totalCents: 99700
+                }
+              });
+
+              showMessage(
+                "Payment successful. Your build spot is now secured. Next steps: $600 on first draft approval, then $297 on go live.",
+                "success"
+              );
+              payButton.textContent = "Payment Complete";
+              payButton.style.display = "none";
+              if (postPayActions) {
+                postPayActions.classList.add("visible");
+              }
+              let seconds = 8;
+              const countdownEl = document.getElementById("redirect-countdown");
+              const tick = () => {
+                if (countdownEl) {
+                  countdownEl.textContent =
+                    seconds > 0
+                      ? `Redirecting to onboarding in ${seconds}s… (or tap the button above)`
+                      : "Redirecting…";
+                }
+                if (seconds <= 0) {
+                  window.location.href = "site-onboarding.html";
+                  return;
+                }
+                seconds -= 1;
+                redirectTimerId = window.setTimeout(tick, 1000);
+              };
+              redirectTimerId = window.setTimeout(tick, 500);
+              return;
+            }
+
+            showMessage("Payment submitted. Please wait while we confirm your status.", "success");
+            payButton.disabled = false;
+            payButton.textContent = "Pay Deposit";
+          } catch (error) {
+            showMessage(error.message || "Something went wrong processing your payment.", "error");
+            payButton.disabled = false;
+            payButton.textContent = "Pay Deposit";
+          }
+        });
+      } catch (error) {
+        showMessage(error.message || "Payment form could not be initialized.", "error");
+        payButton.disabled = true;
+      }
+    }
+
+    initStripeForm();
+  </script>
+</body>
+</html>

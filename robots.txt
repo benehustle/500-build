@@ -1,11 +1,6 @@
-# Robots.txt for Spot On Websites
-# Allow all crawlers full access
+# Robots.txt — offer funnel (payment and post-checkout pages are noindex in HTML)
 
 User-agent: *
 Allow: /
 
-# Sitemap location (update this URL with your actual domain)
-Sitemap: https://www.spotonwebsites.com.au/sitemap.xml
-
-
-
+Sitemap: https://offer.spotonwebsites.com.au/sitemap.xml

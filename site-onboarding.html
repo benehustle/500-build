@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
+  <title>Website build brief - Spot On Websites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f0f0f;
+      --bg-card: #151515;
+      --text-white: #ffffff;
+      --text-grey: #c0c0c0;
+      --text-muted: #999999;
+      --accent-blue: #00d4ff;
+      --accent-green: #00ff88;
+      --accent-red: #ff4444;
+      --font-head: "Montserrat", sans-serif;
+      --font-body: "Inter", sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      background: radial-gradient(circle at top, #1a1a1a 0%, var(--bg-dark) 60%);
+      color: var(--text-white);
+      min-height: 100vh;
+      padding: 28px 18px 48px;
+    }
+    .container { max-width: 640px; margin: 0 auto; }
+    h1 {
+      font-family: var(--font-head);
+      text-transform: uppercase;
+      letter-spacing: -0.4px;
+      font-size: clamp(1.35rem, 4vw, 2rem);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .sub { color: var(--text-grey); text-align: center; margin-bottom: 22px; font-size: 0.95rem; line-height: 1.5; }
+    .card {
+      background: linear-gradient(180deg, #181818 0%, #101010 100%);
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 22px 20px 26px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      border-color: rgba(0, 212, 255, 0.35);
+    }
+    .steps {
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 22px;
+    }
+    .step-dot {
+      flex: 1;
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 8px 4px;
+      border-radius: 8px;
+      border: 1px solid #333;
+      background: #111;
+    }
+    .step-dot.active {
+      color: #000;
+      background: var(--accent-blue);
+      border-color: var(--accent-blue);
+    }
+    .step-dot.done {
+      color: var(--accent-green);
+      border-color: rgba(0, 255, 136, 0.5);
+    }
+    .panel { display: none; }
+    .panel.active { display: block; }
+    .field { margin-bottom: 14px; }
+    .field label {
+      display: block;
+      color: var(--text-grey);
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 0.88rem;
+    }
+    .field .hint { font-size: 0.78rem; color: var(--text-muted); font-weight: 400; margin-top: 4px; }
+    input[type="text"], input[type="email"], input[type="tel"], input[type="url"], textarea, select {
+      width: 100%;
+      background: #0c0c0c;
+      border: 1px solid #333;
+      border-radius: 10px;
+      color: #fff;
+      padding: 12px 13px;
+      font-size: 0.95rem;
+      outline: none;
+      font-family: var(--font-body);
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.2);
+    }
+    textarea { min-height: 88px; resize: vertical; }
+    .checks { display: grid; gap: 10px; }
+    .check-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      background: #0c0c0c;
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .check-row input { width: auto; margin-top: 3px; accent-color: var(--accent-blue); }
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    button, .btn-link {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: 10px;
+      padding: 14px 20px;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .btn-primary {
+      background: var(--accent-blue);
+      color: #000;
+      flex: 1;
+    }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-grey);
+      border: 1px solid #444;
+    }
+    .btn-secondary:hover { border-color: var(--text-grey); color: #fff; }
+    .err {
+      background: rgba(255, 68, 68, 0.12);
+      border: 1px solid rgba(255, 68, 68, 0.45);
+      color: #ffb3b3;
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      font-size: 0.88rem;
+      display: none;
+    }
+    .err.show { display: block; }
+    .summary-block {
+      background: #0c0c0c;
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      font-size: 0.88rem;
+      color: var(--text-grey);
+      line-height: 1.55;
+    }
+    .summary-block strong { color: #fff; display: block; margin-bottom: 6px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .back-top { text-align: center; margin-top: 18px; }
+    .back-top a { color: var(--accent-blue); font-size: 0.88rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Website build brief</h1>
+    <p class="sub">A few quick steps so we can start your build. Fields marked <span style="color:var(--accent-red)">*</span> are required.</p>
+
+    <div class="err" id="form-err" role="alert"></div>
+
+    <div class="card">
+      <div class="steps" id="step-ind" aria-hidden="true">
+        <span class="step-dot active" data-i="0">1 · You</span>
+        <span class="step-dot" data-i="1">2 · Brand</span>
+        <span class="step-dot" data-i="2">3 · Site</span>
+        <span class="step-dot" data-i="3">4 · Review</span>
+      </div>
+
+      <form id="onboard-form" novalidate>
+        <div class="panel active" data-step="0">
+          <div class="field">
+            <label for="businessName">Business name <span style="color:var(--accent-red)">*</span></label>
+            <input type="text" id="businessName" name="businessName" required autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="contactName">Your name <span style="color:var(--accent-red)">*</span></label>
+            <input type="text" id="contactName" name="contactName" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="phone">Phone <span style="color:var(--accent-red)">*</span></label>
+            <input type="tel" id="phone" name="phone" required autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="email">Email <span style="color:var(--accent-red)">*</span></label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="currentWebsiteUrl">Current website (if any)</label>
+            <input type="url" id="currentWebsiteUrl" name="currentWebsiteUrl" placeholder="https://" autocomplete="url">
+          </div>
+          <div class="field">
+            <label for="serviceArea">Service area / suburb <span style="color:var(--accent-red)">*</span></label>
+            <input type="text" id="serviceArea" name="serviceArea" required>
+          </div>
+          <div class="field">
+            <label for="stateAU">State <span style="color:var(--accent-red)">*</span></label>
+            <select id="stateAU" name="stateAU" required>
+              <option value="">Select…</option>
+              <option>NSW</option>
+              <option>VIC</option>
+              <option>QLD</option>
+              <option>WA</option>
+              <option>SA</option>
+              <option>TAS</option>
+              <option>ACT</option>
+              <option>NT</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="panel" data-step="1">
+          <div class="field">
+            <label for="logo">Logo file <span style="color:var(--accent-red)">*</span></label>
+            <input type="file" id="logo" name="logo" accept="image/png,image/jpeg,image/webp,image/svg+xml,image/gif">
+            <p class="hint">PNG, JPG, WebP, SVG or GIF. Max 1.5 MB.</p>
+          </div>
+          <div class="field">
+            <label for="brandColors">Primary brand colours</label>
+            <input type="text" id="brandColors" name="brandColors" placeholder="e.g. Navy #0a1628, gold #c9a227">
+          </div>
+          <div class="field">
+            <label for="lookAndFeel">Look and feel keywords</label>
+            <textarea id="lookAndFeel" name="lookAndFeel" placeholder="e.g. Clean, premium, friendly, bold"></textarea>
+          </div>
+        </div>
+
+        <div class="panel" data-step="2">
+          <div class="field">
+            <label for="servicesOffered">What do you sell / offer? <span style="color:var(--accent-red)">*</span></label>
+            <textarea id="servicesOffered" name="servicesOffered" required></textarea>
+          </div>
+          <div class="field">
+            <label for="idealCustomer">Who is your ideal customer? <span style="color:var(--accent-red)">*</span></label>
+            <textarea id="idealCustomer" name="idealCustomer" required></textarea>
+          </div>
+          <div class="field">
+            <label for="topThreePages">Top 3 pages you need <span style="color:var(--accent-red)">*</span></label>
+            <textarea id="topThreePages" name="topThreePages" required placeholder="e.g. Home, Services, Contact"></textarea>
+          </div>
+          <div class="field">
+            <label for="inspirationUrls">Competitors or inspiration sites (URLs)</label>
+            <textarea id="inspirationUrls" name="inspirationUrls" placeholder="One per line"></textarea>
+          </div>
+          <div class="field">
+            <label>Must-have features</label>
+            <div class="checks">
+              <label class="check-row"><input type="checkbox" name="feature_contactForm" value="1"> Contact form</label>
+              <label class="check-row"><input type="checkbox" name="feature_onlineBooking" value="1"> Online booking</label>
+              <label class="check-row"><input type="checkbox" name="feature_gallery" value="1"> Image gallery</label>
+              <label class="check-row"><input type="checkbox" name="feature_blog" value="1"> Blog / news</label>
+              <label class="check-row"><input type="checkbox" name="feature_ecommerce" value="1"> Sell products online</label>
+              <label class="check-row"><input type="checkbox" name="feature_animations" value="1"> Motion / animations</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" data-step="3">
+          <p style="color:var(--text-grey);font-size:0.9rem;margin-bottom:14px;">Check everything looks right, then submit. We will use this to brief your build team.</p>
+          <div id="summary"></div>
+        </div>
+
+        <div class="nav-row">
+          <button type="button" class="btn-secondary" id="btn-back" style="display:none">Back</button>
+          <button type="button" class="btn-primary" id="btn-next">Next</button>
+          <button type="submit" class="btn-primary" id="btn-submit" style="display:none">Submit brief</button>
+        </div>
+      </form>
+    </div>
+    <p class="back-top"><a href="payment.html">← Back to payment</a></p>
+  </div>
+
+  <script>
+    (function () {
+      const LOGO_MAX_BYTES = Math.floor(1.5 * 1024 * 1024);
+      const panels = Array.from(document.querySelectorAll(".panel"));
+      const dots = Array.from(document.querySelectorAll(".step-dot"));
+      const btnBack = document.getElementById("btn-back");
+      const btnNext = document.getElementById("btn-next");
+      const btnSubmit = document.getElementById("btn-submit");
+      const form = document.getElementById("onboard-form");
+      const errEl = document.getElementById("form-err");
+      const summaryEl = document.getElementById("summary");
+      let step = 0;
+
+      function showErr(msg) {
+        errEl.textContent = msg;
+        errEl.classList.toggle("show", !!msg);
+      }
+
+      function setStepIndicators() {
+        dots.forEach((d, i) => {
+          d.classList.remove("active", "done");
+          if (i < step) d.classList.add("done");
+          if (i === step) d.classList.add("active");
+        });
+      }
+
+      function updateNav() {
+        btnBack.style.display = step > 0 ? "inline-flex" : "none";
+        btnNext.style.display = step < 3 ? "inline-flex" : "none";
+        btnSubmit.style.display = step === 3 ? "inline-flex" : "none";
+        panels.forEach((p, i) => p.classList.toggle("active", i === step));
+        setStepIndicators();
+        if (step === 3) renderSummary();
+      }
+
+      function val(id) {
+        const el = document.getElementById(id);
+        return el ? String(el.value || "").trim() : "";
+      }
+
+      function validateStep(s) {
+        showErr("");
+        if (s === 0) {
+          if (!val("businessName")) return "Enter your business name.";
+          if (!val("contactName")) return "Enter your name.";
+          if (!val("phone")) return "Enter your phone number.";
+          if (!val("email")) return "Enter your email.";
+          const em = val("email");
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) return "Enter a valid email.";
+          if (!val("serviceArea")) return "Enter your service area or suburb.";
+          if (!val("stateAU")) return "Select your state.";
+        }
+        if (s === 1) {
+          const f = document.getElementById("logo").files[0];
+          if (!f) return "Please upload your logo.";
+          if (f.size > LOGO_MAX_BYTES) return "Logo file is too large (max 1.5 MB).";
+        }
+        if (s === 2) {
+          if (!val("servicesOffered")) return "Describe what you offer.";
+          if (!val("idealCustomer")) return "Describe your ideal customer.";
+          if (!val("topThreePages")) return "List the top pages you need.";
+        }
+        return "";
+      }
+
+      function readFileBase64(file) {
+        return new Promise(function (resolve, reject) {
+          const r = new FileReader();
+          r.onload = function () {
+            const s = String(r.result || "");
+            const i = s.indexOf(",");
+            resolve(i >= 0 ? s.slice(i + 1) : s);
+          };
+          r.onerror = reject;
+          r.readAsDataURL(file);
+        });
+      }
+
+      function esc(s) {
+        return String(s || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function renderSummary() {
+        const f = document.getElementById("logo").files[0];
+        summaryEl.innerHTML = [
+          ["Business", val("businessName")],
+          ["Contact", val("contactName") + " · " + val("phone") + " · " + val("email")],
+          ["Location", val("serviceArea") + ", " + val("stateAU")],
+          ["Current site", val("currentWebsiteUrl") || "—"],
+          ["Logo", f ? f.name + " (" + Math.round(f.size / 1024) + " KB)" : "—"],
+          ["Brand", (val("brandColors") || "—") + " · " + (val("lookAndFeel") || "—")],
+          ["Offer", val("servicesOffered")],
+          ["Ideal customer", val("idealCustomer")],
+          ["Pages", val("topThreePages")],
+          ["Inspiration", val("inspirationUrls") || "—"],
+          [
+            "Features",
+            ["feature_contactForm", "feature_onlineBooking", "feature_gallery", "feature_blog", "feature_ecommerce", "feature_animations"]
+              .filter(function (id) {
+                const el = document.querySelector('[name="' + id + '"]');
+                return el && el.checked;
+              })
+              .map(function (id) {
+                return id.replace("feature_", "").replace(/([A-Z])/g, " $1").trim();
+              })
+              .join(", ") || "—"
+          ]
+        ]
+          .map(function (row) {
+            return (
+              '<div class="summary-block"><strong>' +
+              esc(row[0]) +
+              "</strong>" +
+              esc(row[1]) +
+              "</div>"
+            );
+          })
+          .join("");
+      }
+
+      btnNext.addEventListener("click", function () {
+        const msg = validateStep(step);
+        if (msg) {
+          showErr(msg);
+          return;
+        }
+        if (step < 3) {
+          step++;
+          updateNav();
+        }
+      });
+
+      btnBack.addEventListener("click", function () {
+        if (step > 0) {
+          step--;
+          updateNav();
+        }
+      });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        showErr("");
+        const msg = validateStep(0) || validateStep(1) || validateStep(2);
+        if (msg) {
+          showErr(msg);
+          return;
+        }
+
+        const logoInput = document.getElementById("logo");
+        const file = logoInput.files[0];
+        btnSubmit.disabled = true;
+        btnSubmit.textContent = "Sending…";
+
+        readFileBase64(file)
+          .then(function (b64) {
+            const payload = {
+              formType: "Website Build Onboarding",
+              timestamp: new Date().toISOString(),
+              sourceDomain: window.location.hostname,
+              sourcePath: window.location.pathname,
+              businessName: val("businessName"),
+              contactName: val("contactName"),
+              phone: val("phone"),
+              email: val("email"),
+              currentWebsiteUrl: val("currentWebsiteUrl") || null,
+              serviceArea: val("serviceArea"),
+              stateAU: val("stateAU"),
+              brandColors: val("brandColors") || null,
+              lookAndFeel: val("lookAndFeel") || null,
+              servicesOffered: val("servicesOffered"),
+              idealCustomer: val("idealCustomer"),
+              topThreePages: val("topThreePages"),
+              inspirationUrls: val("inspirationUrls") || null,
+              feature_contactForm: !!document.querySelector('[name="feature_contactForm"]').checked,
+              feature_onlineBooking: !!document.querySelector('[name="feature_onlineBooking"]').checked,
+              feature_gallery: !!document.querySelector('[name="feature_gallery"]').checked,
+              feature_blog: !!document.querySelector('[name="feature_blog"]').checked,
+              feature_ecommerce: !!document.querySelector('[name="feature_ecommerce"]').checked,
+              feature_animations: !!document.querySelector('[name="feature_animations"]').checked,
+              logoFileName: file.name,
+              logoMimeType: file.type || "application/octet-stream",
+              logoBase64: b64
+            };
+            return fetch("/api/lead-webhook", {
+              method: "POST",
+              headers: { "content-type": "application/json" },
+              body: JSON.stringify(payload)
+            });
+          })
+          .then(function (res) {
+            if (!res.ok) throw new Error("Could not save your brief. Please try again or email us.");
+            window.location.href = "booking.html";
+          })
+          .catch(function (er) {
+            showErr(er.message || "Something went wrong.");
+            btnSubmit.disabled = false;
+            btnSubmit.textContent = "Submit brief";
+          });
+      });
+
+      updateNav();
+    })();
+  </script>
+</body>
+</html>

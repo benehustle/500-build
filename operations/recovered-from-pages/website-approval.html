@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website is Complete - Spot On Websites</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Facebook Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2097855790686250');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=2097855790686250&ev=PageView&noscript=1"/>
+    </noscript>
+    
+    <style>
+        :root {
+            --bg-dark: #0F0F0F;
+            --bg-card: #161616;
+            --text-white: #FFFFFF;
+            --text-grey: #C0C0C0;
+            --text-muted: #999999;
+            --accent-blue: #00D4FF;
+            --accent-green: #00FF88;
+            --accent-red: #FF4444;
+            --font-head: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 { 
+            font-family: var(--font-head); 
+            text-transform: uppercase; 
+            letter-spacing: -0.5px; 
+            line-height: 1.15;
+            color: var(--text-white);
+        }
+        
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+        .text-center { text-align: center; }
+        .text-green { color: var(--accent-green); }
+        .text-blue { color: var(--accent-blue); }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0 40px;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0F0F0F 70%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .website-link-box {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.15) 0%, rgba(0, 212, 255, 0.15) 100%);
+            border: 2px solid var(--accent-green);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px auto;
+            max-width: 900px;
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.2);
+        }
+
+        .website-link-box p {
+            font-size: 1.1rem;
+            color: var(--text-white);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .website-preview-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            background: #000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .website-preview-container:hover {
+            border-color: var(--accent-green);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.4);
+        }
+
+        .website-preview-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            pointer-events: none;
+            transform: scale(0.5);
+            transform-origin: top left;
+            width: 200%;
+            height: 200%;
+        }
+
+        .website-preview-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 15px;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .website-preview-container:hover .website-preview-overlay {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .website-preview-overlay-text {
+            color: var(--text-white);
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .website-preview-overlay-button {
+            background: var(--accent-green);
+            color: #000;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 1rem;
+            text-decoration: none;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .website-preview-container:hover .website-preview-overlay-button {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.7);
+        }
+
+        /* Options Section */
+        .options-section {
+            padding: 50px 0;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .options-grid-bottom {
+            grid-column: 1 / -1;
+            margin-top: 25px;
+        }
+
+        .option-card.hate {
+            max-width: 100%;
+        }
+
+        .option-card {
+            background: var(--bg-card);
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            border-radius: 15px;
+            padding: 35px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .option-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .option-card.love {
+            border-color: var(--accent-green);
+        }
+
+        .option-card.love:hover {
+            border-color: var(--accent-green);
+            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.2);
+        }
+
+        .option-card.hate {
+            border-color: var(--accent-red);
+        }
+
+        .option-card.hate:hover {
+            border-color: var(--accent-red);
+            box-shadow: 0 15px 40px rgba(255, 68, 68, 0.2);
+        }
+
+        .option-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .option-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-blue);
+        }
+
+        .option-card.love .option-title {
+            color: var(--accent-green);
+        }
+
+        .option-card.hate .option-title {
+            color: var(--accent-red);
+        }
+
+        .option-description {
+            color: var(--text-grey);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Forms */
+        .form-section {
+            display: none;
+            padding: 50px 0;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        .form-card {
+            background: var(--bg-card);
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            color: var(--text-white);
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 10px;
+            padding: 14px;
+            color: var(--text-white);
+            font-size: 1rem;
+            font-family: var(--font-body);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.15);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, #0099cc 100%);
+            color: #000;
+            padding: 16px 40px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid var(--accent-blue);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-primary.green {
+            background: linear-gradient(135deg, var(--accent-green) 0%, #00cc66 100%);
+            border-color: var(--accent-green);
+            box-shadow: 0 5px 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .btn-primary.green:hover {
+            box-shadow: 0 8px 30px rgba(0, 255, 136, 0.4);
+        }
+
+        .btn-primary.red {
+            background: linear-gradient(135deg, var(--accent-red) 0%, #cc0000 100%);
+            border-color: var(--accent-red);
+            box-shadow: 0 5px 20px rgba(255, 68, 68, 0.3);
+        }
+
+        .btn-primary.red:hover {
+            box-shadow: 0 8px 30px rgba(255, 68, 68, 0.4);
+        }
+
+        .btn-secondary {
+            display: block;
+            text-align: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            color: var(--text-grey);
+        }
+
+        /* Marketing Options (shown when they love it) */
+        .marketing-section {
+            display: none;
+            padding: 50px 0;
+        }
+
+        .marketing-section.active {
+            display: block;
+        }
+
+        .marketing-intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .marketing-intro h2 {
+            font-size: 2rem;
+            color: var(--accent-green);
+            margin-bottom: 15px;
+        }
+
+        .marketing-intro p {
+            font-size: 1.1rem;
+            color: var(--text-grey);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .pricing-card.featured {
+            grid-column: 1 / -1;
+            max-width: 100%;
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px 25px;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent-green);
+            border-width: 3px;
+        }
+
+        .pricing-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--accent-blue);
+        }
+
+        .pricing-card.featured .pricing-title {
+            color: var(--accent-green);
+        }
+
+        .pricing-card.pass .pricing-title {
+            color: var(--text-muted);
+        }
+
+        .pricing-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-white);
+            margin-bottom: 10px;
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            color: var(--text-grey);
+            font-weight: 400;
+        }
+
+        .pricing-subtitle {
+            color: var(--text-grey);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            color: var(--text-grey);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .check-icon {
+            color: var(--accent-green);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, #0099cc 100%);
+            color: #000;
+            padding: 14px 30px;
+            font-weight: 800;
+            font-size: 1rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid var(--accent-blue);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .pricing-card.featured .cta-button {
+            background: linear-gradient(135deg, var(--accent-green) 0%, #00cc66 100%);
+            border-color: var(--accent-green);
+            box-shadow: 0 5px 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .pricing-card.pass .cta-button {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-grey);
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: none;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .options-grid-bottom {
+                grid-column: 1;
+                margin-top: 25px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                grid-column: 1;
+            }
+
+            .form-card {
+                padding: 30px 20px;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 10px 8px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>YOUR WEBSITE IS COMPLETE</h1>
+            <div class="website-link-box">
+                <p>Check it here:</p>
+                <div class="website-preview-container" id="websitePreview" onclick="openWebsite()">
+                    <iframe id="websiteIframe" src="" frameborder="0" scrolling="no"></iframe>
+                    <div class="website-preview-overlay">
+                        <div class="website-preview-overlay-text">Click to View Full Site</div>
+                        <div class="website-preview-overlay-button">Open in New Window →</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Options Section -->
+    <section class="options-section">
+        <div class="container">
+            <h2 class="text-center" style="font-size: 1.8rem; margin-bottom: 20px; color: var(--accent-blue);">What Do You Think?</h2>
+            <p class="text-center" style="color: var(--text-grey); margin-bottom: 30px;">Let us know your thoughts so we can move forward</p>
+            
+            <div class="options-grid">
+                <!-- Love It -->
+                <div class="option-card love" onclick="showLoveIt()">
+                    <div class="option-icon">❤️</div>
+                    <h3 class="option-title">I Love It</h3>
+                    <p class="option-description">Ready to go live and start marketing your business</p>
+                    <p style="color: var(--accent-green); font-size: 0.85rem; margin-top: 10px; font-style: italic;">💡 You might want small changes - that's fine, we can do that later</p>
+                </div>
+
+                <!-- Want Changes -->
+                <div class="option-card" onclick="showChanges()">
+                    <div class="option-icon">✏️</div>
+                    <h3 class="option-title">I Want Changes</h3>
+                    <p class="option-description">Large changes needed? Let us know</p>
+                </div>
+
+                <!-- Hate It - Full Width Below (HIDDEN) -->
+                <div class="option-card hate options-grid-bottom" onclick="showHateIt()" style="padding: 25px 30px; display: none;">
+                    <div class="option-icon" style="font-size: 2.2rem; margin-bottom: 12px;">😞</div>
+                    <h3 class="option-title" style="font-size: 1.2rem; margin-bottom: 10px;">I Hate It</h3>
+                    <p class="option-description" style="font-size: 0.9rem;">Not what you expected? Request a refund</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love It - Marketing Options -->
+    <section class="marketing-section" id="marketingSection">
+        <div class="container">
+            <div class="marketing-intro">
+                <h2>🚀 Let's Migrate Your Site</h2>
+                <p>Your website is ready to go live! Now choose your marketing package to drive traffic and grow your business.</p>
+                <p style="color: var(--accent-green); font-size: 0.9rem; margin-top: 15px; font-weight: 600; padding: 12px; background: rgba(0, 255, 136, 0.1); border-radius: 10px; border: 1px solid rgba(0, 255, 136, 0.3);">
+                    💡 <strong>Note:</strong> You might want small changes - that's fine, we can do that later during migration.
+                </p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- SEOx - Full Width Top -->
+                <div class="pricing-card featured">
+                    <div style="position: absolute; top: -12px; right: 20px; background: var(--accent-green); color: #000; padding: 5px 12px; border-radius: 12px; font-weight: 800; font-size: 0.75rem;">⚡ HIGH OCTANE</div>
+                    <h3 class="pricing-title">SEOx</h3>
+                    <div class="pricing-price">$1,200<span>/month</span></div>
+                    <p class="pricing-subtitle" style="color: var(--accent-green); font-weight: 700;">High Octane</p>
+                    <ul class="features-list">
+                        <li><span class="check-icon">✓</span> <span>Everything in SEO</span></li>
+                        <li><span class="check-icon">✓</span> <span>Google Analytics</span></li>
+                        <li><span class="check-icon">✓</span> <span>Google Ads & Meta Ads Management</span></li>
+                        <li><span class="check-icon">✓</span> <span>Ad Creative & Copy</span></li>
+                        <li><span class="check-icon">✓</span> <span>Our team decides which platform is best</span></li>
+                    </ul>
+                    <div style="background: rgba(255, 68, 68, 0.15); padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 2px solid rgba(255, 68, 68, 0.5);">
+                        <p style="color: var(--text-white); font-size: 0.85rem; line-height: 1.5; font-weight: 700; margin: 0;"><strong style="color: #ff6b6b;">⚠️ Ad Spend Required:</strong> You must budget at least <strong style="color: #ff6b6b;">$1,000/month</strong> in ad spend (separate from service fee)</p>
+                    </div>
+                    <div style="background: rgba(0, 255, 136, 0.15); padding: 15px; border-radius: 10px; margin-bottom: 20px; border: 2px solid var(--accent-green);">
+                        <p style="color: var(--text-white); font-size: 0.85rem; line-height: 1.5; margin-bottom: 10px; font-weight: 700;"><strong style="color: var(--accent-green);">Why Choose This:</strong> Get immediate traffic from ads while SEO builds long-term. Best of both worlds.</p>
+                        <p style="color: var(--accent-green); font-size: 0.8rem; line-height: 1.4; font-weight: 700;"><strong>Results Timeline:</strong> Day 1 (Ads) + 3-6 months (SEO improvements)</p>
+                    </div>
+                    <p style="color: var(--text-grey); font-size: 0.75rem; text-align: center; margin-top: 15px; font-style: italic;">✓ Hands-off service - our team handles everything after onboarding</p>
+                    <a href="seox-signup.html" id="seoxLink" class="cta-button" onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {content_name: 'SEOx', value: 1200, currency: 'AUD'});">Start My Migration →</a>
+                </div>
+
+                <!-- SEO -->
+                <div class="pricing-card">
+                    <h3 class="pricing-title">SEO</h3>
+                    <div class="pricing-price">$600<span>/month</span></div>
+                    <p class="pricing-subtitle">Regular Unleaded</p>
+                    <ul class="features-list">
+                        <li><span class="check-icon">✓</span> <span>Full SEO Optimization</span></li>
+                        <li><span class="check-icon">✓</span> <span>Keyword Research</span></li>
+                        <li><span class="check-icon">✓</span> <span>Link Building</span></li>
+                        <li><span class="check-icon">✓</span> <span>Monthly Reporting</span></li>
+                    </ul>
+                    <div style="background: rgba(0, 212, 255, 0.1); padding: 15px; border-radius: 10px; margin-bottom: 20px; border: 1px solid rgba(0, 212, 255, 0.3);">
+                        <p style="color: var(--text-white); font-size: 0.85rem; line-height: 1.5; margin-bottom: 10px; font-weight: 600;"><strong style="color: var(--accent-blue);">Why Choose This:</strong> Perfect for long-term, sustainable growth. Builds organic traffic that grows over time.</p>
+                        <p style="color: var(--accent-blue); font-size: 0.8rem; line-height: 1.4; font-weight: 600;"><strong>Results Timeline:</strong> 3-6 months for initial improvements, 6-12 months for significant growth</p>
+                    </div>
+                    <p style="color: var(--text-grey); font-size: 0.75rem; text-align: center; margin-top: 15px; font-style: italic;">✓ Hands-off service - our team handles everything after onboarding</p>
+                    <a href="seo-signup.html" id="seoLink" class="cta-button" onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {content_name: 'SEO Only', value: 600, currency: 'AUD'});">Start My Migration →</a>
+                </div>
+
+                <!-- Pass Option -->
+                <div class="pricing-card pass">
+                    <h3 class="pricing-title">Pass on Marketing</h3>
+                    <p class="pricing-subtitle" style="color: var(--text-muted); font-style: italic;">Just migrate, no marketing</p>
+                    <ul class="features-list">
+                        <li><span class="check-icon">✗</span> <span>No SEO</span></li>
+                        <li><span class="check-icon">✗</span> <span>No Ads</span></li>
+                        <li><span class="check-icon">✗</span> <span>No Marketing</span></li>
+                    </ul>
+                    <div style="background: rgba(0, 0, 0, 0.3); padding: 15px; border-radius: 10px; margin-bottom: 20px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                        <p style="color: var(--text-grey); font-size: 0.85rem; line-height: 1.5; margin-bottom: 10px;"><strong style="color: var(--text-white);">Why Choose This:</strong> You want to handle marketing yourself or aren't ready to invest yet.</p>
+                        <p style="color: var(--text-muted); font-size: 0.8rem; line-height: 1.4;"><strong>Results:</strong> No marketing results (you'll need to drive traffic yourself)</p>
+                    </div>
+                    <p style="color: var(--text-grey); font-size: 0.75rem; text-align: center; margin-top: 15px; font-style: italic;">✓ Hands-off service - our team handles everything after onboarding</p>
+                    <button type="button" id="noMarketingButton" class="cta-button">Migrate Only →</button>
+                </div>
+            </div>
+
+            <!-- Why Choose Section -->
+            <div style="background: var(--bg-card); border: 2px solid rgba(0, 212, 255, 0.2); border-radius: 15px; padding: 30px; margin: 40px auto 0; max-width: 900px;">
+                <h3 style="font-size: 1.5rem; color: var(--accent-blue); margin-bottom: 25px; text-align: center;">Why Choose Each Option?</h3>
+                
+                <!-- Pass on Marketing - Row 1 -->
+                <div style="background: rgba(0, 0, 0, 0.3); padding: 20px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 20px;">
+                    <h4 style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 12px;">🚗 Pass on Marketing</h4>
+                    <p style="color: var(--text-grey); font-size: 0.9rem; line-height: 1.6; margin: 0;">Choose this if you want to handle marketing yourself or aren't ready to invest yet. Your site will be live, but you'll need to drive traffic yourself.</p>
+                </div>
+                
+                <!-- SEO - Row 2 -->
+                <div style="background: rgba(0, 212, 255, 0.1); padding: 20px; border-radius: 10px; border: 1px solid rgba(0, 212, 255, 0.3); margin-bottom: 20px;">
+                    <h4 style="color: var(--accent-blue); font-size: 1.1rem; margin-bottom: 12px;">⚡ SEO</h4>
+                    <p style="color: var(--text-white); font-size: 0.9rem; line-height: 1.6; font-weight: 600; margin: 0;">Perfect for long-term growth. You'll see steady improvements in Google rankings over 3-6 months, with significant results by 6-12 months. Hands-off service - our team handles everything after onboarding.</p>
+                </div>
+                
+                <!-- SEOx - Row 3 -->
+                <div style="background: rgba(0, 255, 136, 0.1); padding: 20px; border-radius: 10px; border: 2px solid var(--accent-green); margin-bottom: 30px;">
+                    <h4 style="color: var(--accent-green); font-size: 1.1rem; margin-bottom: 12px;">⚡ SEOx</h4>
+                    <p style="color: var(--text-white); font-size: 0.9rem; line-height: 1.6; font-weight: 600; margin-bottom: 10px;">Best for immediate results. Includes Google Ads & Meta Ads management - our team decides which platform is best for your business. You get both immediate leads AND future growth.</p>
+                    <p style="color: #ff6b6b; font-size: 0.85rem; font-weight: 700; margin: 0;"><strong>⚠️ Ad Spend Required:</strong> You must budget at least $1,000/month in ad spend (separate from service fee). Hands-off service - our team handles everything after onboarding.</p>
+                </div>
+
+                <!-- Comparison Table -->
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid rgba(0, 212, 255, 0.3);">
+                                <th style="text-align: left; padding: 15px; color: var(--text-white); font-size: 1rem; font-weight: 700;">Feature</th>
+                                <th style="text-align: center; padding: 15px; color: var(--text-muted); font-size: 0.9rem;">Pass</th>
+                                <th style="text-align: center; padding: 15px; color: var(--accent-blue); font-size: 0.9rem;">SEO</th>
+                                <th style="text-align: center; padding: 15px; color: var(--accent-green); font-size: 0.9rem;">SEOx</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                                <td style="padding: 15px; color: var(--text-grey); font-size: 0.9rem;">SEO Optimization</td>
+                                <td style="text-align: center; padding: 15px; color: var(--text-muted);">✗</td>
+                                <td style="text-align: center; padding: 15px; color: var(--accent-green);">✓</td>
+                                <td style="text-align: center; padding: 15px; color: var(--accent-green);">✓</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                                <td style="padding: 15px; color: var(--text-grey); font-size: 0.9rem;">Google Ads & Meta Ads Management</td>
+                                <td style="text-align: center; padding: 15px; color: var(--text-muted);">✗</td>
+                                <td style="text-align: center; padding: 15px; color: var(--text-muted);">✗</td>
+                                <td style="text-align: center; padding: 15px; color: var(--accent-green);">✓</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                                <td style="padding: 15px; color: var(--text-grey); font-size: 0.9rem;">Minimum Ad Spend Required</td>
+                                <td style="text-align: center; padding: 15px; color: var(--text-muted);">-</td>
+                                <td style="text-align: center; padding: 15px; color: var(--text-muted);">-</td>
+                                <td style="text-align: center; padding: 15px; color: #ff6b6b; font-weight: 700;">$1,000/month</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                                <td style="padding: 15px; color: var(--text-grey); font-size: 0.9rem;">Hands-Off Service</td>
+                                <td style="text-align: center; padding: 15px; color: var(--accent-green);">✓</td>
+                                <td style="text-align: center; padding: 15px; color: var(--accent-green);">✓</td>
+                                <td style="text-align: center; padding: 15px; color: var(--accent-green);">✓</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                                <td style="padding: 15px; color: var(--text-grey); font-size: 0.9rem;">Google Analytics</td>
+                                <td style="text-align: center; padding: 15px; color: var(--text-muted);">✗</td>
+                                <td style="text-align: center; padding: 15px; color: var(--text-muted);">✗</td>
+                                <td style="text-align: center; padding: 15px; color: var(--accent-green);">✓</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                                <td style="padding: 15px; color: var(--text-grey); font-size: 0.9rem; font-weight: 700;">When to Expect Results</td>
+                                <td style="text-align: center; padding: 15px; color: var(--text-muted); font-size: 0.85rem;">Never (no marketing)</td>
+                                <td style="text-align: center; padding: 15px; color: var(--accent-blue); font-size: 0.85rem; font-weight: 600;">3-6 months (SEO)</td>
+                                <td style="text-align: center; padding: 15px; color: var(--accent-green); font-size: 0.85rem; font-weight: 700;">Day 1 (Ads) + 3-6 months (SEO)</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                                <td style="padding: 15px; color: var(--text-grey); font-size: 0.9rem;">Best For</td>
+                                <td style="text-align: center; padding: 15px; color: var(--text-muted); font-size: 0.85rem;">DIY marketing</td>
+                                <td style="text-align: center; padding: 15px; color: var(--accent-blue); font-size: 0.85rem; font-weight: 600;">Long-term growth</td>
+                                <td style="text-align: center; padding: 15px; color: var(--accent-green); font-size: 0.85rem; font-weight: 700;">Fast + long-term</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px; color: var(--text-grey); font-size: 0.9rem; font-weight: 700;">Monthly Investment</td>
+                                <td style="text-align: center; padding: 15px; color: var(--text-white); font-weight: 700;">Free</td>
+                                <td style="text-align: center; padding: 15px; color: var(--accent-blue); font-weight: 700;">$600</td>
+                                <td style="text-align: center; padding: 15px; color: var(--accent-green); font-weight: 700;">$1,200</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hate It - Refund Form (HIDDEN) -->
+    <section class="form-section" id="hateForm" style="display: none;">
+        <div class="container">
+            <div class="form-card">
+                <h2 style="font-size: 1.8rem; margin-bottom: 20px; color: var(--accent-red); text-align: center;">Request a Refund</h2>
+                <p style="color: var(--text-grey); margin-bottom: 30px; text-align: center;">We're sorry to hear you're not happy. Please let us know why so we can process your refund.</p>
+                
+                <form id="refundForm" onsubmit="handleRefundSubmit(event)">
+                    <div class="form-group">
+                        <label class="form-label" for="refundReason">Why are you requesting a refund? *</label>
+                        <textarea 
+                            id="refundReason" 
+                            class="form-textarea" 
+                            name="reason" 
+                            required
+                            placeholder="Please tell us what didn't meet your expectations..."></textarea>
+                    </div>
+
+                    <div class="form-group" id="refundEmailGroup">
+                        <label class="form-label" for="refundEmail">Your Email *</label>
+                        <input 
+                            type="email" 
+                            id="refundEmail" 
+                            class="form-input" 
+                            name="email" 
+                            placeholder="your@email.com">
+                    </div>
+
+                    <button type="submit" class="btn-primary red">Request Refund of Deposit →</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Want Changes - Changes Form -->
+    <section class="form-section" id="changesForm">
+        <div class="container">
+            <div class="form-card">
+                <h2 style="font-size: 1.8rem; margin-bottom: 20px; color: var(--accent-blue); text-align: center;">Request Changes</h2>
+                <p style="color: var(--text-grey); margin-bottom: 15px; text-align: center;">Tell us what large changes you'd like to make and we'll get it updated for you.</p>
+                <p style="color: var(--accent-blue); font-size: 0.9rem; margin-bottom: 30px; text-align: center; font-weight: 600; padding: 15px; background: rgba(0, 212, 255, 0.1); border-radius: 10px; border: 1px solid rgba(0, 212, 255, 0.3);">
+                    💡 <strong>Note:</strong> Small changes can be done during migration. Only use this form for large changes that need to be made before we proceed.
+                </p>
+                
+                <form id="changesRequestForm" onsubmit="handleChangesSubmit(event)">
+                    <div class="form-group">
+                        <label class="form-label" for="changesDetails">What changes would you like? *</label>
+                        <textarea 
+                            id="changesDetails" 
+                            class="form-textarea" 
+                            name="changes" 
+                            required
+                            placeholder="Please describe the changes you'd like to make..."></textarea>
+                    </div>
+
+                    <div class="form-group" id="changesEmailGroup">
+                        <label class="form-label" for="changesEmail">Your Email *</label>
+                        <input 
+                            type="email" 
+                            id="changesEmail" 
+                            class="form-input" 
+                            name="email" 
+                            placeholder="your@email.com">
+                    </div>
+
+                    <button type="submit" class="btn-primary">Request My Changes →</button>
+                    <a href="https://crm.spotonwebsites.com.au/widget/bookings/stage-2-approval" class="btn-secondary" target="_blank">Book a call to discuss</a>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Get URL parameter
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Global variables for email and URL
+        let customerEmail = '';
+        let websiteUrl = '';
+
+        // Function to handle email field visibility
+        function setupEmailFields() {
+            const refundEmailField = document.getElementById('refundEmail');
+            const refundEmailGroup = document.getElementById('refundEmailGroup');
+            
+            const changesEmailField = document.getElementById('changesEmail');
+            const changesEmailGroup = document.getElementById('changesEmailGroup');
+
+            if (customerEmail) {
+                // Email provided - hide fields and pre-fill
+                if (refundEmailField) {
+                    refundEmailField.value = customerEmail;
+                    refundEmailField.removeAttribute('required');
+                }
+                if (refundEmailGroup) {
+                    refundEmailGroup.style.display = 'none';
+                }
+                
+                if (changesEmailField) {
+                    changesEmailField.value = customerEmail;
+                    changesEmailField.removeAttribute('required');
+                }
+                if (changesEmailGroup) {
+                    changesEmailGroup.style.display = 'none';
+                }
+            } else {
+                // No email - show fields and make required
+                if (refundEmailField) {
+                    refundEmailField.setAttribute('required', 'required');
+                }
+                if (refundEmailGroup) {
+                    refundEmailGroup.style.display = 'block';
+                }
+                
+                if (changesEmailField) {
+                    changesEmailField.setAttribute('required', 'required');
+                }
+                if (changesEmailGroup) {
+                    changesEmailGroup.style.display = 'block';
+                }
+            }
+        }
+
+        // Set website link and email from URL parameters
+        window.addEventListener('DOMContentLoaded', function() {
+            // Get URL parameter (supports url, test, or server)
+            const urlParam = getUrlParameter('url') || getUrlParameter('test') || getUrlParameter('server');
+            const emailParam = getUrlParameter('email');
+            
+            // Store globally
+            customerEmail = emailParam;
+            
+            // Set website iframe
+            const websiteIframe = document.getElementById('websiteIframe');
+            const websitePreview = document.getElementById('websitePreview');
+            
+            if (urlParam) {
+                // Ensure URL has http:// or https://
+                let url = urlParam;
+                if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                    url = 'https://' + url;
+                }
+                websiteIframe.src = url;
+                websiteUrl = url;
+                
+                // Store URL for click handler
+                websitePreview.setAttribute('data-url', url);
+            } else {
+                websitePreview.style.opacity = '0.5';
+                websitePreview.style.cursor = 'not-allowed';
+                websitePreview.onclick = null;
+                const overlay = websitePreview.querySelector('.website-preview-overlay-text');
+                if (overlay) {
+                    overlay.textContent = 'No test URL provided';
+                }
+            }
+
+        // Setup email fields after a small delay to ensure forms are rendered
+        setTimeout(setupEmailFields, 100);
+
+        // Update signup links with email parameter
+        const seoxLink = document.getElementById('seoxLink');
+        const seoLink = document.getElementById('seoLink');
+        
+        if (customerEmail && seoxLink) {
+            const url = new URL(seoxLink.href, window.location.origin);
+            url.searchParams.set('email', customerEmail);
+            seoxLink.href = url.pathname + url.search;
+        }
+        
+        if (customerEmail && seoLink) {
+            const url = new URL(seoLink.href, window.location.origin);
+            url.searchParams.set('email', customerEmail);
+            seoLink.href = url.pathname + url.search;
+        }
+
+        // Setup No Marketing button
+        const noMarketingButton = document.getElementById('noMarketingButton');
+        if (noMarketingButton) {
+            noMarketingButton.addEventListener('click', handleNoMarketing);
+        }
+    });
+
+        // Open website in new window
+        function openWebsite() {
+            const preview = document.getElementById('websitePreview');
+            const url = preview.getAttribute('data-url');
+            if (url) {
+                window.open(url, '_blank');
+                
+                // Track event
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'CustomEvent', { event_name: 'Website_Preview_Clicked' });
+                }
+            }
+        }
+
+        // Show Love It - Marketing Options
+        function showLoveIt() {
+            document.getElementById('marketingSection').classList.add('active');
+            document.getElementById('hateForm').classList.remove('active');
+            document.getElementById('changesForm').classList.remove('active');
+            
+            // Scroll to marketing section
+            document.getElementById('marketingSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Track event
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'CustomEvent', { event_name: 'Website_Loved' });
+            }
+        }
+
+        // Show Hate It - Refund Form
+        function showHateIt() {
+            document.getElementById('hateForm').classList.add('active');
+            document.getElementById('marketingSection').classList.remove('active');
+            document.getElementById('changesForm').classList.remove('active');
+            
+            // Setup email field visibility
+            setupEmailFields();
+            
+            // Scroll to form
+            document.getElementById('hateForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Track event
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'CustomEvent', { event_name: 'Website_Hated' });
+            }
+        }
+
+        // Show Changes Form
+        function showChanges() {
+            document.getElementById('changesForm').classList.add('active');
+            document.getElementById('marketingSection').classList.remove('active');
+            document.getElementById('hateForm').classList.remove('active');
+            
+            // Setup email field visibility
+            setupEmailFields();
+            
+            // Scroll to form
+            document.getElementById('changesForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Track event
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'CustomEvent', { event_name: 'Website_Changes_Requested' });
+            }
+        }
+
+        // Handle Refund Form Submission
+        function handleRefundSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            // Use email from URL parameter if available, otherwise from form
+            const email = customerEmail || formData.get('email');
+            
+            const data = {
+                type: 'refund_request',
+                reason: formData.get('reason'),
+                email: email,
+                website_url: websiteUrl || ''
+            };
+
+            // Send to webhook
+            fetch('https://services.leadconnectorhq.com/hooks/30kf4HX82D5x9unRwhNm/webhook-trigger/870d52b6-0cd2-4fdd-b77c-ae10cc35562e', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                alert('Thank you. Your refund request has been submitted. We\'ll process it within 24 hours.');
+                event.target.reset();
+            })
+            .catch(error => {
+                alert('There was an error submitting your request. Please email us directly at info@spotonwebsites.com.au');
+                console.error('Error:', error);
+            });
+
+            // Track event
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'CustomEvent', { event_name: 'Refund_Requested' });
+            }
+        }
+
+        // Handle Changes Form Submission
+        function handleChangesSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            // Use email from URL parameter if available, otherwise from form
+            const email = customerEmail || formData.get('email');
+            
+            const data = {
+                type: 'changes_request',
+                changes: formData.get('changes'),
+                email: email,
+                website_url: websiteUrl || ''
+            };
+
+            // Send to webhook
+            fetch('https://services.leadconnectorhq.com/hooks/30kf4HX82D5x9unRwhNm/webhook-trigger/04b1f97e-c3f4-4085-b084-25e979d264f8', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                alert('Thank you. Your change request has been submitted. We\'ll review it and get back to you within 24 hours.');
+                event.target.reset();
+            })
+            .catch(error => {
+                alert('There was an error submitting your request. Please email us directly at info@spotonwebsites.com.au');
+                console.error('Error:', error);
+            });
+
+            // Track event
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'CustomEvent', { event_name: 'Changes_Requested' });
+            }
+        }
+
+        // Handle No Marketing Button Click
+        function handleNoMarketing() {
+            const email = customerEmail || '';
+            const data = {
+                type: 'no_marketing',
+                email: email,
+                website_url: websiteUrl || ''
+            };
+
+            // Send to webhook
+            fetch('https://services.leadconnectorhq.com/hooks/30kf4HX82D5x9unRwhNm/webhook-trigger/b89d50d8-8a9e-4d7b-a1bf-c40690ecf1c5', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                alert('Thank you! We\'ll migrate your site without marketing. You\'ll receive confirmation shortly.');
+            })
+            .catch(error => {
+                alert('There was an error submitting your request. Please email us directly at info@spotonwebsites.com.au');
+                console.error('Error:', error);
+            });
+
+            // Track event
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'CustomEvent', { event_name: 'No_Marketing_Selected' });
+            }
+        }
+
+    </script>
+<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "45c989d82d2d403fae6f24ed376a0bdd"}'></script><!-- Cloudflare Pages Analytics --></body>
+</html>
+

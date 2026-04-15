@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Services - Spot On Websites</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Facebook Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2097855790686250');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=2097855790686250&ev=PageView&noscript=1"/>
+    </noscript>
+    
+    <style>
+        :root {
+            --bg-dark: #0F0F0F;
+            --bg-card: #161616;
+            --text-white: #FFFFFF;
+            --text-grey: #C0C0C0;
+            --text-muted: #999999;
+            --accent-blue: #00D4FF;
+            --accent-green: #00FF88;
+            --accent-red: #FF4444;
+            --font-head: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 { 
+            font-family: var(--font-head); 
+            text-transform: uppercase; 
+            letter-spacing: -0.5px; 
+            line-height: 1.15;
+            color: var(--text-white);
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .text-center { text-align: center; }
+        .text-green { color: var(--accent-green); }
+        .text-blue { color: var(--accent-blue); }
+
+        /* Hero Section */
+        .hero {
+            padding: 50px 0 40px;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0F0F0F 70%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-grey);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px 25px;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-card:hover {
+            border-color: var(--accent-blue);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent-green);
+            border-width: 3px;
+            box-shadow: 0 0 60px rgba(0, 255, 136, 0.2);
+        }
+
+        .pricing-card.featured:hover {
+            box-shadow: 0 0 80px rgba(0, 255, 136, 0.3);
+        }
+
+        .badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--accent-green);
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-weight: 800;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .pricing-title {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--accent-blue);
+        }
+
+        .pricing-card.featured .pricing-title {
+            color: var(--accent-green);
+        }
+
+        .pricing-card.pass .pricing-title {
+            color: var(--text-muted);
+        }
+
+        .pricing-price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-white);
+            margin-bottom: 8px;
+        }
+
+        .pricing-price span {
+            font-size: 1.1rem;
+            color: var(--text-grey);
+            font-weight: 400;
+        }
+
+        .pricing-subtitle {
+            color: var(--text-grey);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        /* Excitement animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .pricing-card.featured {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        /* Features List */
+        .features-list {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .feature-text {
+            color: var(--text-grey);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .feature-text strong {
+            color: var(--text-white);
+            font-weight: 700;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, #0099cc 100%);
+            color: #000;
+            padding: 16px 30px;
+            font-weight: 800;
+            font-size: 1rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid var(--accent-blue);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-button.pass {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-grey);
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: none;
+        }
+
+        .cta-button.pass:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.02) translateY(-2px);
+            box-shadow: 0 15px 50px rgba(0, 212, 255, 0.6), 0 0 80px rgba(0, 212, 255, 0.3);
+        }
+
+        .pricing-card.featured .cta-button {
+            background: linear-gradient(135deg, var(--accent-green) 0%, #00cc66 100%);
+            border-color: var(--accent-green);
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.4), 0 0 60px rgba(0, 255, 136, 0.2);
+        }
+
+        .pricing-card.featured .cta-button:hover {
+            box-shadow: 0 15px 50px rgba(0, 255, 136, 0.6), 0 0 80px rgba(0, 255, 136, 0.3);
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            padding: 50px 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .comparison-section h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--accent-blue);
+        }
+
+        .comparison-table {
+            background: var(--bg-card);
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            align-items: center;
+        }
+
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-feature {
+            color: var(--text-grey);
+            font-size: 1.1rem;
+        }
+
+        .comparison-value {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .comparison-value.check {
+            color: var(--accent-green);
+        }
+
+        .comparison-value.cross {
+            color: var(--text-muted);
+        }
+
+        /* Trust Section */
+        .trust-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .trust-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--accent-green);
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-grey);
+            font-size: 1rem;
+        }
+
+        .trust-badge-icon {
+            color: var(--accent-green);
+            font-size: 1.5rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--accent-blue);
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 2px solid rgba(0, 212, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .faq-answer {
+            color: var(--text-grey);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 0 30px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 10px;
+            }
+
+            .pricing-card {
+                padding: 25px 20px;
+            }
+
+            .pricing-price {
+                font-size: 2rem;
+            }
+
+            .comparison-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                text-align: center;
+                padding: 12px 0;
+            }
+
+            .comparison-feature {
+                font-weight: 700;
+                color: var(--text-white);
+                margin-bottom: 8px;
+            }
+
+            .comparison-value {
+                font-size: 1.2rem;
+            }
+
+            .trust-badges {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .comparison-section {
+                padding: 30px 0;
+            }
+
+            .comparison-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>🚗 You Just Built a Ferrari</h1>
+            <p style="font-size: 1.5rem; margin-bottom: 20px; color: var(--accent-green); font-weight: 700;">Now It's Time to Add Fuel</p>
+            <div style="background: linear-gradient(135deg, rgba(0, 255, 136, 0.15) 0%, rgba(0, 212, 255, 0.15) 100%); border: 2px solid var(--accent-green); border-radius: 15px; padding: 25px; max-width: 800px; margin: 20px auto; box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);">
+                <h2 style="font-size: 1.8rem; color: var(--accent-green); margin-bottom: 15px; font-weight: 800;">🎁 Your First Month is FREE</h2>
+                <p style="font-size: 1.1rem; color: var(--text-white); margin-bottom: 15px; font-weight: 700;">As a thank you, we're giving you 1 month of marketing services absolutely FREE.</p>
+                <p style="font-size: 0.95rem; color: var(--text-grey); line-height: 1.6; margin-bottom: 20px;">No catch. No hidden fees. Just our way of saying thanks and proving what we can do.</p>
+                <div style="background: rgba(0, 0, 0, 0.3); padding: 15px; border-radius: 10px; border: 1px solid rgba(0, 255, 136, 0.3); margin-bottom: 15px;">
+                    <p style="font-size: 0.95rem; color: var(--text-white); margin-bottom: 10px; font-weight: 700;">All we ask in return:</p>
+                    <ul style="list-style: none; color: var(--text-grey); line-height: 1.8; font-size: 0.9rem; padding-left: 0;">
+                        <li>✅ A video testimonial about your website journey</li>
+                        <li>✅ A Google review about your $100 deposit → $997 website experience</li>
+                    </ul>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--accent-green); font-weight: 700;">Cancel anytime during trial with zero penalty. 3-month minimum only applies after you continue.</p>
+            </div>
+            <p style="font-size: 1.2rem; max-width: 800px; margin: 30px auto 0; color: var(--text-grey);">Your beautiful new website is ready. But without marketing, it's like a Ferrari with an empty tank. Choose your fuel and watch your business accelerate.</p>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="container">
+        <div class="pricing-grid">
+            <!-- Pass Option -->
+            <div class="pricing-card pass">
+                <div class="pricing-header">
+                    <h3 class="pricing-title">Pass on Marketing</h3>
+                    <p class="pricing-subtitle" style="color: var(--text-muted); font-style: italic;">Like leaving your Ferrari in the garage</p>
+                    <p style="color: var(--text-grey); margin-top: 10px; font-size: 0.85rem;">Your website is ready, but without marketing, it won't drive traffic or leads.</p>
+                </div>
+
+                <ul class="features-list" style="opacity: 0.6;">
+                    <li>
+                        <span class="check-icon" style="color: var(--text-muted);">✗</span>
+                        <span class="feature-text">No SEO optimization</span>
+                    </li>
+                    <li>
+                        <span class="check-icon" style="color: var(--text-muted);">✗</span>
+                        <span class="feature-text">No Google ranking improvements</span>
+                    </li>
+                    <li>
+                        <span class="check-icon" style="color: var(--text-muted);">✗</span>
+                        <span class="feature-text">No paid advertising</span>
+                    </li>
+                    <li>
+                        <span class="check-icon" style="color: var(--text-muted);">✗</span>
+                        <span class="feature-text">No marketing support</span>
+                    </li>
+                </ul>
+
+                <a href="mailto:info@spotonwebsites.com.au?subject=Passing on Marketing" 
+                   class="cta-button pass"
+                   style="margin-top: 20px;">
+                    No Thanks →
+                </a>
+            </div>
+
+            <!-- SEO Only -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3 class="pricing-title">SEO</h3>
+                    <div style="margin-bottom: 12px;">
+                        <div style="background: var(--accent-green); color: #000; padding: 5px 12px; border-radius: 12px; display: inline-block; font-weight: 800; font-size: 0.75rem; box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);">
+                            🎁 FIRST MONTH FREE
+                        </div>
+                    </div>
+                    <div class="pricing-price">
+                        $600<span>/month</span>
+                    </div>
+                    <p style="color: var(--accent-green); font-size: 0.85rem; margin-top: 8px; font-weight: 700;">Then $600/month after trial</p>
+                    <p class="pricing-subtitle" style="color: var(--text-muted); font-style: italic; margin-top: 12px; font-size: 0.9rem;">Regular Unleaded</p>
+                    <p style="color: var(--text-grey); margin-top: 8px; font-size: 0.85rem;">It works, but takes longer to get results</p>
+                </div>
+
+                <ul class="features-list">
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span class="feature-text"><strong>Complete SEO Audit</strong> - Comprehensive analysis of your current SEO performance</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span class="feature-text"><strong>Keyword Research & Strategy</strong> - Target the right keywords for your business</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span class="feature-text"><strong>On-Page Optimization</strong> - Optimize every page for search engines</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span class="feature-text"><strong>Technical SEO</strong> - Site speed, mobile optimization, schema markup</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span class="feature-text"><strong>Content Optimization</strong> - Improve existing content for better rankings</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span class="feature-text"><strong>Link Building</strong> - Build quality backlinks to boost authority</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span class="feature-text"><strong>Monthly Reporting</strong> - Track rankings, traffic, and conversions</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span class="feature-text"><strong>Dedicated Account Manager</strong> - Your personal SEO expert</span>
+                    </li>
+                </ul>
+
+                <a href="seo-signup.html" 
+                   class="cta-button"
+                   onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {content_name: 'SEO Only', value: 600, currency: 'AUD'});">
+                    🎁 Start FREE Trial - SEO Only →
+                </a>
+            </div>
+
+            <!-- SEOx (Featured) -->
+            <div class="pricing-card featured">
+                <div class="badge">⚡ HIGH OCTANE</div>
+                <div class="pricing-header">
+                    <h3 class="pricing-title">SEOx</h3>
+                    <div style="margin-bottom: 12px;">
+                        <div style="background: var(--accent-green); color: #000; padding: 5px 12px; border-radius: 12px; display: inline-block; font-weight: 800; font-size: 0.75rem; box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);">
+                            🎁 FIRST MONTH FREE
+                        </div>
+                    </div>
+                    <div class="pricing-price">
+                        $1,200<span>/month</span>
+                    </div>
+                    <p style="color: var(--accent-green); font-size: 0.85rem; margin-top: 8px; font-weight: 700;">Then $1,200/month after trial</p>
+                    <p class="pricing-subtitle" style="color: var(--accent-green); font-weight: 700; margin-top: 12px; font-size: 0.9rem;">High Octane</p>
+                    <p style="color: var(--text-white); margin-top: 8px; font-size: 0.9rem; font-weight: 600;">Maximum power. Maximum speed. Maximum results.</p>
+                </div>
+
+                <ul class="features-list">
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span class="feature-text"><strong>Everything in SEO Only</strong> - All SEO services included</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span class="feature-text"><strong>Google Analytics Management</strong> - Set up, configure, and optimize your GA4</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span class="feature-text"><strong>Conversion Tracking</strong> - Track leads, sales, and ROI accurately</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span class="feature-text"><strong>Meta Ads Management</strong> - Facebook & Instagram ad campaigns</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span class="feature-text"><strong>Ad Creative & Copy</strong> - Professional ads that convert</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span class="feature-text"><strong>Campaign Optimization</strong> - Continuous testing and improvement</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span class="feature-text"><strong>Budget Management</strong> - We manage your ad spend efficiently</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span class="feature-text"><strong>Monthly Strategy Review</strong> - Data-driven insights and recommendations</span>
+                    </li>
+                </ul>
+
+                <a href="seox-signup.html" 
+                   class="cta-button"
+                   onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {content_name: 'SEOx', value: 1200, currency: 'AUD'});">
+                    🎁 Start FREE Trial - SEOx →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analogy Section -->
+    <section style="padding: 40px 0; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 255, 136, 0.1) 100%);">
+        <div class="container text-center">
+            <h2 style="font-size: 1.8rem; margin-bottom: 20px; color: var(--accent-blue);">The Ferrari Analogy</h2>
+            <div style="max-width: 800px; margin: 0 auto; background: var(--bg-card); padding: 30px; border-radius: 15px; border: 2px solid var(--accent-green); box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);">
+                <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-white); margin-bottom: 20px;">
+                    <strong style="color: var(--accent-green); font-size: 1.2rem;">You just built a Ferrari.</strong> Your website is beautiful, fast, and ready to perform.
+                </p>
+                <p style="font-size: 1rem; line-height: 1.6; color: var(--text-grey); margin-bottom: 25px;">
+                    But even the best Ferrari needs fuel to run. Without marketing, your website sits in the garage, waiting.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 25px; text-align: left;">
+                    <div style="background: rgba(0, 0, 0, 0.3); padding: 20px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                        <h3 style="color: var(--text-muted); font-size: 1rem; margin-bottom: 10px;">🚗 SEO = Regular Unleaded</h3>
+                        <p style="color: var(--text-grey); line-height: 1.5; font-size: 0.9rem;">
+                            It works. Your Ferrari will run. But it's slower and takes longer to reach your destination.
+                        </p>
+                    </div>
+                    <div style="background: rgba(0, 255, 136, 0.1); padding: 20px; border-radius: 10px; border: 2px solid var(--accent-green);">
+                        <h3 style="color: var(--accent-green); font-size: 1rem; margin-bottom: 10px;">⚡ SEOx = High Octane</h3>
+                        <p style="color: var(--text-white); line-height: 1.5; font-weight: 600; font-size: 0.9rem;">
+                            Maximum power. Instant acceleration. Your Ferrari performs at its peak.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2>Compare Your Fuel Options</h2>
+            <div class="comparison-table">
+                <div class="comparison-row">
+                    <div class="comparison-feature"><strong>Service</strong></div>
+                    <div class="comparison-value"><strong>Pass</strong></div>
+                    <div class="comparison-value"><strong>SEO</strong></div>
+                    <div class="comparison-value"><strong>SEOx</strong></div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-feature">Full SEO Optimization</div>
+                    <div class="comparison-value cross">✗</div>
+                    <div class="comparison-value check">✓</div>
+                    <div class="comparison-value check">✓</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-feature">Keyword Research & Strategy</div>
+                    <div class="comparison-value cross">✗</div>
+                    <div class="comparison-value check">✓</div>
+                    <div class="comparison-value check">✓</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-feature">Link Building</div>
+                    <div class="comparison-value cross">✗</div>
+                    <div class="comparison-value check">✓</div>
+                    <div class="comparison-value check">✓</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-feature">Monthly SEO Reporting</div>
+                    <div class="comparison-value cross">✗</div>
+                    <div class="comparison-value check">✓</div>
+                    <div class="comparison-value check">✓</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-feature">Google Analytics Management</div>
+                    <div class="comparison-value cross">✗</div>
+                    <div class="comparison-value cross">✗</div>
+                    <div class="comparison-value check">✓</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-feature">Conversion Tracking Setup</div>
+                    <div class="comparison-value cross">✗</div>
+                    <div class="comparison-value cross">✗</div>
+                    <div class="comparison-value check">✓</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-feature">Meta Ads Management</div>
+                    <div class="comparison-value cross">✗</div>
+                    <div class="comparison-value cross">✗</div>
+                    <div class="comparison-value check">✓</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-feature">Ad Creative & Copywriting</div>
+                    <div class="comparison-value cross">✗</div>
+                    <div class="comparison-value cross">✗</div>
+                    <div class="comparison-value check">✓</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-feature">Monthly Investment</div>
+                    <div class="comparison-value"><strong>Free</strong></div>
+                    <div class="comparison-value"><strong>$600</strong></div>
+                    <div class="comparison-value"><strong>$1,200</strong></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Excitement Section -->
+    <section style="padding: 40px 0; background: radial-gradient(circle at center, rgba(0, 255, 136, 0.1) 0%, transparent 70%);">
+        <div class="container text-center">
+            <h2 style="font-size: 1.8rem; margin-bottom: 20px; color: var(--accent-green);">Ready to Hit the Road?</h2>
+            <p style="font-size: 1.1rem; color: var(--text-white); max-width: 700px; margin: 0 auto 30px; line-height: 1.6;">
+                Your Ferrari is built. Your engine is ready. <strong style="color: var(--accent-green);">Now choose your fuel and watch your business accelerate.</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section" style="padding: 40px 0;">
+        <div class="container">
+            <h3 style="font-size: 1.5rem; margin-bottom: 20px;">Why Choose Spot On Websites Marketing?</h3>
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">✓</span>
+                    <span>495+ Happy Clients</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">✓</span>
+                    <span>Dedicated Account Manager</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">✓</span>
+                    <span>Monthly Reporting & Insights</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">✓</span>
+                    <span>Cancel Anytime</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" style="padding: 50px 0;">
+        <div class="container">
+            <h2 style="font-size: 1.8rem; margin-bottom: 30px;">Frequently Asked Questions</h2>
+            
+            <div class="faq-item" style="padding: 20px; margin-bottom: 15px;">
+                <div class="faq-question" style="font-size: 1.1rem; margin-bottom: 10px;">How long until I see results?</div>
+                <div class="faq-answer" style="font-size: 0.95rem;">
+                    SEO results typically start showing within 3-6 months, with significant improvements by 6-12 months. Meta Ads can drive immediate traffic and leads. We'll provide monthly reports showing your progress.
+                </div>
+            </div>
+
+            <div class="faq-item" style="padding: 20px; margin-bottom: 15px;">
+                <div class="faq-question" style="font-size: 1.1rem; margin-bottom: 10px;">What's included in Google Analytics Management?</div>
+                <div class="faq-answer" style="font-size: 0.95rem;">
+                    We set up and configure your GA4 account, create custom dashboards, set up conversion tracking, and provide monthly insights on your website performance, traffic sources, and user behavior.
+                </div>
+            </div>
+
+            <div class="faq-item" style="padding: 20px; margin-bottom: 15px;">
+                <div class="faq-question" style="font-size: 1.1rem; margin-bottom: 10px;">Do I need to provide ad budget for Meta Ads?</div>
+                <div class="faq-answer" style="font-size: 0.95rem;">
+                    Yes, the $1,200/month for SEOx covers our management fee. You'll have a separate ad budget (typically $500-$2,000/month) that goes directly to Facebook/Instagram ads. We'll help you determine the right budget for your goals.
+                </div>
+            </div>
+
+            <div class="faq-item" style="padding: 20px; margin-bottom: 15px;">
+                <div class="faq-question" style="font-size: 1.1rem; margin-bottom: 10px;">What's the free trial all about?</div>
+                <div class="faq-answer" style="font-size: 0.95rem;">
+                    As a thank you for choosing us for your website, we're giving you your first month of marketing services absolutely FREE. No credit card required during the trial. All we ask in return is a video testimonial and Google review about your website journey. You can cancel anytime during the trial with zero penalty.
+                </div>
+            </div>
+
+            <div class="faq-item" style="padding: 20px; margin-bottom: 15px;">
+                <div class="faq-question" style="font-size: 1.1rem; margin-bottom: 10px;">What happens after the free trial?</div>
+                <div class="faq-answer" style="font-size: 0.95rem;">
+                    After your free month, if you decide to continue, there's a 3-month minimum commitment. This ensures we have enough time to deliver real results. After those 3 months, you can cancel anytime with 30 days notice.
+                </div>
+            </div>
+
+            <div class="faq-item" style="padding: 20px; margin-bottom: 15px;">
+                <div class="faq-question" style="font-size: 1.1rem; margin-bottom: 10px;">Can I cancel during the free trial?</div>
+                <div class="faq-answer" style="font-size: 0.95rem;">
+                    Yes! You can cancel anytime during the free trial period with zero penalty. No questions asked. The 3-month minimum only applies if you decide to continue after the trial.
+                </div>
+            </div>
+
+            <div class="faq-item" style="padding: 20px; margin-bottom: 15px;">
+                <div class="faq-question" style="font-size: 1.1rem; margin-bottom: 10px;">Will I have a dedicated account manager?</div>
+                <div class="faq-answer" style="font-size: 0.95rem;">
+                    Yes, you'll have a dedicated account manager who knows your business and is available to answer questions, provide updates, and discuss strategy.
+                </div>
+            </div>
+
+            <div class="faq-item" style="padding: 20px; margin-bottom: 15px;">
+                <div class="faq-question" style="font-size: 1.1rem; margin-bottom: 10px;">What if I already have a website built by you?</div>
+                <div class="faq-answer" style="font-size: 0.95rem;">
+                    Perfect! We already know your business and website structure, which means we can get started immediately and optimize faster. Existing clients often see results quicker.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="hero" style="padding: 50px 0; background: linear-gradient(135deg, rgba(0, 255, 136, 0.15) 0%, rgba(0, 212, 255, 0.15) 100%);">
+        <div class="container">
+            <h2 style="font-size: 2rem; margin-bottom: 15px; background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Your Ferrari is Ready</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 12px; color: var(--accent-green); font-weight: 700;">🎁 Start Your FREE Month Today</p>
+            <p style="font-size: 1rem; margin-bottom: 30px; color: var(--text-grey); max-width: 600px; margin-left: auto; margin-right: auto;">Try our marketing services FREE for 30 days. No risk. No commitment. Just results.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; max-width: 800px; margin: 0 auto;">
+                <a href="seo-signup.html" 
+                   class="cta-button"
+                   style="max-width: 240px;"
+                   onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {content_name: 'SEO Only', value: 600, currency: 'AUD'});">
+                    🎁 Start FREE - SEO →
+                </a>
+                <a href="seox-signup.html" 
+                   class="cta-button"
+                   style="max-width: 240px; background: linear-gradient(135deg, var(--accent-green) 0%, #00cc66 100%); border-color: var(--accent-green); box-shadow: 0 5px 20px rgba(0, 255, 136, 0.3);"
+                   onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {content_name: 'SEOx', value: 1200, currency: 'AUD'});">
+                    🎁 Start FREE - SEOx →
+                </a>
+            </div>
+        </div>
+    </section>
+
+<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "45c989d82d2d403fae6f24ed376a0bdd"}'></script><!-- Cloudflare Pages Analytics --></body>
+</html>
+

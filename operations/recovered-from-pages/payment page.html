@@ -1,0 +1,508 @@
+<style>
+    /* Local Styles for Checkout Sidebar - DARK THEME */
+    .summary-card { 
+        background: #1a1a1a !important; 
+        border: 2px solid rgba(0, 255, 136, 0.2) !important; 
+        border-radius: 16px !important; 
+        padding: 30px !important; 
+        font-family: 'Inter', sans-serif !important; 
+        color: #ffffff !important;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 255, 136, 0.1) !important;
+    }
+    
+    .summary-header { 
+        text-align: center !important; 
+        margin-bottom: 20px !important; 
+        border-bottom: 2px solid rgba(0, 255, 136, 0.1) !important; 
+        padding-bottom: 15px !important; 
+    }
+    
+    .summary-header h3 { 
+        font-size: 20px !important; 
+        font-weight: 900 !important; 
+        color: #00ff88 !important; 
+        margin: 0 0 8px !important; 
+        text-shadow: 0 0 20px rgba(0, 255, 136, 0.4) !important;
+    }
+    
+    .summary-header p { 
+        font-size: 13px !important; 
+        color: #b8b8b8 !important; 
+        margin: 0 !important; 
+        font-weight: 600 !important;
+    }
+  
+    /* Clarity Strip */
+    .clarity-strip { 
+        background: linear-gradient(135deg, rgba(0, 255, 136, 0.12) 0%, rgba(0, 212, 255, 0.08) 100%) !important; 
+        border: 2px solid #00ff88 !important; 
+        border-radius: 14px !important; 
+        padding: 18px !important; 
+        margin-bottom: 20px !important; 
+        text-align: center !important;
+        box-shadow: 0 0 40px rgba(0, 255, 136, 0.15) !important;
+    }
+    
+    .cs-top { 
+        display: flex !important; 
+        align-items: center !important; 
+        justify-content: center !important; 
+        gap: 10px !important; 
+        margin-bottom: 10px !important; 
+        flex-wrap: wrap !important;
+    }
+    
+    .cs-amount { 
+        font-size: 14px !important; 
+        color: #b8b8b8 !important; 
+        font-weight: 700 !important;
+    }
+    
+    .cs-pill-green { 
+        background: #00ff88 !important; 
+        color: #000 !important; 
+        font-size: 12px !important; 
+        font-weight: 900 !important; 
+        text-transform: uppercase !important; 
+        padding: 6px 12px !important; 
+        border-radius: 999px !important;
+        box-shadow: 0 0 20px rgba(0, 255, 136, 0.5) !important;
+        letter-spacing: 0.5px !important;
+    }
+    
+    .cs-bottom { 
+        font-size: 13px !important; 
+        line-height: 1.5 !important; 
+        color: #ffffff !important; 
+        font-weight: 600 !important;
+    }
+    
+    /* Value Stack List */
+    .mini-includes { 
+        margin-bottom: 20px !important; 
+        padding-top: 14px !important;
+        border-top: 1px solid rgba(0, 255, 136, 0.1) !important;
+    }
+    
+    .mini-includes h4 { 
+        font-size: 12px !important; 
+        text-transform: uppercase !important; 
+        color: #888888 !important; 
+        font-weight: 900 !important; 
+        margin-bottom: 12px !important; 
+        letter-spacing: 0.5px !important; 
+    }
+    
+    .stack-row { 
+        display: flex !important; 
+        justify-content: space-between !important; 
+        font-size: 13px !important; 
+        margin-bottom: 10px !important; 
+        color: #b8b8b8 !important;
+        font-weight: 600 !important;
+    }
+    
+    .stack-row.highlight-green {
+        background: rgba(0, 255, 136, 0.1) !important;
+        border: 1px solid rgba(0, 255, 136, 0.3) !important;
+        border-radius: 8px !important;
+        padding: 10px 12px !important;
+        margin-bottom: 12px !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
+    }
+    
+    .stack-row .price { 
+        text-decoration: line-through !important; 
+        color: #666666 !important; 
+    }
+    
+    .stack-row .value-green {
+        color: #00ff88 !important;
+        font-weight: 900 !important;
+        text-decoration: none !important;
+        font-size: 1.1rem !important;
+        text-shadow: 0 0 15px rgba(0, 255, 136, 0.4) !important;
+    }
+    
+    .stack-row.total-row { 
+        border-top: 1px dashed rgba(0, 255, 136, 0.2) !important; 
+        padding-top: 10px !important; 
+        margin-top: 10px !important; 
+        font-weight: 700 !important; 
+        color: #b8b8b8 !important; 
+    }
+  
+    /* Totals Area */
+    .totals-box { 
+        background: rgba(0, 0, 0, 0.3) !important; 
+        border-radius: 12px !important; 
+        padding: 18px !important; 
+        border: 1px solid rgba(0, 255, 136, 0.2) !important; 
+        margin: 20px 0 !important; 
+    }
+    
+    .line-item { 
+        display: flex !important; 
+        justify-content: space-between !important; 
+        align-items: center !important; 
+        font-size: 14px !important; 
+        margin-bottom: 10px !important; 
+        color: #b8b8b8 !important;
+        font-weight: 600 !important;
+    }
+    
+    .line-item.strike span:last-child { 
+        text-decoration: line-through !important; 
+        opacity: 0.6 !important; 
+    }
+    
+    .line-item.highlight { 
+        font-weight: 900 !important; 
+        color: #00ff88 !important; 
+        border-top: 2px solid rgba(0, 255, 136, 0.2) !important; 
+        padding-top: 14px !important; 
+        margin-top: 10px !important; 
+        font-size: 18px !important; 
+    }
+    
+    .line-item.highlight span:last-child { 
+        color: #00ff88 !important;
+        font-size: 22px !important;
+        text-shadow: 0 0 20px rgba(0, 255, 136, 0.4) !important;
+    }
+    
+    .line-item-note {
+        margin-top: 12px !important;
+        padding-top: 12px !important;
+        border-top: 1px solid rgba(0, 255, 136, 0.1) !important;
+        text-align: center !important;
+    }
+    
+    .line-item-note small {
+        font-size: 12px !important;
+        color: #888888 !important;
+        font-weight: 600 !important;
+        line-height: 1.4 !important;
+    }
+  
+    /* Guarantee */
+    .guarantee-badge { 
+        display: flex !important; 
+        gap: 14px !important; 
+        align-items: flex-start !important; 
+        background: rgba(0, 255, 136, 0.08) !important; 
+        border: 2px solid rgba(0, 255, 136, 0.3) !important; 
+        padding: 16px !important; 
+        border-radius: 12px !important; 
+        margin: 20px 0 !important;
+        box-shadow: 0 0 30px rgba(0, 255, 136, 0.1) !important;
+    }
+    
+    .g-icon { 
+        width: 32px !important;
+        height: 32px !important;
+        background: #00ff88 !important;
+        color: #000 !important; 
+        font-weight: 900 !important; 
+        font-size: 16px !important;
+        border-radius: 50% !important;
+        display: grid !important;
+        place-items: center !important;
+        flex-shrink: 0 !important;
+        box-shadow: 0 0 20px rgba(0, 255, 136, 0.5) !important;
+    }
+    
+    .g-text strong { 
+        display: block !important; 
+        font-size: 14px !important; 
+        color: #00ff88 !important; 
+        margin-bottom: 6px !important;
+        font-weight: 900 !important;
+    }
+    
+    .g-text span { 
+        display: block !important; 
+        font-size: 12px !important; 
+        color: #b8b8b8 !important; 
+        line-height: 1.5 !important;
+        font-weight: 600 !important;
+    }
+  
+    /* Timeline */
+    .timeline-box { 
+        margin-top: 24px !important; 
+        padding-top: 20px !important; 
+        border-top: 1px solid rgba(0, 255, 136, 0.2) !important; 
+    }
+    
+    .timeline-box h4 { 
+        font-size: 12px !important; 
+        color: #888888 !important; 
+        text-transform: uppercase !important; 
+        font-weight: 900 !important; 
+        margin-bottom: 16px !important; 
+        letter-spacing: 0.5px !important;
+    }
+    
+    .t-step { 
+        display: flex !important; 
+        gap: 12px !important; 
+        margin-bottom: 16px !important; 
+        opacity: 0.5 !important;
+        transition: opacity 0.3s !important;
+    }
+    
+    .t-step.active { 
+        opacity: 1 !important; 
+    }
+    
+    .t-num { 
+        background: rgba(255, 255, 255, 0.1) !important; 
+        color: #888888 !important; 
+        width: 28px !important; 
+        height: 28px !important; 
+        border-radius: 50% !important; 
+        display: grid !important; 
+        place-items: center !important; 
+        font-size: 12px !important; 
+        font-weight: 900 !important; 
+        flex-shrink: 0 !important;
+        border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    }
+    
+    .t-step.active .t-num { 
+        background: #00ff88 !important; 
+        color: #000 !important;
+        border-color: #00ff88 !important;
+        box-shadow: 0 0 20px rgba(0, 255, 136, 0.5) !important;
+    }
+    
+    .t-content strong { 
+        display: block !important; 
+        font-size: 14px !important; 
+        color: #ffffff !important;
+        font-weight: 800 !important;
+    }
+    
+    .t-content p { 
+        font-size: 12px !important; 
+        color: #b8b8b8 !important; 
+        margin: 4px 0 0 !important; 
+        line-height: 1.5 !important;
+        font-weight: 600 !important;
+    }
+  </style>
+  
+  <div class="summary-card">
+    <div class="summary-header">
+      <h3>🚀 GET LIFETIME HOSTING FREE</h3>
+      <p>Limited Time Offer • Lock in Your Spot Now</p>
+    </div>
+
+    <div class="clarity-strip">
+      <div class="cs-top">
+        <span class="cs-amount">Lifetime Hosting Value</span>
+        <span class="cs-pill-green">$3,480+ FREE</span>
+      </div>
+      <div class="cs-bottom">
+        Pay <strong>$100</strong> deposit today to secure <strong>UNLIMITED LIFETIME HOSTING</strong> (normally $29/month).
+      </div>
+    </div>
+  
+    <div class="mini-includes">
+      <h4>What You're Getting Today</h4>
+      <div class="stack-row highlight-green">
+        <span>✅ Lifetime Hosting (Forever)</span>
+        <span class="value-green">$3,480+</span>
+      </div>
+      <div class="stack-row">
+        <span>✅ Unlimited Page Custom Build</span>
+        <span class="price">$2,497</span>
+      </div>
+      <div class="stack-row">
+        <span>✅ Professional Copywriting</span>
+        <span class="price">$997</span>
+      </div>
+      <div class="stack-row">
+        <span>✅ SEO & Mobile Optimization</span>
+        <span class="price">$994</span>
+      </div>
+      <div class="stack-row total-row">
+        <span>Total Package Value</span>
+        <span class="price" style="text-decoration:none; color:#16a34a; font-weight:900;">$7,968</span>
+      </div>
+    </div>
+  
+    <div class="totals-box">
+      <div class="line-item strike">
+        <span>Total Value (with Lifetime Hosting)</span>
+        <span>$7,968</span>
+      </div>
+      <div class="line-item">
+        <span>Your Price Today</span>
+        <span>$997</span>
+      </div>
+      <div class="line-item highlight">
+        <span>Deposit Due Now</span>
+        <span>$100.00</span>
+      </div>
+      <div class="line-item-note">
+        <small>Remaining $897 only paid after you approve your site</small>
+      </div>
+    </div>
+  
+    <div class="guarantee-badge">
+      <div class="g-icon">✅</div>
+      <div class="g-text">
+        <strong>100% Refund Guarantee + Lifetime Hosting</strong>
+        <span>Your $100 is fully refundable if you don't love your site. Plus, lock in FREE lifetime hosting today (normally $29/month forever).</span>
+      </div>
+    </div>
+  
+    <div class="timeline-box">
+      <h4>What Happens Next</h4>
+
+      <div class="t-step active">
+        <div class="t-num">1</div>
+        <div class="t-content">
+          <strong>Today: Lock In Lifetime Hosting</strong>
+          <p>$100 deposit secures your build slot + FREE hosting forever.</p>
+        </div>
+      </div>
+
+      <div class="t-step">
+        <div class="t-num">2</div>
+        <div class="t-content">
+          <strong>Tomorrow: We Start Building</strong>
+          <p>Your website is completed in 7 days with professional copy & design.</p>
+        </div>
+      </div>
+
+      <div class="t-step">
+        <div class="t-num">3</div>
+        <div class="t-content">
+          <strong>You Approve, Then Pay Balance</strong>
+          <p>Only pay $897 after you see and love your site. 100% refundable.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =========================================
+    // STRIPE/LINK DARK MODE CONFIGURATION
+    // =========================================
+    
+    // Set Stripe appearance for dark theme
+    const stripeAppearance = {
+      theme: 'night',
+      variables: {
+        colorPrimary: '#00d4ff',
+        colorBackground: 'rgba(0, 0, 0, 0.3)',
+        colorText: '#ffffff',
+        colorDanger: '#ff4444',
+        colorSuccess: '#00ff88',
+        fontFamily: 'Inter, system-ui, sans-serif',
+        fontSizeBase: '15px',
+        spacingUnit: '4px',
+        borderRadius: '10px',
+        colorTextPlaceholder: '#888888',
+        colorIcon: '#00d4ff',
+        colorIconTabSelected: '#00d4ff',
+        colorLogo: 'dark',
+      },
+      rules: {
+        '.Input': {
+          backgroundColor: 'rgba(0, 0, 0, 0.3)',
+          border: '2px solid rgba(0, 212, 255, 0.3)',
+          color: '#ffffff',
+          padding: '14px',
+          boxShadow: 'none',
+        },
+        '.Input:focus': {
+          border: '2px solid #00d4ff',
+          boxShadow: '0 0 0 3px rgba(0, 212, 255, 0.2), 0 0 20px rgba(0, 212, 255, 0.3)',
+          outline: 'none',
+        },
+        '.Input::placeholder': {
+          color: '#888888',
+        },
+        '.Label': {
+          color: '#ffffff',
+          fontWeight: '600',
+          marginBottom: '6px',
+        },
+        '.Tab': {
+          backgroundColor: 'rgba(0, 0, 0, 0.2)',
+          border: '2px solid rgba(0, 212, 255, 0.3)',
+          color: '#ffffff',
+        },
+        '.Tab:hover': {
+          backgroundColor: 'rgba(0, 212, 255, 0.1)',
+          borderColor: '#00d4ff',
+        },
+        '.Tab--selected': {
+          backgroundColor: 'rgba(0, 212, 255, 0.2)',
+          borderColor: '#00d4ff',
+          color: '#ffffff',
+        },
+        '.Block': {
+          backgroundColor: 'rgba(0, 0, 0, 0.2)',
+          border: '2px solid rgba(0, 212, 255, 0.3)',
+        },
+        '.BlockDivider': {
+          backgroundColor: 'rgba(0, 212, 255, 0.2)',
+        },
+        '.Text': {
+          color: '#ffffff',
+        },
+        '.Text--redirect': {
+          color: '#00d4ff',
+        },
+      },
+    };
+
+    // Apply to window for GHL to pick up
+    window.stripeAppearance = stripeAppearance;
+    
+    // Also try to apply directly if Stripe is already loaded
+    if (typeof Stripe !== 'undefined') {
+      console.log('✅ Stripe appearance configured for dark mode');
+    }
+
+    // Monitor for iframe loads and apply color-scheme
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node.tagName === 'IFRAME') {
+            // Try to set dark color-scheme on Stripe iframes
+            try {
+              node.style.colorScheme = 'dark';
+            } catch (e) {
+              // Iframe security restriction
+            }
+          }
+        });
+      });
+    });
+
+    // Start observing the document
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    // Force dark mode on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      // Apply dark color scheme to all iframes
+      const iframes = document.querySelectorAll('iframe');
+      iframes.forEach(iframe => {
+        try {
+          iframe.style.colorScheme = 'dark';
+        } catch (e) {
+          // Security restriction
+        }
+      });
+    });
+  </script>

@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "landing-5xo",
+  "compatibility_date": "2026-04-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "pages_build_output_dir": ".",
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "vars": {
+    "STRIPE_CURRENCY": "aud",
+    "STRIPE_AMOUNT_CENTS": "10000",
+    "STRIPE_DESCRIPTION": "Website build deposit",
+    "WEBHOOK_ALLOWED_ORIGIN": "https://offer.spotonwebsites.com.au",
+    "GHL_BOOKING_URL": ""
+  }
+}
