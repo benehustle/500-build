@@ -36,6 +36,7 @@
     .container {
       max-width: 1120px;
       margin: 0 auto;
+      min-width: 0;
     }
 
     .page-header {
@@ -76,6 +77,7 @@
       grid-template-columns: 1.15fr 0.85fr;
       gap: 26px;
       align-items: start;
+      min-width: 0;
     }
 
     .card {
@@ -87,11 +89,16 @@
     }
 
     .payment-card {
+      position: relative;
+      z-index: 10000;
+      isolation: isolate;
+      min-width: 0;
       border-color: rgba(0, 212, 255, 0.45);
       box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.2), 0 20px 52px rgba(0, 0, 0, 0.45);
     }
 
     .summary-card {
+      z-index: 0;
       border-color: rgba(0, 255, 136, 0.35);
       position: sticky;
       top: 18px;
@@ -124,13 +131,15 @@
     }
 
     .field input {
+      position: relative;
+      z-index: 1;
       width: 100%;
       background: #0c0c0c;
       border: 1px solid #333;
       border-radius: 10px;
       color: #fff;
       padding: 12px 13px;
-      font-size: 0.95rem;
+      font-size: 1rem;
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
@@ -144,9 +153,17 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
+      min-width: 0;
+    }
+
+    .element-grid > .field {
+      min-width: 0;
     }
 
     .stripe-hosted-field {
+      position: relative;
+      z-index: 1;
+      min-width: 0;
       background: #0c0c0c;
       border: 1px solid #333;
       border-radius: 10px;
@@ -685,5 +702,10 @@
 
     initStripeForm();
   </script>
+  <script
+    defer
+    src="https://crm.spotonwebsites.com.au/js/external-tracking.js"
+    data-tracking-id="tk_2104f58ce84847bba717f7a2adeca107"
+  ></script>
 </body>
 </html>

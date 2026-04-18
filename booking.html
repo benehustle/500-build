@@ -67,6 +67,7 @@
       height: 720px;
       border: 0;
       display: block;
+      overflow: hidden;
     }
     .note {
       font-size: 0.85rem;
@@ -113,6 +114,11 @@
     .warn.show { display: block; }
     .loading { text-align: center; color: var(--text-muted); padding: 40px; }
   </style>
+  <!-- Spot On CRM external tracking -->
+  <script
+    src="https://crm.spotonwebsites.com.au/js/external-tracking.js"
+    data-tracking-id="tk_2104f58ce84847bba717f7a2adeca107"
+  ></script>
 </head>
 <body>
   <div class="container">
@@ -127,7 +133,13 @@
     <div class="card" id="cal-card">
       <div class="loading" id="cal-loading">Loading calendar…</div>
       <div class="iframe-wrap" id="cal-frame" style="display:none">
-        <iframe title="Book a call" id="booking-iframe" src="about:blank"></iframe>
+        <iframe
+          title="Book a call"
+          id="CFyk7P26wb7hNKbcnYhb"
+          src="about:blank"
+          scrolling="no"
+          style="width:100%;border:none;overflow:hidden"
+        ></iframe>
       </div>
     </div>
 
@@ -143,7 +155,7 @@
       var warn = document.getElementById("cfg-warn");
       var loading = document.getElementById("cal-loading");
       var frameWrap = document.getElementById("cal-frame");
-      var iframe = document.getElementById("booking-iframe");
+      var iframe = document.getElementById("CFyk7P26wb7hNKbcnYhb");
       var btn = document.getElementById("btn-continue");
 
       fetch("/api/booking-config")
@@ -162,6 +174,14 @@
           }
           iframe.src = url;
           frameWrap.style.display = "block";
+          if (!document.querySelector('script[data-ghl-booking-embed]')) {
+            var s = document.createElement("script");
+            s.src = "https://crm.spotonwebsites.com.au/js/form_embed.js";
+            s.type = "text/javascript";
+            s.async = true;
+            s.setAttribute("data-ghl-booking-embed", "1");
+            document.body.appendChild(s);
+          }
         })
         .catch(function () {
           loading.style.display = "none";

@@ -1,6 +1,6 @@
-# Robots.txt — offer funnel (payment and post-checkout pages are noindex in HTML)
+# Robots.txt — website funnel (payment and post-checkout pages are noindex in HTML)
 
 User-agent: *
 Allow: /
 
-Sitemap: https://offer.spotonwebsites.com.au/sitemap.xml
+Sitemap: https://website.spotonwebsites.com.au/sitemap.xml

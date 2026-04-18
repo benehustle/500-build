@@ -11,7 +11,6 @@
   <style>
     :root {
       --bg-dark: #0f0f0f;
-      --bg-card: #151515;
       --text-white: #ffffff;
       --text-grey: #c0c0c0;
       --text-muted: #999999;
@@ -41,39 +40,30 @@
     .sub { color: var(--text-grey); text-align: center; margin-bottom: 22px; font-size: 0.95rem; line-height: 1.5; }
     .card {
       background: linear-gradient(180deg, #181818 0%, #101010 100%);
-      border: 1px solid #2a2a2a;
+      border: 1px solid rgba(0, 212, 255, 0.35);
       border-radius: 16px;
       padding: 22px 20px 26px;
       box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
-      border-color: rgba(0, 212, 255, 0.35);
     }
     .steps {
       display: flex;
-      justify-content: space-between;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 6px;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
     }
     .step-dot {
-      flex: 1;
-      text-align: center;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 700;
       text-transform: uppercase;
       color: var(--text-muted);
-      padding: 8px 4px;
+      padding: 6px 8px;
       border-radius: 8px;
       border: 1px solid #333;
       background: #111;
     }
-    .step-dot.active {
-      color: #000;
-      background: var(--accent-blue);
-      border-color: var(--accent-blue);
-    }
-    .step-dot.done {
-      color: var(--accent-green);
-      border-color: rgba(0, 255, 136, 0.5);
-    }
+    .step-dot.active { color: #000; background: var(--accent-blue); border-color: var(--accent-blue); }
+    .step-dot.done { color: var(--accent-green); border-color: rgba(0, 255, 136, 0.5); }
     .panel { display: none; }
     .panel.active { display: block; }
     .field { margin-bottom: 14px; }
@@ -85,7 +75,7 @@
       font-size: 0.88rem;
     }
     .field .hint { font-size: 0.78rem; color: var(--text-muted); font-weight: 400; margin-top: 4px; }
-    input[type="text"], input[type="email"], input[type="tel"], input[type="url"], textarea, select {
+    input[type="text"], input[type="email"], input[type="tel"], input[type="number"], textarea, select {
       width: 100%;
       background: #0c0c0c;
       border: 1px solid #333;
@@ -100,19 +90,7 @@
       border-color: var(--accent-blue);
       box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.2);
     }
-    textarea { min-height: 88px; resize: vertical; }
-    .checks { display: grid; gap: 10px; }
-    .check-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 10px 12px;
-      background: #0c0c0c;
-      border: 1px solid #2a2a2a;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    .check-row input { width: auto; margin-top: 3px; accent-color: var(--accent-blue); }
+    textarea { min-height: 100px; resize: vertical; }
     .nav-row {
       display: flex;
       justify-content: space-between;
@@ -133,11 +111,7 @@
       justify-content: center;
       text-align: center;
     }
-    .btn-primary {
-      background: var(--accent-blue);
-      color: #000;
-      flex: 1;
-    }
+    .btn-primary { background: var(--accent-blue); color: #000; flex: 1; }
     .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
     .btn-secondary {
       background: transparent;
@@ -160,122 +134,175 @@
       background: #0c0c0c;
       border: 1px solid #2a2a2a;
       border-radius: 10px;
-      padding: 14px 16px;
-      margin-bottom: 12px;
-      font-size: 0.88rem;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      font-size: 0.82rem;
       color: var(--text-grey);
-      line-height: 1.55;
+      line-height: 1.45;
+      word-break: break-word;
     }
-    .summary-block strong { color: #fff; display: block; margin-bottom: 6px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .summary-block strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
     .back-top { text-align: center; margin-top: 18px; }
     .back-top a { color: var(--accent-blue); font-size: 0.88rem; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 520px) { .grid-2 { grid-template-columns: 1fr; } }
   </style>
+  <!-- Spot On CRM external tracking -->
+  <script
+    src="https://crm.spotonwebsites.com.au/js/external-tracking.js"
+    data-tracking-id="tk_2104f58ce84847bba717f7a2adeca107"
+  ></script>
 </head>
 <body>
   <div class="container">
     <h1>Website build brief</h1>
-    <p class="sub">A few quick steps so we can start your build. Fields marked <span style="color:var(--accent-red)">*</span> are required.</p>
+    <p class="sub">Seven short steps, then review. Only the fields below are sent to your CRM. <span style="color:var(--accent-red)">*</span> = required.</p>
 
     <div class="err" id="form-err" role="alert"></div>
 
     <div class="card">
       <div class="steps" id="step-ind" aria-hidden="true">
-        <span class="step-dot active" data-i="0">1 · You</span>
-        <span class="step-dot" data-i="1">2 · Brand</span>
-        <span class="step-dot" data-i="2">3 · Site</span>
-        <span class="step-dot" data-i="3">4 · Review</span>
+        <span class="step-dot active" data-i="0">1 · Business</span>
+        <span class="step-dot" data-i="1">2 · Contact</span>
+        <span class="step-dot" data-i="2">3 · Profile</span>
+        <span class="step-dot" data-i="3">4 · Logo</span>
+        <span class="step-dot" data-i="4">5 · Story</span>
+        <span class="step-dot" data-i="5">6 · Services</span>
+        <span class="step-dot" data-i="6">7 · Areas</span>
+        <span class="step-dot" data-i="7">8 · Review</span>
       </div>
 
-      <form id="onboard-form" novalidate>
+      <form id="onboard-form" novalidate autocomplete="on">
+        <!-- Step 0 -->
         <div class="panel active" data-step="0">
           <div class="field">
-            <label for="businessName">Business name <span style="color:var(--accent-red)">*</span></label>
-            <input type="text" id="businessName" name="businessName" required autocomplete="organization">
+            <label for="BUSINESS_NAME">BUSINESS_NAME <span style="color:var(--accent-red)">*</span></label>
+            <input type="text" id="BUSINESS_NAME" name="BUSINESS_NAME" required autocomplete="organization">
           </div>
           <div class="field">
-            <label for="contactName">Your name <span style="color:var(--accent-red)">*</span></label>
-            <input type="text" id="contactName" name="contactName" required autocomplete="name">
+            <label for="BUSINESS_SHORT">BUSINESS_SHORT</label>
+            <input type="text" id="BUSINESS_SHORT" name="BUSINESS_SHORT" placeholder="Short name or acronym">
           </div>
           <div class="field">
-            <label for="phone">Phone <span style="color:var(--accent-red)">*</span></label>
-            <input type="tel" id="phone" name="phone" required autocomplete="tel">
+            <label for="TRADE_TYPE">TRADE_TYPE <span style="color:var(--accent-red)">*</span></label>
+            <input type="text" id="TRADE_TYPE" name="TRADE_TYPE" required placeholder="e.g. Plumbing, Cafe, Law">
           </div>
           <div class="field">
-            <label for="email">Email <span style="color:var(--accent-red)">*</span></label>
-            <input type="email" id="email" name="email" required autocomplete="email">
-          </div>
-          <div class="field">
-            <label for="currentWebsiteUrl">Current website (if any)</label>
-            <input type="url" id="currentWebsiteUrl" name="currentWebsiteUrl" placeholder="https://" autocomplete="url">
-          </div>
-          <div class="field">
-            <label for="serviceArea">Service area / suburb <span style="color:var(--accent-red)">*</span></label>
-            <input type="text" id="serviceArea" name="serviceArea" required>
-          </div>
-          <div class="field">
-            <label for="stateAU">State <span style="color:var(--accent-red)">*</span></label>
-            <select id="stateAU" name="stateAU" required>
-              <option value="">Select…</option>
-              <option>NSW</option>
-              <option>VIC</option>
-              <option>QLD</option>
-              <option>WA</option>
-              <option>SA</option>
-              <option>TAS</option>
-              <option>ACT</option>
-              <option>NT</option>
-            </select>
+            <label for="TAGLINE">TAGLINE</label>
+            <input type="text" id="TAGLINE" name="TAGLINE" placeholder="One line under your name">
           </div>
         </div>
 
+        <!-- Step 1 -->
         <div class="panel" data-step="1">
           <div class="field">
-            <label for="logo">Logo file <span style="color:var(--accent-red)">*</span></label>
-            <input type="file" id="logo" name="logo" accept="image/png,image/jpeg,image/webp,image/svg+xml,image/gif">
-            <p class="hint">PNG, JPG, WebP, SVG or GIF. Max 1.5 MB.</p>
+            <label for="PHONE_DISPLAY">PHONE_DISPLAY <span style="color:var(--accent-red)">*</span></label>
+            <input type="tel" id="PHONE_DISPLAY" name="PHONE_DISPLAY" required autocomplete="tel">
           </div>
           <div class="field">
-            <label for="brandColors">Primary brand colours</label>
-            <input type="text" id="brandColors" name="brandColors" placeholder="e.g. Navy #0a1628, gold #c9a227">
+            <label for="EMAIL">EMAIL <span style="color:var(--accent-red)">*</span></label>
+            <input type="email" id="EMAIL" name="EMAIL" required autocomplete="email">
           </div>
           <div class="field">
-            <label for="lookAndFeel">Look and feel keywords</label>
-            <textarea id="lookAndFeel" name="lookAndFeel" placeholder="e.g. Clean, premium, friendly, bold"></textarea>
+            <label for="ADDRESS">ADDRESS</label>
+            <input type="text" id="ADDRESS" name="ADDRESS" autocomplete="street-address">
           </div>
-        </div>
-
-        <div class="panel" data-step="2">
-          <div class="field">
-            <label for="servicesOffered">What do you sell / offer? <span style="color:var(--accent-red)">*</span></label>
-            <textarea id="servicesOffered" name="servicesOffered" required></textarea>
+          <div class="grid-2">
+            <div class="field">
+              <label for="SUBURB">SUBURB</label>
+              <input type="text" id="SUBURB" name="SUBURB">
+            </div>
+            <div class="field">
+              <label for="STATE">STATE <span style="color:var(--accent-red)">*</span></label>
+              <select id="STATE" name="STATE" required>
+                <option value="">Select…</option>
+                <option>NSW</option><option>VIC</option><option>QLD</option><option>WA</option>
+                <option>SA</option><option>TAS</option><option>ACT</option><option>NT</option>
+              </select>
+            </div>
           </div>
-          <div class="field">
-            <label for="idealCustomer">Who is your ideal customer? <span style="color:var(--accent-red)">*</span></label>
-            <textarea id="idealCustomer" name="idealCustomer" required></textarea>
-          </div>
-          <div class="field">
-            <label for="topThreePages">Top 3 pages you need <span style="color:var(--accent-red)">*</span></label>
-            <textarea id="topThreePages" name="topThreePages" required placeholder="e.g. Home, Services, Contact"></textarea>
-          </div>
-          <div class="field">
-            <label for="inspirationUrls">Competitors or inspiration sites (URLs)</label>
-            <textarea id="inspirationUrls" name="inspirationUrls" placeholder="One per line"></textarea>
-          </div>
-          <div class="field">
-            <label>Must-have features</label>
-            <div class="checks">
-              <label class="check-row"><input type="checkbox" name="feature_contactForm" value="1"> Contact form</label>
-              <label class="check-row"><input type="checkbox" name="feature_onlineBooking" value="1"> Online booking</label>
-              <label class="check-row"><input type="checkbox" name="feature_gallery" value="1"> Image gallery</label>
-              <label class="check-row"><input type="checkbox" name="feature_blog" value="1"> Blog / news</label>
-              <label class="check-row"><input type="checkbox" name="feature_ecommerce" value="1"> Sell products online</label>
-              <label class="check-row"><input type="checkbox" name="feature_animations" value="1"> Motion / animations</label>
+          <div class="grid-2">
+            <div class="field">
+              <label for="POSTCODE">POSTCODE</label>
+              <input type="text" id="POSTCODE" name="POSTCODE" inputmode="numeric" maxlength="10" autocomplete="postal-code">
+            </div>
+            <div class="field">
+              <label for="REGION">REGION</label>
+              <input type="text" id="REGION" name="REGION" placeholder="e.g. Greater Sydney">
             </div>
           </div>
         </div>
 
+        <!-- Step 2 -->
+        <div class="panel" data-step="2">
+          <div class="grid-2">
+            <div class="field">
+              <label for="YEARS_EXPERIENCE">YEARS_EXPERIENCE</label>
+              <input type="text" id="YEARS_EXPERIENCE" name="YEARS_EXPERIENCE" placeholder="e.g. 12">
+            </div>
+            <div class="field">
+              <label for="FOUNDED_YEAR">FOUNDED_YEAR</label>
+              <input type="number" id="FOUNDED_YEAR" name="FOUNDED_YEAR" min="1900" max="2099" placeholder="e.g. 2012">
+            </div>
+          </div>
+          <div class="field">
+            <label for="BUSINESS_HOURS">BUSINESS_HOURS</label>
+            <textarea id="BUSINESS_HOURS" name="BUSINESS_HOURS" placeholder="e.g. Mon–Fri 7am–5pm"></textarea>
+          </div>
+          <div class="field">
+            <label for="IDEAL_CLIENT">IDEAL_CLIENT <span style="color:var(--accent-red)">*</span></label>
+            <textarea id="IDEAL_CLIENT" name="IDEAL_CLIENT" required placeholder="Who you want to attract"></textarea>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
         <div class="panel" data-step="3">
-          <p style="color:var(--text-grey);font-size:0.9rem;margin-bottom:14px;">Check everything looks right, then submit. We will use this to brief your build team.</p>
+          <div class="field">
+            <label for="logo-input">LOGO <span style="color:var(--accent-red)">*</span></label>
+            <input type="file" id="logo-input" accept="image/png,image/jpeg,image/webp,image/svg+xml,image/gif">
+            <p class="hint">PNG, JPG, WebP, SVG or GIF. Max 1.5 MB. Sent as base64 in the <code style="color:var(--accent-blue)">LOGO</code> field only.</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="panel" data-step="4">
+          <div class="field">
+            <label for="ABOUT_STORY">ABOUT_STORY</label>
+            <textarea id="ABOUT_STORY" name="ABOUT_STORY" placeholder="Your story, why you started, what makes you different"></textarea>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="panel" data-step="5">
+          <div class="field"><label for="SERVICE_1">SERVICE_1</label><input type="text" id="SERVICE_1" name="SERVICE_1"></div>
+          <div class="field"><label for="SERVICE_2">SERVICE_2</label><input type="text" id="SERVICE_2" name="SERVICE_2"></div>
+          <div class="field"><label for="SERVICE_3">SERVICE_3</label><input type="text" id="SERVICE_3" name="SERVICE_3"></div>
+          <div class="field"><label for="SERVICE_4">SERVICE_4</label><input type="text" id="SERVICE_4" name="SERVICE_4"></div>
+          <div class="field"><label for="SERVICE_5">SERVICE_5</label><input type="text" id="SERVICE_5" name="SERVICE_5"></div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="panel" data-step="6">
+          <p class="hint" style="margin-bottom:12px;">Service suburbs / areas you want to rank or mention on the site.</p>
+          <div class="field"><label for="SUBURB_1">SUBURB_1</label><input type="text" id="SUBURB_1" name="SUBURB_1"></div>
+          <div class="field"><label for="SUBURB_2">SUBURB_2</label><input type="text" id="SUBURB_2" name="SUBURB_2"></div>
+          <div class="field"><label for="SUBURB_3">SUBURB_3</label><input type="text" id="SUBURB_3" name="SUBURB_3"></div>
+          <div class="field"><label for="SUBURB_4">SUBURB_4</label><input type="text" id="SUBURB_4" name="SUBURB_4"></div>
+          <div class="field"><label for="SUBURB_5">SUBURB_5</label><input type="text" id="SUBURB_5" name="SUBURB_5"></div>
+          <div class="field"><label for="SUBURB_6">SUBURB_6</label><input type="text" id="SUBURB_6" name="SUBURB_6"></div>
+          <div class="field"><label for="SUBURB_7">SUBURB_7</label><input type="text" id="SUBURB_7" name="SUBURB_7"></div>
+        </div>
+
+        <!-- Step 7 review -->
+        <div class="panel" data-step="7">
+          <p style="color:var(--text-grey);font-size:0.9rem;margin-bottom:12px;">Payload preview (LOGO shown truncated). Submit sends <strong>only</strong> these keys as JSON.</p>
           <div id="summary"></div>
         </div>
 
@@ -291,24 +318,36 @@
 
   <script>
     (function () {
-      const LOGO_MAX_BYTES = Math.floor(1.5 * 1024 * 1024);
-      const panels = Array.from(document.querySelectorAll(".panel"));
-      const dots = Array.from(document.querySelectorAll(".step-dot"));
-      const btnBack = document.getElementById("btn-back");
-      const btnNext = document.getElementById("btn-next");
-      const btnSubmit = document.getElementById("btn-submit");
-      const form = document.getElementById("onboard-form");
-      const errEl = document.getElementById("form-err");
-      const summaryEl = document.getElementById("summary");
-      let step = 0;
+      var LOGO_MAX_BYTES = Math.floor(1.5 * 1024 * 1024);
+      var LAST_STEP = 7;
+      var PAYLOAD_KEYS = [
+        "BUSINESS_NAME", "BUSINESS_SHORT", "TRADE_TYPE", "TAGLINE",
+        "PHONE_DISPLAY", "EMAIL", "ADDRESS", "SUBURB", "STATE", "POSTCODE", "REGION",
+        "YEARS_EXPERIENCE", "FOUNDED_YEAR", "BUSINESS_HOURS", "IDEAL_CLIENT",
+        "LOGO",
+        "ABOUT_STORY",
+        "SERVICE_1", "SERVICE_2", "SERVICE_3", "SERVICE_4", "SERVICE_5",
+        "SUBURB_1", "SUBURB_2", "SUBURB_3", "SUBURB_4", "SUBURB_5", "SUBURB_6", "SUBURB_7"
+      ];
+
+      var panels = Array.from(document.querySelectorAll(".panel"));
+      var dots = Array.from(document.querySelectorAll(".step-dot"));
+      var btnBack = document.getElementById("btn-back");
+      var btnNext = document.getElementById("btn-next");
+      var btnSubmit = document.getElementById("btn-submit");
+      var form = document.getElementById("onboard-form");
+      var errEl = document.getElementById("form-err");
+      var summaryEl = document.getElementById("summary");
+      var logoInput = document.getElementById("logo-input");
+      var step = 0;
 
       function showErr(msg) {
-        errEl.textContent = msg;
+        errEl.textContent = msg || "";
         errEl.classList.toggle("show", !!msg);
       }
 
       function setStepIndicators() {
-        dots.forEach((d, i) => {
+        dots.forEach(function (d, i) {
           d.classList.remove("active", "done");
           if (i < step) d.classList.add("done");
           if (i === step) d.classList.add("active");
@@ -317,54 +356,76 @@
 
       function updateNav() {
         btnBack.style.display = step > 0 ? "inline-flex" : "none";
-        btnNext.style.display = step < 3 ? "inline-flex" : "none";
-        btnSubmit.style.display = step === 3 ? "inline-flex" : "none";
-        panels.forEach((p, i) => p.classList.toggle("active", i === step));
+        btnNext.style.display = step < LAST_STEP ? "inline-flex" : "none";
+        btnSubmit.style.display = step === LAST_STEP ? "inline-flex" : "none";
+        panels.forEach(function (p, i) {
+          p.classList.toggle("active", i === step);
+        });
         setStepIndicators();
-        if (step === 3) renderSummary();
+        if (step === LAST_STEP) renderSummary();
       }
 
-      function val(id) {
-        const el = document.getElementById(id);
-        return el ? String(el.value || "").trim() : "";
+      function field(key) {
+        var el = form.elements.namedItem(key);
+        if (!el) return "";
+        return String(el.value || "").trim();
       }
 
       function validateStep(s) {
         showErr("");
         if (s === 0) {
-          if (!val("businessName")) return "Enter your business name.";
-          if (!val("contactName")) return "Enter your name.";
-          if (!val("phone")) return "Enter your phone number.";
-          if (!val("email")) return "Enter your email.";
-          const em = val("email");
-          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) return "Enter a valid email.";
-          if (!val("serviceArea")) return "Enter your service area or suburb.";
-          if (!val("stateAU")) return "Select your state.";
+          if (!field("BUSINESS_NAME")) return "BUSINESS_NAME is required.";
+          if (!field("TRADE_TYPE")) return "TRADE_TYPE is required.";
         }
         if (s === 1) {
-          const f = document.getElementById("logo").files[0];
-          if (!f) return "Please upload your logo.";
-          if (f.size > LOGO_MAX_BYTES) return "Logo file is too large (max 1.5 MB).";
+          if (!field("PHONE_DISPLAY")) return "PHONE_DISPLAY is required.";
+          if (!field("EMAIL")) return "EMAIL is required.";
+          var em = field("EMAIL");
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) return "Enter a valid EMAIL.";
+          if (!field("STATE")) return "STATE is required.";
         }
         if (s === 2) {
-          if (!val("servicesOffered")) return "Describe what you offer.";
-          if (!val("idealCustomer")) return "Describe your ideal customer.";
-          if (!val("topThreePages")) return "List the top pages you need.";
+          if (!field("IDEAL_CLIENT")) return "IDEAL_CLIENT is required.";
+        }
+        if (s === 3) {
+          var f = logoInput.files[0];
+          if (!f) return "Please upload a LOGO file.";
+          if (f.size > LOGO_MAX_BYTES) return "Logo file is too large (max 1.5 MB).";
         }
         return "";
       }
 
+      function validateAll() {
+        for (var s = 0; s <= 6; s++) {
+          var m = validateStep(s);
+          if (m) return { msg: m, step: s };
+        }
+        return null;
+      }
+
       function readFileBase64(file) {
         return new Promise(function (resolve, reject) {
-          const r = new FileReader();
+          var r = new FileReader();
           r.onload = function () {
-            const s = String(r.result || "");
-            const i = s.indexOf(",");
+            var s = String(r.result || "");
+            var i = s.indexOf(",");
             resolve(i >= 0 ? s.slice(i + 1) : s);
           };
           r.onerror = reject;
           r.readAsDataURL(file);
         });
+      }
+
+      function buildPayload(logoB64) {
+        var o = {};
+        PAYLOAD_KEYS.forEach(function (key) {
+          if (key === "LOGO") {
+            o.LOGO = logoB64 || "";
+          } else {
+            o[key] = field(key);
+          }
+        });
+        return o;
       }
 
       function esc(s) {
@@ -376,50 +437,28 @@
       }
 
       function renderSummary() {
-        const f = document.getElementById("logo").files[0];
-        summaryEl.innerHTML = [
-          ["Business", val("businessName")],
-          ["Contact", val("contactName") + " · " + val("phone") + " · " + val("email")],
-          ["Location", val("serviceArea") + ", " + val("stateAU")],
-          ["Current site", val("currentWebsiteUrl") || "—"],
-          ["Logo", f ? f.name + " (" + Math.round(f.size / 1024) + " KB)" : "—"],
-          ["Brand", (val("brandColors") || "—") + " · " + (val("lookAndFeel") || "—")],
-          ["Offer", val("servicesOffered")],
-          ["Ideal customer", val("idealCustomer")],
-          ["Pages", val("topThreePages")],
-          ["Inspiration", val("inspirationUrls") || "—"],
-          [
-            "Features",
-            ["feature_contactForm", "feature_onlineBooking", "feature_gallery", "feature_blog", "feature_ecommerce", "feature_animations"]
-              .filter(function (id) {
-                const el = document.querySelector('[name="' + id + '"]');
-                return el && el.checked;
-              })
-              .map(function (id) {
-                return id.replace("feature_", "").replace(/([A-Z])/g, " $1").trim();
-              })
-              .join(", ") || "—"
-          ]
-        ]
-          .map(function (row) {
-            return (
-              '<div class="summary-block"><strong>' +
-              esc(row[0]) +
-              "</strong>" +
-              esc(row[1]) +
-              "</div>"
-            );
-          })
-          .join("");
+        readFileBase64(logoInput.files[0]).then(function (b64) {
+          var preview = buildPayload(b64);
+          var logoShow = preview.LOGO.length > 80 ? preview.LOGO.slice(0, 80) + "… (" + preview.LOGO.length + " chars)" : preview.LOGO;
+          var rows = PAYLOAD_KEYS.filter(function (k) { return k !== "LOGO"; }).map(function (k) {
+            return [k, preview[k] || "—"];
+          });
+          rows.push(["LOGO (base64, truncated)", logoShow]);
+          summaryEl.innerHTML = rows.map(function (row) {
+            return '<div class="summary-block"><strong>' + esc(row[0]) + "</strong>" + esc(row[1]) + "</div>";
+          }).join("");
+        }).catch(function () {
+          summaryEl.innerHTML = "<p>Could not read logo for preview.</p>";
+        });
       }
 
       btnNext.addEventListener("click", function () {
-        const msg = validateStep(step);
+        var msg = validateStep(step);
         if (msg) {
           showErr(msg);
           return;
         }
-        if (step < 3) {
+        if (step < LAST_STEP) {
           step++;
           updateNav();
         }
@@ -435,47 +474,21 @@
       form.addEventListener("submit", function (e) {
         e.preventDefault();
         showErr("");
-        const msg = validateStep(0) || validateStep(1) || validateStep(2);
-        if (msg) {
-          showErr(msg);
+        var fail = validateAll();
+        if (fail) {
+          showErr(fail.msg);
+          step = fail.step;
+          updateNav();
           return;
         }
 
-        const logoInput = document.getElementById("logo");
-        const file = logoInput.files[0];
+        var file = logoInput.files[0];
         btnSubmit.disabled = true;
         btnSubmit.textContent = "Sending…";
 
         readFileBase64(file)
           .then(function (b64) {
-            const payload = {
-              formType: "Website Build Onboarding",
-              timestamp: new Date().toISOString(),
-              sourceDomain: window.location.hostname,
-              sourcePath: window.location.pathname,
-              businessName: val("businessName"),
-              contactName: val("contactName"),
-              phone: val("phone"),
-              email: val("email"),
-              currentWebsiteUrl: val("currentWebsiteUrl") || null,
-              serviceArea: val("serviceArea"),
-              stateAU: val("stateAU"),
-              brandColors: val("brandColors") || null,
-              lookAndFeel: val("lookAndFeel") || null,
-              servicesOffered: val("servicesOffered"),
-              idealCustomer: val("idealCustomer"),
-              topThreePages: val("topThreePages"),
-              inspirationUrls: val("inspirationUrls") || null,
-              feature_contactForm: !!document.querySelector('[name="feature_contactForm"]').checked,
-              feature_onlineBooking: !!document.querySelector('[name="feature_onlineBooking"]').checked,
-              feature_gallery: !!document.querySelector('[name="feature_gallery"]').checked,
-              feature_blog: !!document.querySelector('[name="feature_blog"]').checked,
-              feature_ecommerce: !!document.querySelector('[name="feature_ecommerce"]').checked,
-              feature_animations: !!document.querySelector('[name="feature_animations"]').checked,
-              logoFileName: file.name,
-              logoMimeType: file.type || "application/octet-stream",
-              logoBase64: b64
-            };
+            var payload = buildPayload(b64);
             return fetch("/api/onboarding-webhook", {
               method: "POST",
               headers: { "content-type": "application/json" },
@@ -498,3 +511,9 @@
   </script>
 </body>
 </html>
+
+</body>
+</html>
+
+</html>
+

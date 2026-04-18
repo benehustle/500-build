@@ -1,5 +1,9 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
+  // Pages secrets (not in this file): LEAD_OPTIN_WEBHOOK_URL, PAYMENT_COMPLETED_WEBHOOK_URL,
+  // ONBOARDING_WEBHOOK_URL — set in dashboard or `wrangler pages secret put <name> --project-name=landing`.
+  // Optional: LEAD_WEBHOOK_AUTH_HEADER + LEAD_WEBHOOK_AUTH_VALUE for outbound webhook auth.
+  // Until GHL inbound URLs exist, `https://httpbin.org/post` accepts JSON and returns 200 (replace per workflow).
   "name": "landing",
   "compatibility_date": "2026-04-15",
   "compatibility_flags": ["nodejs_compat"],
@@ -8,7 +12,7 @@
     "STRIPE_CURRENCY": "aud",
     "STRIPE_AMOUNT_CENTS": "10000",
     "STRIPE_DESCRIPTION": "Website build deposit",
-    "WEBHOOK_ALLOWED_ORIGIN": "https://offer.spotonwebsites.com.au",
-    "GHL_BOOKING_URL": ""
+    "WEBHOOK_ALLOWED_ORIGIN": "https://website.spotonwebsites.com.au",
+    "GHL_BOOKING_URL": "https://crm.spotonwebsites.com.au/widget/booking/CFyk7P26wb7hNKbcnYhb"
   }
 }

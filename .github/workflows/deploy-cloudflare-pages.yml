@@ -5,6 +5,13 @@
 #   CLOUDFLARE_API_TOKEN  — Create at https://dash.cloudflare.com/profile/api-tokens
 #                         Use template "Edit Cloudflare Workers" or custom with Account → Cloudflare Pages → Edit
 #   CLOUDFLARE_ACCOUNT_ID — From wrangler whoami or dashboard sidebar (copy account id)
+#
+# Cloudflare Pages project "landing" also needs these (Workers & Pages → landing → Settings → Variables and secrets).
+# They are NOT in the repo — set in the dashboard or via `wrangler pages secret put`:
+#   STRIPE_PUBLISHABLE_KEY, STRIPE_SECRET_KEY
+#   LEAD_OPTIN_WEBHOOK_URL, PAYMENT_COMPLETED_WEBHOOK_URL, ONBOARDING_WEBHOOK_URL (GHL inbound webhook URLs;
+#   optional placeholder until GHL is wired: https://httpbin.org/post)
+#   Optional: LEAD_WEBHOOK_AUTH_HEADER + LEAD_WEBHOOK_AUTH_VALUE
 
 name: Deploy Cloudflare Pages
 
